@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HYBIS 홈페이지
 
-## Getting Started
+한양대학교 비트코인 학제간연구소(HYBIS) 공식 홈페이지
 
-First, run the development server:
+## 기술 스택
+- **Next.js 16** (App Router)
+- **Tailwind CSS v4**
+- **Framer Motion** (스크롤 애니메이션)
+- **Pretendard** 폰트 (한국어)
+- **Playfair Display** 폰트 (세리프 제목)
+
+---
+
+## 로컬 개발 환경 실행
 
 ```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 시작 (http://localhost:3000)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## GitHub + Vercel 배포 방법
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1단계: GitHub 레포지토리 생성
+1. [github.com](https://github.com) 접속 후 로그인
+2. 우상단 `+` → **New repository** 클릭
+3. Repository name: `hybis-website`
+4. **Create repository** 클릭
 
-## Learn More
+### 2단계: 코드를 GitHub에 업로드
 
-To learn more about Next.js, take a look at the following resources:
+이 프로젝트 폴더에서 터미널 열기:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git init
+git add .
+git commit -m "initial commit: HYBIS website"
+git branch -M main
+git remote add origin https://github.com/[내-아이디]/hybis-website.git
+git push -u origin main
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> `[내-아이디]` 부분을 본인 GitHub 아이디로 교체하세요.
 
-## Deploy on Vercel
+### 3단계: Vercel 배포
+1. [vercel.com](https://vercel.com) 접속 후 GitHub 계정으로 로그인
+2. **Add New → Project** 클릭
+3. `hybis-website` 레포지토리 선택 후 **Import**
+4. 설정 변경 없이 **Deploy** 클릭
+5. 1~2분 후 `https://hybis-website.vercel.app` 주소로 배포 완료
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 이후 업데이트 방법
+코드 수정 후 아래 명령어만 실행하면 자동 재배포됩니다:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+git add .
+git commit -m "update: 변경 내용"
+git push
+```
+
+---
+
+## 컨텐츠 수정 가이드
+
+| 파일 | 수정할 내용 |
+|------|------------|
+| `components/About.tsx` | 연구소 소개 텍스트, 통계 수치 |
+| `components/ResearchHighlights.tsx` | 출판물/보고서 정보 |
+| `components/Programs.tsx` | 프로그램 내용 |
+| `components/Academics.tsx` | 학술 활동 내용 |
+| `components/Resources.tsx` | 자료 목록 |
+| `components/Footer.tsx` | 연락처, 주소 |
+| `app/globals.css` | 색상, 폰트 등 디자인 |
+
+### 색상 변경
+`app/globals.css`의 `@theme` 섹션:
+```css
+--color-gold: #C9A84C;   /* 골드 강조색 */
+--color-navy: #0B1220;   /* 딥 네이비 배경 */
+```
+
+---
+
+## 도메인 연결 (hybis.kr → Vercel)
+1. Vercel 대시보드 → 프로젝트 → **Settings → Domains**
+2. `hybis.kr` 입력 후 **Add**
+3. 도메인 등록 업체(가비아 등)에서 DNS 설정:
+   - A 레코드: `76.76.21.21`
+   - CNAME: `cname.vercel-dns.com`
