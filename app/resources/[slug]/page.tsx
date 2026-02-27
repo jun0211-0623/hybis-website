@@ -1,14 +1,17 @@
-import { sanityFetch, isSanityConfigured, client } from "@/sanity/lib/client";
+import { sanityFetch, client } from "@/sanity/lib/client";
 import { resourceBySlugQuery } from "@/sanity/lib/queries";
 import DetailLayout from "@/components/DetailLayout";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  if (!isSanityConfigured || !client) return [];
-  const resources = await client.fetch<{ slug: { current: string } }[]>(
-    `*[_type == "resource"]{ slug }`
-  );
-  return resources.map((r) => ({ slug: r.slug.current }));
+  try {
+    const resources = await client.fetch<{ slug: { current: string } }[]>(
+      `*[_type == "resource"]{ slug }`
+    );
+    return resources.map((r) => ({ slug: r.slug.current }));
+  } catch {
+    return [];
+  }
 }
 
 export default async function ResourceDetailPage({

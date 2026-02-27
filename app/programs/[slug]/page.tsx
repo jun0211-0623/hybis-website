@@ -1,14 +1,17 @@
-import { sanityFetch, isSanityConfigured, client } from "@/sanity/lib/client";
+import { sanityFetch, client } from "@/sanity/lib/client";
 import { programBySlugQuery } from "@/sanity/lib/queries";
 import DetailLayout from "@/components/DetailLayout";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  if (!isSanityConfigured || !client) return [];
-  const programs = await client.fetch<{ slug: { current: string } }[]>(
-    `*[_type == "program"]{ slug }`
-  );
-  return programs.map((p) => ({ slug: p.slug.current }));
+  try {
+    const programs = await client.fetch<{ slug: { current: string } }[]>(
+      `*[_type == "program"]{ slug }`
+    );
+    return programs.map((p) => ({ slug: p.slug.current }));
+  } catch {
+    return [];
+  }
 }
 
 export default async function ProgramDetailPage({
