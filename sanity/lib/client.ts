@@ -3,8 +3,10 @@ import { createClient, type QueryParams } from "next-sanity";
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "";
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 
-export const isSanityConfigured =
-  !!projectId && projectId !== "YOUR_PROJECT_ID";
+// a-z, 0-9, dashes만 허용
+const isValidProjectId = /^[a-z0-9-]+$/.test(projectId);
+
+export const isSanityConfigured = isValidProjectId;
 
 export const client = isSanityConfigured
   ? createClient({
