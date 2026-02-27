@@ -4,7 +4,6 @@ import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
 
 const programs = [
   {
-    number: "01",
     title: "비트코인 화폐철학 심화과정",
     subtitle: "Advanced Course",
     description:
@@ -15,10 +14,9 @@ const programs = [
       "소규모 세미나 형식",
       "수료증 발급",
     ],
-    cta: "과정 자세히 보기",
+    color: "#4285F4",
   },
   {
-    number: "02",
     title: "대학원 협동과정",
     subtitle: "Graduate Program",
     description:
@@ -29,61 +27,63 @@ const programs = [
       "연구소 멘토링 지원",
       "논문 발표 기회 제공",
     ],
-    cta: "입학 안내 보기",
+    color: "#34A853",
   },
 ];
 
 export default function Programs() {
   return (
-    <section id="programs" className="py-28 lg:py-36 bg-[#0B1220]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header */}
-        <FadeIn direction="left" className="mb-16">
-          <p className="text-[#C9A84C] text-xs tracking-[0.25em] uppercase mb-3">03</p>
-          <h2 className="font-[family-name:var(--font-playfair)] text-4xl lg:text-5xl font-bold text-[#E8E6E0]">
+    <section id="programs" className="py-24 lg:py-32 bg-[#0A0A0A]">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <FadeIn className="mb-12">
+          <p className="text-[#5F6368] text-[13px] tracking-[0.08em] uppercase mb-3">
+            Programs
+          </p>
+          <h2 className="text-[clamp(1.75rem,3.5vw,3rem)] font-semibold text-white leading-tight">
             프로그램
           </h2>
         </FadeIn>
 
-        {/* Program cards */}
-        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {programs.map((program) => (
-            <StaggerItem key={program.number}>
-              <div className="group relative bg-[#0F1A2E] border border-[#1E2D40] rounded-sm p-10 h-full hover:border-[#C9A84C]/30 transition-all duration-300">
-                {/* Number */}
-                <span className="font-[family-name:var(--font-playfair)] text-6xl font-bold text-[#1E2D40] absolute top-8 right-10 leading-none select-none group-hover:text-[#C9A84C]/10 transition-colors duration-300">
-                  {program.number}
-                </span>
+            <StaggerItem key={program.title}>
+              <div className="group bg-[#141414] rounded-2xl border border-[#2A2A2A] p-8 lg:p-10 h-full hover:border-[#3A3A3A] transition-all duration-300">
+                <div className="flex items-center gap-2.5 mb-5">
+                  <div
+                    className="w-2.5 h-2.5 rounded-full"
+                    style={{ background: program.color }}
+                  />
+                  <span className="text-[13px] text-[#5F6368] tracking-[0.06em] uppercase">
+                    {program.subtitle}
+                  </span>
+                </div>
 
-                {/* Subtitle */}
-                <p className="text-[#C9A84C] text-xs tracking-[0.2em] uppercase mb-4">
-                  {program.subtitle}
-                </p>
-
-                {/* Title */}
-                <h3 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-[#E8E6E0] mb-6 leading-snug">
+                <h3 className="text-[22px] font-semibold text-[#F1F3F5] mb-4 leading-snug">
                   {program.title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-[#94A3B8] text-base leading-relaxed mb-8">
+                <p className="text-[15px] text-[#9AA0A6] leading-relaxed mb-8">
                   {program.description}
                 </p>
 
-                {/* Details list */}
-                <ul className="space-y-2 mb-10">
+                <ul className="space-y-2.5 mb-8">
                   {program.details.map((detail) => (
-                    <li key={detail} className="flex items-center gap-3 text-sm text-[#94A3B8]">
-                      <span className="w-1 h-1 rounded-full bg-[#C9A84C] flex-shrink-0" />
+                    <li
+                      key={detail}
+                      className="flex items-center gap-3 text-[14px] text-[#9AA0A6]"
+                    >
+                      <span
+                        className="w-1 h-1 rounded-full flex-shrink-0"
+                        style={{ background: program.color }}
+                      />
                       {detail}
                     </li>
                   ))}
                 </ul>
 
-                {/* CTA */}
-                <button className="text-[#C9A84C] text-sm tracking-wide hover:text-[#D4B862] transition-colors duration-200 flex items-center gap-2 gold-link">
-                  {program.cta}
-                  <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+                <button className="text-[#F1F3F5] text-[14px] font-medium flex items-center gap-2 group-hover:gap-3 transition-all duration-200">
+                  자세히 보기
+                  <span>&rarr;</span>
                 </button>
               </div>
             </StaggerItem>

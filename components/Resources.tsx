@@ -11,17 +11,22 @@ const tabs: { key: TabKey; label: string }[] = [
   { key: "papers", label: "학술논문" },
 ];
 
-const resources: Record<TabKey, { title: string; date: string; description: string }[]> = {
+const resources: Record<
+  TabKey,
+  { title: string; date: string; description: string }[]
+> = {
   reports: [
     {
       title: "스테이블코인 입법 방향에 관한 연구",
       date: "2024.03",
-      description: "국내외 스테이블코인 규제 현황 분석 및 바람직한 입법 방향 제시",
+      description:
+        "국내외 스테이블코인 규제 현황 분석 및 바람직한 입법 방향 제시",
     },
     {
       title: "비트코인 채굴의 에너지 경제학",
       date: "2023.11",
-      description: "비트코인 채굴이 에너지 시장 및 탄소 정책에 미치는 영향 분석",
+      description:
+        "비트코인 채굴이 에너지 시장 및 탄소 정책에 미치는 영향 분석",
     },
     {
       title: "중앙은행 디지털화폐(CBDC)와 화폐 주권",
@@ -33,7 +38,8 @@ const resources: Record<TabKey, { title: string; date: string; description: stri
     {
       title: "HYBIS 뉴스레터 Vol.12",
       date: "2024.02",
-      description: "2024년 상반기 연구 활동 소개 및 주요 학술 이슈 정리",
+      description:
+        "2024년 상반기 연구 활동 소개 및 주요 학술 이슈 정리",
     },
     {
       title: "HYBIS 뉴스레터 Vol.11",
@@ -60,7 +66,8 @@ const resources: Record<TabKey, { title: string; date: string; description: stri
     {
       title: "사토시 나카모토의 화폐관과 오스트리아 경제학파",
       date: "2023.04",
-      description: "비트코인 백서에 담긴 화폐 철학과 오스트리아학파의 연관성",
+      description:
+        "비트코인 백서에 담긴 화폐 철학과 오스트리아학파의 연관성",
     },
   ],
 };
@@ -69,33 +76,31 @@ export default function Resources() {
   const [activeTab, setActiveTab] = useState<TabKey>("reports");
 
   return (
-    <section id="resources" className="py-28 lg:py-36 bg-[#0B1220]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header */}
-        <FadeIn direction="left" className="mb-12">
-          <p className="text-[#C9A84C] text-xs tracking-[0.25em] uppercase mb-3">05</p>
-          <h2 className="font-[family-name:var(--font-playfair)] text-4xl lg:text-5xl font-bold text-[#E8E6E0]">
+    <section id="resources" className="py-24 lg:py-32 bg-[#0A0A0A]">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <FadeIn className="mb-10">
+          <p className="text-[#5F6368] text-[13px] tracking-[0.08em] uppercase mb-3">
+            Resources
+          </p>
+          <h2 className="text-[clamp(1.75rem,3.5vw,3rem)] font-semibold text-white leading-tight">
             연구 자료
           </h2>
         </FadeIn>
 
-        {/* Tabs */}
-        <FadeIn delay={0.1} className="mb-10">
-          <div className="flex gap-0 border-b border-[#1E2D40]">
+        {/* Tabs — pill style */}
+        <FadeIn delay={0.1} className="mb-8">
+          <div className="flex gap-1 bg-[#1A1A1A] p-1 rounded-full w-fit">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`px-6 py-3 text-sm tracking-wide transition-all duration-200 relative ${
+                className={`px-5 py-2 text-[14px] rounded-full transition-all duration-200 ${
                   activeTab === tab.key
-                    ? "text-[#C9A84C]"
-                    : "text-[#94A3B8] hover:text-[#E8E6E0]"
+                    ? "bg-[#2A2A2A] text-white font-medium"
+                    : "text-[#9AA0A6] hover:text-white"
                 }`}
               >
                 {tab.label}
-                {activeTab === tab.key && (
-                  <span className="absolute bottom-0 left-0 right-0 h-px bg-[#C9A84C]" />
-                )}
               </button>
             ))}
           </div>
@@ -106,28 +111,27 @@ export default function Resources() {
           {resources[activeTab].map((item, i) => (
             <StaggerItem key={item.title}>
               <div
-                className={`group flex flex-col sm:flex-row sm:items-start gap-4 py-6 cursor-pointer
-                  hover:bg-[#0F1A2E]/50 px-4 -mx-4 transition-colors duration-200
-                  ${i < resources[activeTab].length - 1 ? "border-b border-[#1E2D40]" : ""}`}
+                className={`group flex flex-col sm:flex-row sm:items-start gap-4 py-5 cursor-pointer hover:bg-[#111111] px-5 -mx-5 rounded-xl transition-colors duration-200 ${
+                  i < resources[activeTab].length - 1
+                    ? "border-b border-[#1A1A1A]"
+                    : ""
+                }`}
               >
-                {/* Date */}
-                <span className="text-[#94A3B8] text-sm font-mono flex-shrink-0 sm:w-20 mt-0.5">
+                <span className="text-[#5F6368] text-[13px] font-mono flex-shrink-0 sm:w-20 mt-0.5">
                   {item.date}
                 </span>
 
-                {/* Content */}
                 <div className="flex-1">
-                  <h4 className="text-[#E8E6E0] text-base font-medium mb-1 group-hover:text-[#C9A84C] transition-colors duration-200">
+                  <h4 className="text-[#F1F3F5] text-[16px] font-medium mb-1 group-hover:text-[#4285F4] transition-colors duration-200">
                     {item.title}
                   </h4>
-                  <p className="text-[#94A3B8] text-sm leading-relaxed">
+                  <p className="text-[#9AA0A6] text-[14px] leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
-                {/* Arrow */}
-                <span className="text-[#94A3B8] group-hover:text-[#C9A84C] transition-all duration-200 flex-shrink-0 group-hover:translate-x-1 text-sm mt-0.5">
-                  →
+                <span className="text-[#5F6368] group-hover:text-[#4285F4] transition-all duration-200 flex-shrink-0 group-hover:translate-x-1 text-[14px] mt-0.5">
+                  &rarr;
                 </span>
               </div>
             </StaggerItem>
