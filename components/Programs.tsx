@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
 
-const programs = [
+const fallbackPrograms = [
   {
+    _id: "1",
     title: "비트코인 화폐철학 심화과정",
     subtitle: "Advanced Course",
     description:
@@ -15,8 +17,10 @@ const programs = [
       "수료증 발급",
     ],
     color: "#4285F4",
+    slug: { current: "advanced-course" },
   },
   {
+    _id: "2",
     title: "대학원 협동과정",
     subtitle: "Graduate Program",
     description:
@@ -28,10 +32,23 @@ const programs = [
       "논문 발표 기회 제공",
     ],
     color: "#34A853",
+    slug: { current: "graduate-program" },
   },
 ];
 
-export default function Programs() {
+interface Program {
+  _id: string;
+  title: string;
+  subtitle?: string;
+  description: string;
+  details?: string[];
+  color: string;
+  slug: { current: string };
+}
+
+export default function Programs({ programs }: { programs?: Program[] }) {
+  const data = programs && programs.length > 0 ? programs : fallbackPrograms;
+
   return (
     <section id="programs" className="py-24 lg:py-32 bg-[#0A0A0A]">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
@@ -45,47 +62,53 @@ export default function Programs() {
         </FadeIn>
 
         <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-          {programs.map((program) => (
-            <StaggerItem key={program.title}>
-              <div className="group bg-[#141414] rounded-2xl border border-[#2A2A2A] p-8 lg:p-10 h-full hover:border-[#3A3A3A] transition-all duration-300">
-                <div className="flex items-center gap-2.5 mb-5">
-                  <div
-                    className="w-2.5 h-2.5 rounded-full"
-                    style={{ background: program.color }}
-                  />
-                  <span className="text-[13px] text-[#5F6368] tracking-[0.06em] uppercase">
-                    {program.subtitle}
+          {data.map((program) => (
+            <StaggerItem key={program._id}>
+              <Link href={`/programs/${program.slug.current}`}>
+                <div className="group bg-[#141414] rounded-2xl border border-[#2A2A2A] p-8 lg:p-10 h-full hover:border-[#3A3A3A] transition-all duration-300">
+                  <div className="flex items-center gap-2.5 mb-5">
+                    <div
+                      className="w-2.5 h-2.5 rounded-full"
+                      style={{ background: program.color }}
+                    />
+                    {program.subtitle && (
+                      <span className="text-[13px] text-[#5F6368] tracking-[0.06em] uppercase">
+                        {program.subtitle}
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="text-[22px] font-semibold text-[#F1F3F5] mb-4 leading-snug">
+                    {program.title}
+                  </h3>
+
+                  <p className="text-[15px] text-[#9AA0A6] leading-relaxed mb-8">
+                    {program.description}
+                  </p>
+
+                  {program.details && (
+                    <ul className="space-y-2.5 mb-8">
+                      {program.details.map((detail) => (
+                        <li
+                          key={detail}
+                          className="flex items-center gap-3 text-[14px] text-[#9AA0A6]"
+                        >
+                          <span
+                            className="w-1 h-1 rounded-full flex-shrink-0"
+                            style={{ background: program.color }}
+                          />
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <span className="text-[#F1F3F5] text-[14px] font-medium flex items-center gap-2 group-hover:gap-3 transition-all duration-200">
+                    자세히 보기
+                    <span>&rarr;</span>
                   </span>
                 </div>
-
-                <h3 className="text-[22px] font-semibold text-[#F1F3F5] mb-4 leading-snug">
-                  {program.title}
-                </h3>
-
-                <p className="text-[15px] text-[#9AA0A6] leading-relaxed mb-8">
-                  {program.description}
-                </p>
-
-                <ul className="space-y-2.5 mb-8">
-                  {program.details.map((detail) => (
-                    <li
-                      key={detail}
-                      className="flex items-center gap-3 text-[14px] text-[#9AA0A6]"
-                    >
-                      <span
-                        className="w-1 h-1 rounded-full flex-shrink-0"
-                        style={{ background: program.color }}
-                      />
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
-
-                <button className="text-[#F1F3F5] text-[14px] font-medium flex items-center gap-2 group-hover:gap-3 transition-all duration-200">
-                  자세히 보기
-                  <span>&rarr;</span>
-                </button>
-              </div>
+              </Link>
             </StaggerItem>
           ))}
         </StaggerContainer>
