@@ -1,9 +1,10 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
-import { StaggerContainer, StaggerItem, FadeIn } from "./FadeIn";
+import { motion, useInView } from "framer-motion";
+import { FadeIn } from "./FadeIn";
 
-// Sanity에 데이터가 없을 때 사용할 기본 데이터
 const fallbackPublications = [
   {
     _id: "1",
@@ -15,6 +16,9 @@ const fallbackPublications = [
     year: "2023",
     color: "#4285F4",
     slug: { current: "in-search-of-satoshi" },
+    quote: "화폐란 무엇인가? 사토시가 던진 질문에 학문이 답하다.",
+    reviewer: "이준석 교수",
+    role: "한양대학교 경제학과",
   },
   {
     _id: "2",
@@ -26,6 +30,9 @@ const fallbackPublications = [
     year: "2022",
     color: "#34A853",
     slug: { current: "language-of-currency" },
+    quote: "화폐는 인류가 만든 가장 보편적인 언어다.",
+    reviewer: "김하영 연구원",
+    role: "HYBIS 선임연구원",
   },
   {
     _id: "3",
@@ -37,6 +44,9 @@ const fallbackPublications = [
     year: "2024",
     color: "#FBBC05",
     slug: { current: "stablecoin-legislation" },
+    quote: "규제와 혁신 사이, 학문이 균형점을 찾아야 합니다.",
+    reviewer: "박민수 교수",
+    role: "한양대학교 법학전문대학원",
   },
 ];
 
@@ -49,6 +59,9 @@ interface Publication {
   year: string;
   color: string;
   slug: { current: string };
+  quote?: string;
+  reviewer?: string;
+  role?: string;
 }
 
 export default function ResearchHighlights({
@@ -56,68 +69,92 @@ export default function ResearchHighlights({
 }: {
   publications?: Publication[];
 }) {
-  const data = publications && publications.length > 0 ? publications : fallbackPublications;
+  const data =
+    publications && publications.length > 0 ? publications : fallbackPublications;
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="research" className="py-24 lg:py-32 bg-[#111111]">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
-          <FadeIn>
-            <p className="text-[#5F6368] text-[13px] tracking-[0.08em] uppercase mb-3">
-              Research
-            </p>
-            <h2 className="text-[clamp(1.75rem,3.5vw,3rem)] font-semibold text-white leading-tight">
-              연구 성과
-            </h2>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <button
-              onClick={() =>
-                document
-                  .querySelector("#resources")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="text-[#9AA0A6] hover:text-white text-[14px] transition-colors duration-200 flex items-center gap-1.5"
-            >
-              전체 자료 보기
-              <span className="text-[16px]">&rarr;</span>
-            </button>
-          </FadeIn>
-        </div>
+    <section id="research" ref={sectionRef} className="py-20 lg:py-28 bg-white">
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+        <FadeIn>
+          <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-[#1A1A1A] leading-[1.15] tracking-[-0.02em] text-center mb-4">
+            우리의 연구가 말해줍니다.
+          </h2>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <p className="text-[#999] text-[15px] text-center mb-14 max-w-[400px] mx-auto">
+            HYBIS의 주요 출판물과 연구 성과를 확인하세요.
+          </p>
+        </FadeIn>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {data.map((pub) => (
-            <StaggerItem key={pub._id}>
+        {/* Publication Cards - Testimonial Style */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {data.map((pub, index) => (
+            <motion.div
+              key={pub._id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{
+                delay: 0.2 + index * 0.15,
+                duration: 0.7,
+                ease: [0.21, 0.47, 0.32, 0.98],
+              }}
+            >
               <Link href={`/research/${pub.slug.current}`}>
-                <article className="group bg-[#1A1A1A] rounded-2xl border border-[#2A2A2A] p-7 h-full hover:border-[#3A3A3A] hover:bg-[#1E1E1E] transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
+                <div className="group bg-white rounded-2xl border border-[#EBEBEB] overflow-hidden h-full hover:border-[#DDD] hover:shadow-xl hover:shadow-black/[0.06] hover:-translate-y-1 transition-all duration-300">
+                  {/* Image/Visual Area */}
                   <div
-                    className="w-8 h-1 rounded-full mb-6"
-                    style={{ background: pub.color }}
-                  />
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="text-[12px] font-medium text-[#9AA0A6] bg-[#2A2A2A] px-2.5 py-1 rounded-full">
-                      {pub.category}
-                    </span>
-                    <span className="text-[12px] text-[#5F6368]">
-                      {pub.year}
-                    </span>
+                    className="h-[200px] relative overflow-hidden flex items-center justify-center"
+                    style={{ background: `${pub.color}10` }}
+                  >
+                    {/* Book Cover Mockup */}
+                    <div
+                      className="w-[100px] h-[140px] rounded-md shadow-lg flex flex-col justify-end p-3 group-hover:scale-105 transition-transform duration-500"
+                      style={{ background: pub.color }}
+                    >
+                      <div className="w-8 h-0.5 bg-white/60 mb-1.5" />
+                      <p className="text-[10px] font-bold text-white leading-tight">
+                        {pub.title}
+                      </p>
+                      <p className="text-[7px] text-white/60 mt-0.5">HYBIS</p>
+                    </div>
+                    {/* Year Badge */}
+                    <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1">
+                      <span className="text-[11px] font-medium text-[#1A1A1A]">
+                        {pub.year}
+                      </span>
+                    </div>
                   </div>
-                  <h3 className="text-[18px] font-semibold text-[#F1F3F5] mb-1 group-hover:text-[#4285F4] transition-colors duration-200">
-                    {pub.title}
-                  </h3>
-                  {pub.titleEn && (
-                    <p className="text-[13px] text-[#5F6368] italic mb-4">
-                      {pub.titleEn}
-                    </p>
-                  )}
-                  <p className="text-[14px] text-[#9AA0A6] leading-relaxed">
-                    {pub.description}
-                  </p>
-                </article>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-[11px] font-medium text-[#666] bg-[#F5F5F5] px-2.5 py-1 rounded-full">
+                        {pub.category}
+                      </span>
+                    </div>
+
+                    {pub.quote && (
+                      <p className="text-[15px] text-[#1A1A1A] font-medium leading-relaxed mb-4">
+                        &ldquo;{pub.quote}&rdquo;
+                      </p>
+                    )}
+
+                    {pub.reviewer && (
+                      <div>
+                        <p className="text-[13px] font-medium text-[#1A1A1A]">
+                          {pub.reviewer}
+                        </p>
+                        <p className="text-[12px] text-[#999]">{pub.role}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </Link>
-            </StaggerItem>
+            </motion.div>
           ))}
-        </StaggerContainer>
+        </div>
       </div>
     </section>
   );

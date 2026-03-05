@@ -96,14 +96,9 @@ interface Resource {
   slug: { current: string };
 }
 
-export default function Resources({
-  resources,
-}: {
-  resources?: Resource[];
-}) {
+export default function Resources({ resources }: { resources?: Resource[] }) {
   const [activeTab, setActiveTab] = useState<TabKey>("reports");
 
-  // Sanity 데이터가 있으면 카테고리별로 분류, 없으면 fallback
   const grouped =
     resources && resources.length > 0
       ? {
@@ -116,27 +111,35 @@ export default function Resources({
   const currentItems = grouped[activeTab] || [];
 
   return (
-    <section id="resources" className="py-24 lg:py-32 bg-[#0A0A0A]">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-        <FadeIn className="mb-10">
-          <p className="text-[#5F6368] text-[13px] tracking-[0.08em] uppercase mb-3">
+    <section id="resources" className="py-20 lg:py-28 bg-[#FAFAFA]">
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+        <FadeIn className="mb-3">
+          <p className="text-[#999] text-[14px] tracking-[0.02em]">
             Resources
           </p>
-          <h2 className="text-[clamp(1.75rem,3.5vw,3rem)] font-semibold text-white leading-tight">
+        </FadeIn>
+        <FadeIn delay={0.05} className="mb-4">
+          <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-[#1A1A1A] leading-[1.15] tracking-[-0.02em]">
             연구 자료
           </h2>
         </FadeIn>
+        <FadeIn delay={0.1} className="mb-10">
+          <p className="text-[#666] text-[15px] max-w-[440px]">
+            HYBIS의 정책보고서, 뉴스레터, 학술논문을 확인하세요.
+          </p>
+        </FadeIn>
 
-        <FadeIn delay={0.1} className="mb-8">
-          <div className="flex gap-1 bg-[#1A1A1A] p-1 rounded-full w-fit">
+        {/* Tabs */}
+        <FadeIn delay={0.15} className="mb-8">
+          <div className="flex gap-1 bg-white p-1 rounded-full w-fit border border-[#EBEBEB]">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`px-5 py-2 text-[14px] rounded-full transition-all duration-200 ${
+                className={`px-5 py-2.5 text-[14px] rounded-full transition-all duration-200 font-medium ${
                   activeTab === tab.key
-                    ? "bg-[#2A2A2A] text-white font-medium"
-                    : "text-[#9AA0A6] hover:text-white"
+                    ? "bg-[#1A1A1A] text-white"
+                    : "text-[#999] hover:text-[#1A1A1A] hover:bg-[#F5F5F5]"
                 }`}
               >
                 {tab.label}
@@ -145,29 +148,30 @@ export default function Resources({
           </div>
         </FadeIn>
 
+        {/* Resource List */}
         <StaggerContainer key={activeTab} className="space-y-0">
           {currentItems.map((item, i) => (
             <StaggerItem key={item._id}>
               <Link href={`/resources/${item.slug.current}`}>
                 <div
-                  className={`group flex flex-col sm:flex-row sm:items-start gap-4 py-5 cursor-pointer hover:bg-[#111111] px-5 -mx-5 rounded-xl transition-colors duration-200 ${
+                  className={`group flex flex-col sm:flex-row sm:items-start gap-4 py-5 cursor-pointer hover:bg-white px-5 -mx-5 rounded-xl transition-all duration-200 ${
                     i < currentItems.length - 1
-                      ? "border-b border-[#1A1A1A]"
+                      ? "border-b border-[#E8E8E8]"
                       : ""
                   }`}
                 >
-                  <span className="text-[#5F6368] text-[13px] font-mono flex-shrink-0 sm:w-20 mt-0.5">
+                  <span className="text-[#BBB] text-[13px] font-mono flex-shrink-0 sm:w-20 mt-0.5">
                     {item.date}
                   </span>
                   <div className="flex-1">
-                    <h4 className="text-[#F1F3F5] text-[16px] font-medium mb-1 group-hover:text-[#4285F4] transition-colors duration-200">
+                    <h4 className="text-[#1A1A1A] text-[16px] font-medium mb-1 group-hover:text-[#4285F4] transition-colors duration-200">
                       {item.title}
                     </h4>
-                    <p className="text-[#9AA0A6] text-[14px] leading-relaxed">
+                    <p className="text-[#999] text-[14px] leading-relaxed">
                       {item.description}
                     </p>
                   </div>
-                  <span className="text-[#5F6368] group-hover:text-[#4285F4] transition-all duration-200 flex-shrink-0 group-hover:translate-x-1 text-[14px] mt-0.5">
+                  <span className="text-[#CCC] group-hover:text-[#1A1A1A] transition-all duration-200 flex-shrink-0 group-hover:translate-x-1 text-[14px] mt-0.5">
                     &rarr;
                   </span>
                 </div>

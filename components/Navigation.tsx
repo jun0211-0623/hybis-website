@@ -9,7 +9,6 @@ const navLinks = [
   { label: "프로그램", href: "#programs" },
   { label: "학술", href: "#academics" },
   { label: "자료", href: "#resources" },
-  { label: "문의", href: "#contact" },
 ];
 
 export default function Navigation() {
@@ -32,33 +31,35 @@ export default function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0A0A0A]/90 backdrop-blur-xl border-b border-[#1A1A1A]"
-          : "bg-transparent"
+          ? "bg-white/90 backdrop-blur-xl border-b border-[#EBEBEB]"
+          : "bg-white"
       }`}
     >
-      <nav className="max-w-[1440px] mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
+      <nav className="max-w-[1280px] mx-auto px-6 lg:px-10 h-[64px] flex items-center justify-between">
+        {/* Logo */}
         <a
           href="#"
-          className="flex items-center gap-3 group"
+          className="flex items-center gap-2.5 group"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <span className="text-white font-bold text-[17px] tracking-[0.04em] font-[family-name:var(--font-playfair)]">
+          <span className="text-[#1A1A1A] font-bold text-[18px] tracking-[0.02em]">
             HYBIS
           </span>
-          <span className="hidden sm:block text-[#5F6368] text-[13px]">
-            한양대학교 비트코인 학제간연구소
-          </span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-[#1A1A1A]">
+            <path d="M2 14L14 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
         </a>
 
-        <ul className="hidden md:flex items-center gap-7">
+        {/* Center Nav */}
+        <ul className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <li key={link.href}>
               <button
                 onClick={() => handleNavClick(link.href)}
-                className="text-[#9AA0A6] hover:text-white text-[14px] transition-colors duration-200"
+                className="text-[#666] hover:text-[#1A1A1A] text-[14px] font-medium px-3 py-2 rounded-lg hover:bg-[#F5F5F5] transition-all duration-200"
               >
                 {link.label}
               </button>
@@ -66,6 +67,23 @@ export default function Navigation() {
           ))}
         </ul>
 
+        {/* Right Actions */}
+        <div className="hidden md:flex items-center gap-3">
+          <button
+            onClick={() => handleNavClick("#contact")}
+            className="text-[#666] hover:text-[#1A1A1A] text-[14px] font-medium px-3 py-2 transition-colors duration-200"
+          >
+            Sign in
+          </button>
+          <button
+            onClick={() => handleNavClick("#contact")}
+            className="bg-[#CDEA68] hover:bg-[#B8D84E] text-[#1A1A1A] text-[14px] font-semibold px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-[#CDEA68]/20"
+          >
+            문의하기
+          </button>
+        </div>
+
+        {/* Mobile Hamburger */}
         <button
           className="md:hidden flex flex-col gap-[5px] p-2"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -73,19 +91,20 @@ export default function Navigation() {
         >
           <motion.span
             animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-            className="block w-5 h-[1.5px] bg-white origin-center"
+            className="block w-5 h-[1.5px] bg-[#1A1A1A] origin-center"
           />
           <motion.span
             animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block w-5 h-[1.5px] bg-white"
+            className="block w-5 h-[1.5px] bg-[#1A1A1A]"
           />
           <motion.span
             animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-            className="block w-5 h-[1.5px] bg-white origin-center"
+            className="block w-5 h-[1.5px] bg-[#1A1A1A] origin-center"
           />
         </button>
       </nav>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -93,19 +112,27 @@ export default function Navigation() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-[#0A0A0A]/95 backdrop-blur-xl border-b border-[#1A1A1A] overflow-hidden"
+            className="md:hidden bg-white/95 backdrop-blur-xl border-b border-[#EBEBEB] overflow-hidden"
           >
             <ul className="px-6 py-3 flex flex-col">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className="text-[#F1F3F5] text-[15px] w-full text-left py-3 hover:text-[#4285F4] transition-colors"
+                    className="text-[#1A1A1A] text-[15px] w-full text-left py-3 hover:text-[#666] transition-colors"
                   >
                     {link.label}
                   </button>
                 </li>
               ))}
+              <li>
+                <button
+                  onClick={() => handleNavClick("#contact")}
+                  className="mt-2 w-full bg-[#CDEA68] text-[#1A1A1A] text-[14px] font-semibold px-5 py-3 rounded-full"
+                >
+                  문의하기
+                </button>
+              </li>
             </ul>
           </motion.div>
         )}
