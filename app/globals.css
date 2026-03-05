@@ -2,14 +2,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-surface: #FFFFFF;
-  --color-surface-alt: #F7F7F8;
-  --color-surface-container: #F0F0F0;
-  --color-on-surface: #1A1A1A;
-  --color-on-surface-secondary: #666666;
-  --color-on-surface-tertiary: #999999;
-  --color-outline: #EBEBEB;
-  --color-outline-variant: #E0E0E0;
+  --color-surface: #0A0A0A;
+  --color-surface-alt: #111111;
+  --color-surface-raised: #141414;
+  --color-surface-container: #1A1A1A;
+  --color-on-surface: #F1F3F5;
+  --color-on-surface-secondary: #9AA0A6;
+  --color-on-surface-tertiary: #5F6368;
+  --color-outline: #2A2A2A;
+  --color-outline-variant: #333333;
   --color-accent: #CDEA68;
   --color-accent-hover: #B8D84E;
 
@@ -22,8 +23,8 @@ html {
 }
 
 body {
-  background-color: #FFFFFF;
-  color: #1A1A1A;
+  background-color: #0A0A0A;
+  color: #F1F3F5;
   font-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -36,19 +37,18 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #CCC;
+  background: #333;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #AAA;
+  background: #555;
 }
 
 ::selection {
-  background: rgba(205, 234, 104, 0.35);
-  color: #1A1A1A;
+  background: rgba(205, 234, 104, 0.3);
+  color: #F1F3F5;
 }
 
-/* Logo strip infinite scroll */
 @keyframes logo-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -62,14 +62,13 @@ body {
   animation-play-state: paused;
 }
 
-/* Subtle shimmer for loading states */
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
 
 .shimmer {
-  background: linear-gradient(90deg, #F0F0F0 25%, #E8E8E8 50%, #F0F0F0 75%);
+  background: linear-gradient(90deg, #1A1A1A 25%, #222 50%, #1A1A1A 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
 }

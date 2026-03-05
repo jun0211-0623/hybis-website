@@ -64,7 +64,7 @@ export default function Footer() {
   return (
     <footer id="contact">
       {/* Bottom CTA */}
-      <div className="bg-white py-20 lg:py-24">
+      <div className="bg-[#0A0A0A] py-20 lg:py-24">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10 text-center">
           <FadeIn>
             <div className="flex items-center justify-center gap-2 mb-6">
@@ -73,13 +73,13 @@ export default function Footer() {
                   <polygon points="6,1 7.5,4.5 11,5 8.5,7.5 9,11 6,9.5 3,11 3.5,7.5 1,5 4.5,4.5" />
                 </svg>
               </div>
-              <span className="text-[14px] text-[#1A1A1A] font-medium">5 star rating</span>
-              <span className="text-[14px] text-[#999] ml-1">연구자 만족도 평가</span>
+              <span className="text-[14px] text-white font-medium">5 star rating</span>
+              <span className="text-[14px] text-[#5F6368] ml-1">연구자 만족도 평가</span>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-[#1A1A1A] leading-[1.15] tracking-[-0.02em] mb-8">
+            <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-white leading-[1.15] tracking-[-0.02em] mb-8">
               화폐의 본질을 학문으로 증명하다.
             </h2>
           </FadeIn>
@@ -89,9 +89,9 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="이메일을 입력하세요"
-                className="flex-1 min-w-0 px-5 py-3.5 text-[15px] border border-[#DDD] border-r-0 rounded-l-full outline-none focus:border-[#CDEA68] focus:ring-2 focus:ring-[#CDEA68]/20 transition-all duration-200 bg-white text-[#1A1A1A] placeholder:text-[#BBB]"
+                className="flex-1 min-w-0 px-5 py-3.5 text-[15px] border border-[#333] border-r-0 rounded-l-full outline-none focus:border-[#CDEA68] focus:ring-2 focus:ring-[#CDEA68]/20 transition-all duration-200 bg-[#141414] text-white placeholder:text-[#555]"
               />
-              <button className="flex-shrink-0 bg-[#CDEA68] hover:bg-[#B8D84E] text-[#1A1A1A] text-[14px] font-semibold px-6 py-3.5 rounded-r-full transition-all duration-200 whitespace-nowrap hover:shadow-lg hover:shadow-[#CDEA68]/25">
+              <button className="flex-shrink-0 bg-[#CDEA68] hover:bg-[#B8D84E] text-[#0A0A0A] text-[14px] font-semibold px-6 py-3.5 rounded-r-full transition-all duration-200 whitespace-nowrap hover:shadow-lg hover:shadow-[#CDEA68]/15">
                 프로그램 신청
               </button>
             </div>
@@ -103,20 +103,18 @@ export default function Footer() {
       <div className="bg-[#1A1A1A] h-[1px]" />
 
       {/* Footer Links */}
-      <div className="bg-white">
+      <div className="bg-[#0A0A0A]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-16">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
             {footerLinks.map((group) => (
               <div key={group.title}>
-                <h4 className="text-[14px] font-semibold text-[#1A1A1A] mb-4">
-                  {group.title}
-                </h4>
+                <h4 className="text-[14px] font-semibold text-white mb-4">{group.title}</h4>
                 <ul className="space-y-2.5">
                   {group.links.map((link) => (
                     <li key={link.label}>
                       <button
                         onClick={() => handleNavClick(link.href)}
-                        className="text-[13px] text-[#999] hover:text-[#1A1A1A] transition-colors duration-200"
+                        className="text-[13px] text-[#5F6368] hover:text-white transition-colors duration-200"
                       >
                         {link.label}
                       </button>
@@ -128,33 +126,24 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-[#F0F0F0]">
+        <div className="border-t border-[#1A1A1A]">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2">
-              <span className="text-[#1A1A1A] font-bold text-[15px]">HYBIS</span>
-              <span className="text-[#CCC] text-[12px]">
+              <span className="text-white font-bold text-[15px]">HYBIS</span>
+              <span className="text-[#333] text-[12px]">
                 &copy; {currentYear} Hanyang Bitcoin Interdisciplinary Studies
               </span>
             </div>
             <div className="flex items-center gap-4">
-              <a
-                href="mailto:iamyam@hanyang.ac.kr"
-                className="text-[#999] hover:text-[#1A1A1A] text-[12px] transition-colors duration-200"
-              >
+              <a href="mailto:iamyam@hanyang.ac.kr" className="text-[#5F6368] hover:text-white text-[12px] transition-colors duration-200">
                 iamyam@hanyang.ac.kr
               </a>
-              <span className="text-[#E8E8E8]">|</span>
-              <a
-                href="tel:02-2220-0751"
-                className="text-[#999] hover:text-[#1A1A1A] text-[12px] transition-colors duration-200"
-              >
+              <span className="text-[#2A2A2A]">|</span>
+              <a href="tel:02-2220-0751" className="text-[#5F6368] hover:text-white text-[12px] transition-colors duration-200">
                 02-2220-0751
               </a>
-              <span className="text-[#E8E8E8]">|</span>
-              <span className="text-[#999] text-[12px]">
-                서울 성동구 왕십리로 222
-              </span>
+              <span className="text-[#2A2A2A]">|</span>
+              <span className="text-[#5F6368] text-[12px]">서울 성동구 왕십리로 222</span>
             </div>
           </div>
         </div>

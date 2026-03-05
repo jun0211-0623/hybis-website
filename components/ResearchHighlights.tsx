@@ -75,20 +75,19 @@ export default function ResearchHighlights({
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="research" ref={sectionRef} className="py-20 lg:py-28 bg-white">
+    <section id="research" ref={sectionRef} className="py-20 lg:py-28 bg-[#0A0A0A]">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
         <FadeIn>
-          <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-[#1A1A1A] leading-[1.15] tracking-[-0.02em] text-center mb-4">
+          <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-white leading-[1.15] tracking-[-0.02em] text-center mb-4">
             우리의 연구가 말해줍니다.
           </h2>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <p className="text-[#999] text-[15px] text-center mb-14 max-w-[400px] mx-auto">
+          <p className="text-[#5F6368] text-[15px] text-center mb-14 max-w-[400px] mx-auto">
             HYBIS의 주요 출판물과 연구 성과를 확인하세요.
           </p>
         </FadeIn>
 
-        {/* Publication Cards - Testimonial Style */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {data.map((pub, index) => (
             <motion.div
@@ -102,51 +101,41 @@ export default function ResearchHighlights({
               }}
             >
               <Link href={`/research/${pub.slug.current}`}>
-                <div className="group bg-white rounded-2xl border border-[#EBEBEB] overflow-hidden h-full hover:border-[#DDD] hover:shadow-xl hover:shadow-black/[0.06] hover:-translate-y-1 transition-all duration-300">
-                  {/* Image/Visual Area */}
+                <div className="group bg-[#111111] rounded-2xl border border-[#1E1E1E] overflow-hidden h-full hover:border-[#333] hover:shadow-xl hover:shadow-black/20 hover:-translate-y-1 transition-all duration-300">
                   <div
                     className="h-[200px] relative overflow-hidden flex items-center justify-center"
-                    style={{ background: `${pub.color}10` }}
+                    style={{ background: `${pub.color}08` }}
                   >
-                    {/* Book Cover Mockup */}
                     <div
                       className="w-[100px] h-[140px] rounded-md shadow-lg flex flex-col justify-end p-3 group-hover:scale-105 transition-transform duration-500"
                       style={{ background: pub.color }}
                     >
                       <div className="w-8 h-0.5 bg-white/60 mb-1.5" />
-                      <p className="text-[10px] font-bold text-white leading-tight">
-                        {pub.title}
-                      </p>
+                      <p className="text-[10px] font-bold text-white leading-tight">{pub.title}</p>
                       <p className="text-[7px] text-white/60 mt-0.5">HYBIS</p>
                     </div>
-                    {/* Year Badge */}
-                    <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1">
-                      <span className="text-[11px] font-medium text-[#1A1A1A]">
-                        {pub.year}
-                      </span>
+                    <div className="absolute top-3 right-3 bg-[#0A0A0A]/70 backdrop-blur-sm rounded-full px-2.5 py-1">
+                      <span className="text-[11px] font-medium text-white">{pub.year}</span>
                     </div>
                   </div>
 
-                  {/* Content */}
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-[11px] font-medium text-[#666] bg-[#F5F5F5] px-2.5 py-1 rounded-full">
+                      <span className="text-[11px] font-medium text-[#9AA0A6] bg-[#1A1A1A] px-2.5 py-1 rounded-full">
                         {pub.category}
                       </span>
                     </div>
 
                     {pub.quote && (
-                      <p className="text-[15px] text-[#1A1A1A] font-medium leading-relaxed mb-4">
+                      <p className="text-[15px] text-white font-medium leading-relaxed mb-4">
                         &ldquo;{pub.quote}&rdquo;
                       </p>
                     )}
 
                     {pub.reviewer && (
                       <div>
-                        <p className="text-[13px] font-medium text-[#1A1A1A]">
-                          {pub.reviewer}
-                        </p>
-                        <p className="text-[12px] text-[#999]">{pub.role}</p>
+                        <p className="text-[13px] font-medium text-[#F1F3F5]">{pub.reviewer}</p>
+                        <p className="text-[12px] text-[#5F6368]">{pub.role}</p>
                       </div>
                     )}
                   </div>
