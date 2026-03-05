@@ -67,34 +67,18 @@ export default function Footer() {
       <div className="bg-[#0A0A0A] py-20 lg:py-24">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10 text-center">
           <FadeIn>
-            <div className="flex items-center justify-center gap-2 mb-6">
-              <div className="w-6 h-6 rounded-full bg-[#34A853] flex items-center justify-center">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="white">
-                  <polygon points="6,1 7.5,4.5 11,5 8.5,7.5 9,11 6,9.5 3,11 3.5,7.5 1,5 4.5,4.5" />
-                </svg>
-              </div>
-              <span className="text-[14px] text-white font-medium">5 star rating</span>
-              <span className="text-[14px] text-[#5F6368] ml-1">연구자 만족도 평가</span>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.1}>
             <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-white leading-[1.15] tracking-[-0.02em] mb-8">
               화폐의 본질을 학문으로 증명하다.
             </h2>
           </FadeIn>
 
-          <FadeIn delay={0.2}>
-            <div className="flex items-center gap-0 max-w-[440px] mx-auto">
-              <input
-                type="email"
-                placeholder="이메일을 입력하세요"
-                className="flex-1 min-w-0 px-5 py-3.5 text-[15px] border border-[#333] border-r-0 rounded-l-full outline-none focus:border-[#CDEA68] focus:ring-2 focus:ring-[#CDEA68]/20 transition-all duration-200 bg-[#141414] text-white placeholder:text-[#555]"
-              />
-              <button className="flex-shrink-0 bg-[#CDEA68] hover:bg-[#B8D84E] text-[#0A0A0A] text-[14px] font-semibold px-6 py-3.5 rounded-r-full transition-all duration-200 whitespace-nowrap hover:shadow-lg hover:shadow-[#CDEA68]/15">
-                프로그램 신청
-              </button>
-            </div>
+          <FadeIn delay={0.1}>
+            <a
+              href="mailto:iamyam@hanyang.ac.kr"
+              className="inline-block bg-[#CDEA68] hover:bg-[#B8D84E] text-[#0A0A0A] text-[14px] font-semibold px-8 py-3.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-[#CDEA68]/15"
+            >
+              Contact Us
+            </a>
           </FadeIn>
         </div>
       </div>

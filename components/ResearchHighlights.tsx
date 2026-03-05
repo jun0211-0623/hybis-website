@@ -13,11 +13,11 @@ const fallbackPublications = [
     titleEn: "In Search of Satoshi",
     description:
       "비트코인의 창시자 사토시 나카모토의 사상과 철학을 추적하며, 화폐의 본질에 대한 근본적인 질문을 던집니다.",
-    year: "2023",
+    year: "2025",
     color: "#4285F4",
     slug: { current: "in-search-of-satoshi" },
     quote: "화폐란 무엇인가? 사토시가 던진 질문에 학문이 답하다.",
-    reviewer: "이준석 교수",
+    reviewer: "윤성호 교수",
     role: "한양대학교 경제학과",
   },
   {
@@ -27,11 +27,11 @@ const fallbackPublications = [
     titleEn: "The Language of Currency",
     description:
       "화폐가 단순한 교환 수단을 넘어 인류의 언어이자 제도임을 철학적·경제학적으로 분석합니다.",
-    year: "2022",
+    year: "2026",
     color: "#34A853",
     slug: { current: "language-of-currency" },
     quote: "화폐는 인류가 만든 가장 보편적인 언어다.",
-    reviewer: "김하영 연구원",
+    reviewer: "이광희 교수",
     role: "HYBIS 선임연구원",
   },
   {
@@ -41,12 +41,12 @@ const fallbackPublications = [
     titleEn: "Stablecoin Legislation",
     description:
       "국내외 스테이블코인 규제 현황을 분석하고 바람직한 입법 방향을 제시한 정책 연구 보고서입니다.",
-    year: "2024",
+    year: "2025",
     color: "#FBBC05",
     slug: { current: "stablecoin-legislation" },
     quote: "규제와 혁신 사이, 학문이 균형점을 찾아야 합니다.",
-    reviewer: "박민수 교수",
-    role: "한양대학교 법학전문대학원",
+    reviewer: "김성환, 진성훈 원생",
+    role: "HYBIS 연구원",
   },
 ];
 

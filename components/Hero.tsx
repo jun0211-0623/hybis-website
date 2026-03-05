@@ -39,21 +39,8 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[#0D1A2A] to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-10 pt-12 lg:pt-20 pb-16 lg:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          <div className="max-w-[560px]">
-            {mounted && (
-              <motion.div {...fadeUp(0.1)} className="flex items-center gap-2 mb-7">
-                <div className="w-5 h-5 rounded-full bg-[#34A853] flex items-center justify-center">
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="white">
-                    <path d="M8.5 3.5L4.25 7.75L1.5 5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  </svg>
-                </div>
-                <span className="text-[#9AA0A6] text-[14px]">
-                  <strong className="text-white">2019년 설립</strong> · 30+ 연구 논문
-                </span>
-              </motion.div>
-            )}
-
+        <div className="max-w-[560px]">
+          <div>
             {mounted && (
               <motion.h1
                 {...fadeUp(0.25)}
@@ -76,19 +63,6 @@ export default function Hero() {
             )}
 
             {mounted && (
-              <motion.div {...fadeUp(0.55)} className="flex items-center gap-0 mb-5 max-w-[440px]">
-                <input
-                  type="email"
-                  placeholder="이메일을 입력하세요"
-                  className="flex-1 min-w-0 px-5 py-3.5 text-[15px] border border-[#333] border-r-0 rounded-l-full outline-none focus:border-[#CDEA68] focus:ring-2 focus:ring-[#CDEA68]/20 transition-all duration-200 bg-[#141414] text-white placeholder:text-[#555]"
-                />
-                <button className="flex-shrink-0 bg-[#CDEA68] hover:bg-[#B8D84E] text-[#0A0A0A] text-[14px] font-semibold px-6 py-3.5 rounded-r-full transition-all duration-200 whitespace-nowrap hover:shadow-lg hover:shadow-[#CDEA68]/15">
-                  프로그램 신청
-                </button>
-              </motion.div>
-            )}
-
-            {mounted && (
               <motion.button
                 {...fadeUp(0.65)}
                 onClick={() => handleScroll("#about")}
@@ -100,89 +74,6 @@ export default function Hero() {
             )}
           </div>
 
-          {mounted && (
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 1, ease }}
-              className="relative hidden lg:block"
-            >
-              <div className="relative bg-[#141414] rounded-2xl shadow-2xl shadow-black/30 border border-[#2A2A2A] p-6 w-[480px] ml-auto">
-                <div className="flex items-center justify-between mb-5">
-                  <span className="text-[14px] font-semibold text-white">Research Dashboard</span>
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-[#34A853]" />
-                    <span className="text-[11px] text-[#5F6368]">Live</span>
-                  </div>
-                </div>
-
-                <div className="bg-[#1A1A1A] rounded-xl p-4 mb-4">
-                  <div className="flex items-end justify-between h-[120px] gap-2">
-                    {[40, 55, 35, 65, 50, 80, 60, 75, 90, 70, 85, 95].map((h, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ height: 0 }}
-                        animate={{ height: `${h}%` }}
-                        transition={{ delay: 0.8 + i * 0.05, duration: 0.5, ease }}
-                        className="flex-1 rounded-t-sm"
-                        style={{
-                          background: i >= 9 ? '#CDEA68' : i >= 6 ? '#4285F4' : '#2A2A2A',
-                        }}
-                      />
-                    ))}
-                  </div>
-                  <div className="flex justify-between mt-2">
-                    <span className="text-[10px] text-[#5F6368]">2019</span>
-                    <span className="text-[10px] text-[#5F6368]">2025</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="bg-[#1A1A1A] rounded-lg p-3">
-                    <p className="text-[10px] text-[#5F6368] mb-0.5">논문 발간</p>
-                    <p className="text-[18px] font-bold text-white">30<span className="text-[#34A853] text-[11px] ml-1">+</span></p>
-                  </div>
-                  <div className="bg-[#1A1A1A] rounded-lg p-3">
-                    <p className="text-[10px] text-[#5F6368] mb-0.5">출판 도서</p>
-                    <p className="text-[18px] font-bold text-white">2<span className="text-[#4285F4] text-[11px] ml-1">권</span></p>
-                  </div>
-                  <div className="bg-[#1A1A1A] rounded-lg p-3">
-                    <p className="text-[10px] text-[#5F6368] mb-0.5">수강생</p>
-                    <p className="text-[18px] font-bold text-white">500<span className="text-[#FBBC05] text-[11px] ml-1">+</span></p>
-                  </div>
-                </div>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.0, duration: 0.6, ease }}
-                className="absolute -left-8 bottom-4 bg-[#1A1A1A] rounded-xl p-4 w-[180px] shadow-xl border border-[#2A2A2A]"
-              >
-                <div className="w-8 h-1 rounded-full bg-[#CDEA68] mb-3" />
-                <p className="text-[11px] text-[#5F6368] mb-1">최신 출간</p>
-                <p className="text-[14px] font-semibold text-white leading-tight">사토시를 찾아서</p>
-                <p className="text-[11px] text-[#5F6368] mt-1 italic">In Search of Satoshi</p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.3, duration: 0.5, ease }}
-                className="absolute -right-2 top-[-20px] bg-[#1A1A1A] rounded-xl p-3 shadow-lg border border-[#2A2A2A] w-[200px]"
-              >
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-6 h-6 rounded-full bg-[#CDEA68] flex items-center justify-center">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="#0A0A0A">
-                      <path d="M6 1L7.5 4.5L11 5L8.5 7.5L9 11L6 9.5L3 11L3.5 7.5L1 5L4.5 4.5L6 1Z" />
-                    </svg>
-                  </div>
-                  <span className="text-[11px] font-medium text-white">국제 학술대회</span>
-                </div>
-                <p className="text-[10px] text-[#5F6368]">2025 HYBIS Annual Conference 참가 신청 오픈</p>
-              </motion.div>
-            </motion.div>
-          )}
         </div>
       </div>
 
