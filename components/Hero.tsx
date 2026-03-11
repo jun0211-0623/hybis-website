@@ -1,7 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+
+const heroImages = ["/hero-network.jpg", "/hero-geometry.jpg"];
+const IMAGE_INTERVAL = 8000;
 
 const ease = [0.25, 0.4, 0.25, 1] as const;
 
@@ -28,7 +32,16 @@ const partnerLogos = [
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
+
   useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, IMAGE_INTERVAL);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleScroll = (href: string) => {
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
@@ -36,7 +49,26 @@ export default function Hero() {
 
   return (
     <section className="relative pt-[64px] bg-[#0A0A0A] overflow-hidden">
-      <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[#0D1A2A] to-transparent pointer-events-none" />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={imageIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.4 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute inset-0 z-0"
+        >
+          <Image
+            src={heroImages[imageIndex]}
+            alt=""
+            fill
+            className="object-cover"
+            priority
+          />
+        </motion.div>
+      </AnimatePresence>
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/70 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-[200px] z-[1] bg-gradient-to-t from-[#0D1A2A] to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-10 pt-12 lg:pt-20 pb-16 lg:pb-24">
         <div className="max-w-[560px]">
