@@ -74,7 +74,7 @@ export default function Navigation() {
           </button>
           <button
             onClick={() => handleNavClick("#contact")}
-            className="bg-[#CDEA68] hover:bg-[#B8D84E] text-[#0A0A0A] text-[14px] font-semibold px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-[#CDEA68]/15"
+            className="bg-[#7EBAB5] hover:bg-[#6AA8A3] text-[#0A0A0A] text-[14px] font-semibold px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-[#7EBAB5]/15"
           >
             문의하기
           </button>
@@ -114,7 +114,7 @@ export default function Navigation() {
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className="text-[#F1F3F5] text-[15px] w-full text-left py-3 hover:text-[#CDEA68] transition-colors"
+                    className="text-[#F1F3F5] text-[15px] w-full text-left py-3 hover:text-[#7EBAB5] transition-colors"
                   >
                     {link.label}
                   </button>
@@ -123,7 +123,7 @@ export default function Navigation() {
               <li>
                 <button
                   onClick={() => handleNavClick("#contact")}
-                  className="mt-2 w-full bg-[#CDEA68] text-[#0A0A0A] text-[14px] font-semibold px-5 py-3 rounded-full"
+                  className="mt-2 w-full bg-[#7EBAB5] text-[#0A0A0A] text-[14px] font-semibold px-5 py-3 rounded-full"
                 >
                   문의하기
                 </button>
