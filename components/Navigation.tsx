@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { GlassButton } from '@/components/ui/glass-button';
 import { cn } from '@/lib/utils';
@@ -8,8 +9,7 @@ import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/components/ui/use-scroll';
 
 const navLinks = [
-  { label: "소개", href: "#about" },
-  { label: "연구", href: "#research" },
+  { label: "소개", href: "/about" },
   { label: "프로그램", href: "#programs" },
   { label: "학술", href: "#academics" },
   { label: "자료", href: "#resources" },
@@ -30,10 +30,21 @@ export default function Navigation() {
     };
   }, [open]);
 
+  const router = useRouter();
+
   const handleNavClick = (href: string) => {
     setOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("/")) {
+      router.push(href);
+    } else if (href.startsWith("#")) {
+      const el = document.querySelector(href);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // 현재 페이지에 해당 요소가 없으면 메인 페이지로 이동
+        router.push(`/${href}`);
+      }
+    }
   };
 
   return (
@@ -56,14 +67,14 @@ export default function Navigation() {
         )}
       >
         {/* Logo */}
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        <a
+          href="/"
           className="flex items-center gap-2 group"
         >
-          <span className="text-white font-bold text-[18px] tracking-[0.02em]">
+          <span className="text-white font-bold text-[18px] tracking-[0.02em] font-[family-name:var(--font-display)]">
             HYBIS
           </span>
-        </button>
+        </a>
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-1 md:flex">

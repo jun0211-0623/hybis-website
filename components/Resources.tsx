@@ -1,185 +1,228 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
-import { GlassButton } from "@/components/ui/glass-button";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
-type TabKey = "reports" | "newsletters" | "papers";
+import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { FadeIn } from "./FadeIn";
 
-const tabs: { key: TabKey; label: string }[] = [
-  { key: "reports", label: "정책보고서" },
-  { key: "newsletters", label: "뉴스레터" },
-  { key: "papers", label: "학술논문" },
-];
-
-interface Resource {
-  _id: string;
+interface ResourceItem {
+  id: string;
+  category: "정책보고서" | "학술논문";
   title: string;
+  summary: string;
   date: string;
-  description: string;
-  category: string;
-  slug: { current: string };
+  color: string;
+  url: string;
 }
 
-export default function Resources({ resources }: { resources?: Resource[] }) {
-  const [activeTab, setActiveTab] = useState<TabKey>("reports");
+const items: ResourceItem[] = [
+  {
+    id: "r1",
+    category: "정책보고서",
+    title: "스테이블코인의 지정학: 디지털 달러가 재편하는 세계체제와 한국의 대응 전략",
+    summary:
+      "디지털 달러 중심의 스테이블코인이 국제 금융 질서에 미치는 지정학적 영향과 한국의 전략적 대응 방안을 분석한 정책보고서",
+    date: "2024.11",
+    color: "#7EBAB5",
+    url: "/resources/stablecoin-geopolitics.pdf",
+  },
+  {
+    id: "r2",
+    category: "정책보고서",
+    title: "스테이블 코인 해외입법례와 국내법안 비교",
+    summary:
+      "미국, EU 등 주요국의 스테이블코인 규제 법안과 국내 입법 동향을 비교 분석한 보고서",
+    date: "2024.11",
+    color: "#7EBAB5",
+    url: "/resources/stablecoin-legislation.pdf",
+  },
+  {
+    id: "p1",
+    category: "학술논문",
+    title: "반연방과 반연준: 미국 자유지상주의의 통화론",
+    summary:
+      "미국 자유지상주의 전통에서 연방준비제도에 대한 비판과 대안적 통화 체계 논의를 다룬 학술논문",
+    date: "2024.12",
+    color: "#7A8FA6",
+    url: "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003267129",
+  },
+  {
+    id: "p2",
+    category: "학술논문",
+    title: "출력제한 전력의 가치화: 암호화폐 채굴을 통한 계통 유연성 확보",
+    summary:
+      "유종민, 이서진 공저. 출력 제한 전력을 암호화폐 채굴에 활용하여 전력 계통의 유연성을 확보하는 방안을 제시한 논문",
+    date: "2024.12",
+    color: "#7A8FA6",
+    url: "/resources/mining-energy.pdf",
+  },
+];
 
-  const hasData = resources && resources.length > 0;
+export default function Resources() {
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
 
-  const grouped = hasData
-    ? {
-        reports: resources.filter((r) => r.category === "reports"),
-        newsletters: resources.filter((r) => r.category === "newsletters"),
-        papers: resources.filter((r) => r.category === "papers"),
-      }
-    : { reports: [], newsletters: [], papers: [] };
-
-  const currentItems = grouped[activeTab] || [];
-  const featuredItem = currentItems[0];
-  const restItems = currentItems.slice(1);
+  useEffect(() => {
+    if (!carouselApi) return;
+    const updateSelection = () => {
+      setCanScrollPrev(carouselApi.canScrollPrev());
+      setCanScrollNext(carouselApi.canScrollNext());
+    };
+    updateSelection();
+    carouselApi.on("select", updateSelection);
+    return () => {
+      carouselApi.off("select", updateSelection);
+    };
+  }, [carouselApi]);
 
   return (
     <section id="resources" className="py-20 lg:py-28 bg-[#111111]">
       <div className="section-divider mb-20" />
 
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-        <div className="flex items-center gap-2.5 mb-4">
-          <FadeIn>
-            <div className="flex items-center gap-2.5">
-              <div className="w-6 h-[2px] bg-[#7EBAB5]" />
-              <p className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase">
-                Resources
+        <div className="mb-10 flex flex-col justify-between md:mb-14 md:flex-row md:items-end">
+          <div>
+            <FadeIn>
+              <div className="flex items-center gap-2.5 mb-4">
+                <div className="w-6 h-[2px] bg-[#7EBAB5]" />
+                <p className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
+                  Resources
+                </p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.05}>
+              <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-white leading-[1.15] tracking-[-0.02em] mb-3">
+                연구 자료
+              </h2>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <p className="text-[#9AA0A6] text-[15px] max-w-[440px]">
+                HYBIS의 정책보고서와 학술논문을 확인하세요.
               </p>
-            </div>
-          </FadeIn>
-        </div>
-        <FadeIn delay={0.05} className="mb-4">
-          <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-white leading-[1.15] tracking-[-0.02em]">
-            연구 자료
-          </h2>
-        </FadeIn>
-        <FadeIn delay={0.1} className="mb-10">
-          <p className="text-[#9AA0A6] text-[15px] max-w-[440px]">
-            HYBIS의 정책보고서, 뉴스레터, 학술논문을 확인하세요.
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={0.15} className="mb-10">
-          <div className="flex gap-3">
-            {tabs.map((tab) => (
-              <GlassButton
-                key={tab.key}
-                size="sm"
-                onClick={() => setActiveTab(tab.key)}
-                className={activeTab === tab.key ? "glass-button-active" : ""}
-              >
-                {tab.label}
-              </GlassButton>
-            ))}
+            </FadeIn>
           </div>
-        </FadeIn>
+          <div className="mt-8 flex shrink-0 items-center justify-start gap-2 md:mt-0">
+            <Button
+              size="icon"
+              variant="ghost"
+              onClick={() => carouselApi?.scrollPrev()}
+              disabled={!canScrollPrev}
+              className="text-[#9AA0A6] hover:text-white hover:bg-[#1A1A1A] disabled:opacity-30"
+            >
+              <ArrowLeft className="size-5" />
+            </Button>
+            <Button
+              size="icon"
+              variant="ghost"
+              onClick={() => carouselApi?.scrollNext()}
+              disabled={!canScrollNext}
+              className="text-[#9AA0A6] hover:text-white hover:bg-[#1A1A1A] disabled:opacity-30"
+            >
+              <ArrowRight className="size-5" />
+            </Button>
+          </div>
+        </div>
+      </div>
 
-        {currentItems.length > 0 ? (
-          <>
-            {/* Featured first item */}
-            {featuredItem && (
-              <FadeIn key={`featured-${activeTab}`} className="mb-6">
-                <Link href={`/resources/${featuredItem.slug.current}`}>
-                  <div className="group bg-gradient-to-r from-[#141414] to-[#111111] rounded-2xl border border-[#1E1E1E] p-8 hover:border-[#7EBAB5]/30 hover:shadow-xl hover:shadow-[#7EBAB5]/5 transition-all duration-300 cursor-pointer">
-                    <div className="flex flex-col sm:flex-row sm:items-start gap-6">
-                      <div className="flex items-center gap-3 flex-shrink-0">
-                        <div className="w-12 h-12 rounded-xl bg-[#7EBAB5]/10 flex items-center justify-center">
-                          <span className="text-[#7EBAB5] text-[18px] font-bold">
-                            01
+      <div className="w-full">
+        <Carousel
+          setApi={setCarouselApi}
+          opts={{
+            align: "start",
+            breakpoints: {
+              "(max-width: 768px)": {
+                dragFree: true,
+              },
+            },
+          }}
+          className="relative left-[-1rem]"
+        >
+          <CarouselContent className="-mr-4 ml-8 lg:ml-[max(2.5rem,calc(50vw-600px+1rem))] lg:mr-[max(0rem,calc(50vw-600px-1rem))]">
+            {items.map((item) => (
+              <CarouselItem
+                key={item.id}
+                className="pl-4 max-w-[280px] sm:max-w-[340px] md:max-w-[420px]"
+              >
+                <a href={item.url} target="_blank" rel="noopener noreferrer" className="group flex flex-col justify-between h-full">
+                  {/* Color cover with category + date */}
+                  <div>
+                    <div
+                      className="flex aspect-[3/2] overflow-clip rounded-xl relative"
+                      style={{
+                        background: `linear-gradient(135deg, ${item.color}15 0%, ${item.color}08 50%, ${item.color}20 100%)`,
+                      }}
+                    >
+                      <div className="absolute inset-0 flex flex-col justify-between p-6">
+                        <div className="flex items-center justify-between">
+                          <span
+                            className="text-[11px] font-medium px-2.5 py-1 rounded-full"
+                            style={{
+                              color: item.color,
+                              background: `${item.color}20`,
+                            }}
+                          >
+                            {item.category}
+                          </span>
+                          <span className="text-[12px] font-mono text-[#6B7280]">
+                            {item.date}
                           </span>
                         </div>
-                        <span className="text-[#6B7280] text-[13px] font-mono">
-                          {featuredItem.date}
-                        </span>
+                        <div>
+                          <div
+                            className="w-10 h-10 rounded-lg flex items-center justify-center mb-3"
+                            style={{ background: `${item.color}15` }}
+                          >
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke={item.color}
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                              <polyline points="14 2 14 8 20 8" />
+                              <line x1="16" y1="13" x2="8" y2="13" />
+                              <line x1="16" y1="17" x2="8" y2="17" />
+                            </svg>
+                          </div>
+                          <p className="text-[13px] text-[#9AA0A6] leading-relaxed line-clamp-2">
+                            {item.title}
+                          </p>
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <span className="text-[11px] font-medium tracking-[0.06em] uppercase text-[#7EBAB5] bg-[#7EBAB5]/10 px-2.5 py-1 rounded-full mb-3 inline-block">
-                          Latest
-                        </span>
-                        <h4 className="text-white text-[20px] font-semibold mb-2 group-hover:text-[#7EBAB5] transition-colors duration-200">
-                          {featuredItem.title}
-                        </h4>
-                        <p className="text-[#9AA0A6] text-[15px] leading-relaxed">
-                          {featuredItem.description}
-                        </p>
-                      </div>
-                      <span className="text-[#333] group-hover:text-[#7EBAB5] transition-all duration-200 flex-shrink-0 group-hover:translate-x-1 text-[18px] mt-2">
-                        &rarr;
-                      </span>
+                      {/* Border */}
+                      <div
+                        className="absolute inset-0 rounded-xl border transition-colors duration-200 group-hover:border-[#333]"
+                        style={{ borderColor: `${item.color}15` }}
+                      />
                     </div>
                   </div>
-                </Link>
-              </FadeIn>
-            )}
-
-            {/* Rest of items */}
-            <StaggerContainer key={activeTab} className="space-y-0">
-              {restItems.map((item, i) => (
-                <StaggerItem key={item._id}>
-                  <Link href={`/resources/${item.slug.current}`}>
-                    <div
-                      className={`group flex flex-col sm:flex-row sm:items-start gap-4 py-5 cursor-pointer hover:bg-[#1A1A1A] px-5 -mx-5 rounded-xl transition-all duration-200 ${
-                        i < restItems.length - 1
-                          ? "border-b border-[#1E1E1E]"
-                          : ""
-                      }`}
-                    >
-                      <span className="text-[#6B7280] text-[13px] font-mono flex-shrink-0 sm:w-20 mt-0.5">
-                        {item.date}
-                      </span>
-                      <div className="flex-1">
-                        <h4 className="text-white text-[16px] font-medium mb-1 group-hover:text-[#7EBAB5] transition-colors duration-200">
-                          {item.title}
-                        </h4>
-                        <p className="text-[#6B7280] text-[14px] leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                      <span className="text-[#333] group-hover:text-[#7EBAB5] transition-all duration-200 flex-shrink-0 group-hover:translate-x-1 text-[14px] mt-0.5">
-                        &rarr;
-                      </span>
-                    </div>
-                  </Link>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </>
-        ) : (
-          /* Empty state */
-          <FadeIn delay={0.2}>
-            <div className="text-center py-16">
-              <div className="w-16 h-16 rounded-full bg-[#7EBAB5]/10 flex items-center justify-center mx-auto mb-5">
-                <svg
-                  width="28"
-                  height="28"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#7EBAB5"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <line x1="16" y1="13" x2="8" y2="13" />
-                  <line x1="16" y1="17" x2="8" y2="17" />
-                </svg>
-              </div>
-              <p className="text-[#9AA0A6] text-[15px] mb-2">
-                자료가 준비되면 이곳에 게시됩니다.
-              </p>
-              <p className="text-[#444] text-[13px]">
-                Sanity CMS에서 자료를 등록하면 자동으로 표시됩니다.
-              </p>
-            </div>
-          </FadeIn>
-        )}
+                  <div className="mb-2 line-clamp-3 break-words pt-4 text-[17px] font-semibold text-white md:mb-3 md:text-[18px] group-hover:text-[#7EBAB5] transition-colors duration-200">
+                    {item.title}
+                  </div>
+                  <div className="mb-6 line-clamp-2 text-[14px] text-[#9AA0A6] leading-relaxed">
+                    {item.summary}
+                  </div>
+                  <div className="flex items-center text-[13px] text-[#6B7280] group-hover:text-[#7EBAB5] transition-colors duration-200">
+                    자세히 보기
+                    <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </a>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );

@@ -7,30 +7,30 @@ const footerLinks = [
   {
     title: "연구소",
     links: [
-      { label: "소개", href: "#about" },
-      { label: "연구 분야", href: "#about" },
+      { label: "센터 소개", href: "/about" },
+      { label: "조직 구성", href: "/about" },
+      { label: "연혁", href: "/about" },
     ],
   },
   {
     title: "프로그램",
     links: [
-      { label: "석사 과정", href: "#programs" },
-      { label: "박사 과정", href: "#programs" },
+      { label: "최고위 과정", href: "/programs/executive" },
+      { label: "대학원 협동과정", href: "/programs/graduate" },
     ],
   },
   {
     title: "학술 활동",
     links: [
-      { label: "행사 및 활동", href: "#academics" },
+      { label: "행사 및 활동", href: "/#academics" },
     ],
   },
   {
     title: "자료",
     links: [
-      { label: "연구성과", href: "#research" },
-      { label: "정책보고서", href: "#resources" },
-      { label: "뉴스레터", href: "#resources" },
-      { label: "학술논문", href: "#resources" },
+      { label: "모노그래프", href: "/#monographs" },
+      { label: "정책보고서", href: "/#resources" },
+      { label: "학술논문", href: "/#resources" },
     ],
   },
 ];
@@ -40,7 +40,7 @@ export default function Footer() {
 
   const handleNavClick = (href: string) => {
     if (href === "#") return;
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    window.location.href = href;
   };
 
   return (
@@ -56,7 +56,7 @@ export default function Footer() {
           <FadeIn>
             <div className="flex items-center justify-center gap-2.5 mb-6">
               <div className="w-8 h-[2px] bg-[#7EBAB5]" />
-              <span className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase">
+              <span className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
                 Join Us
               </span>
               <div className="w-8 h-[2px] bg-[#7EBAB5]" />
@@ -82,12 +82,11 @@ export default function Footer() {
                   Contact Us
                 </GlassButton>
               </a>
-              <GlassButton
-                size="default"
-                onClick={() => handleNavClick("#programs")}
-              >
-                프로그램 보기
-              </GlassButton>
+              <a href="/#programs">
+                <GlassButton size="default">
+                  프로그램 보기
+                </GlassButton>
+              </a>
             </div>
           </FadeIn>
         </div>
@@ -122,26 +121,26 @@ export default function Footer() {
         <div className="border-t border-[#1A1A1A]">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2">
-              <span className="text-white font-bold text-[15px]">HYBIS</span>
+              <span className="text-white font-bold text-[15px] font-[family-name:var(--font-display)]">HYBIS</span>
               <span className="text-[#333] text-[12px]">
                 &copy; {currentYear} Hanyang Bitcoin Interdisciplinary Studies
               </span>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-4 gap-y-1">
               <a
                 href="mailto:iamyam@hanyang.ac.kr"
-                className="text-[#6B7280] hover:text-[#7EBAB5] text-[12px] transition-colors duration-200"
+                className="text-[#6B7280] hover:text-[#7EBAB5] text-[12px] transition-colors duration-200 min-h-[44px] flex items-center"
               >
                 iamyam@hanyang.ac.kr
               </a>
-              <span className="text-[#2A2A2A]">|</span>
+              <span className="text-[#2A2A2A] hidden sm:inline">|</span>
               <a
                 href="tel:02-2220-0751"
-                className="text-[#6B7280] hover:text-[#7EBAB5] text-[12px] transition-colors duration-200"
+                className="text-[#6B7280] hover:text-[#7EBAB5] text-[12px] transition-colors duration-200 min-h-[44px] flex items-center"
               >
                 02-2220-0751
               </a>
-              <span className="text-[#2A2A2A]">|</span>
+              <span className="text-[#2A2A2A] hidden sm:inline">|</span>
               <span className="text-[#6B7280] text-[12px]">
                 서울 성동구 왕십리로 222
               </span>

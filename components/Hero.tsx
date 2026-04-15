@@ -60,7 +60,7 @@ export default function Hero() {
           )}
 
           {mounted && (
-            <motion.div {...fadeUp(0.55)} className="flex items-center gap-4">
+            <motion.div {...fadeUp(0.55)} className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
               <GlassButton
                 size="default"
                 onClick={() => handleScroll("#about")}

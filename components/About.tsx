@@ -44,7 +44,7 @@ export default function About() {
           <FadeIn>
             <div className="flex items-center gap-2.5">
               <div className="w-6 h-[2px] bg-[#7EBAB5]" />
-              <p className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase">
+              <p className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
                 Research Areas
               </p>
             </div>

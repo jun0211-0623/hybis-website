@@ -41,7 +41,7 @@ export default function ResearchHighlights({
         <FadeIn>
           <div className="flex items-center justify-center gap-2.5 mb-5">
             <div className="w-8 h-[2px] bg-[#7EBAB5]" />
-            <span className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase">
+            <span className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
               Publications
             </span>
             <div className="w-8 h-[2px] bg-[#7EBAB5]" />
