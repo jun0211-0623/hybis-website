@@ -34,7 +34,7 @@ export default function DetailLayout({
       <nav className="max-w-[1280px] mx-auto px-6 lg:px-10 h-16 flex items-center">
         <Link
           href={backHref}
-          className="text-[#5F6368] hover:text-white text-[14px] flex items-center gap-2 transition-colors"
+          className="text-[#6B7280] hover:text-white text-[14px] flex items-center gap-2 transition-colors"
         >
           <span>&larr;</span>
           {backLabel}
@@ -53,7 +53,7 @@ export default function DetailLayout({
               </span>
             )}
             {date && (
-              <span className="text-[#5F6368] text-[13px] font-mono">{date}</span>
+              <span className="text-[#6B7280] text-[13px] font-mono">{date}</span>
             )}
           </div>
 
@@ -62,7 +62,7 @@ export default function DetailLayout({
           </h1>
 
           {subtitle && (
-            <p className="text-[#5F6368] text-[18px] italic mb-4">{subtitle}</p>
+            <p className="text-[#6B7280] text-[18px] italic mb-4">{subtitle}</p>
           )}
 
           {description && (
@@ -117,7 +117,7 @@ export default function DetailLayout({
               />
             </div>
           ) : (
-            <p className="text-[#5F6368] text-[16px]">
+            <p className="text-[#6B7280] text-[16px]">
               아직 작성된 본문이 없습니다. 관리자 페이지에서 콘텐츠를 추가해주세요.
             </p>
           )}

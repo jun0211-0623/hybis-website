@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Playfair_Display } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
+const quintessential = localFont({
+  src: "../public/fonts/Quintessential-Regular.ttf",
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={playfair.variable}>
+    <html lang="ko" className={quintessential.variable}>
       <body>{children}</body>
     </html>
   );

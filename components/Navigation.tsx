@@ -1,7 +1,11 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from 'react';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { GlassButton } from '@/components/ui/glass-button';
+import { cn } from '@/lib/utils';
+import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
+import { useScroll } from '@/components/ui/use-scroll';
 
 const navLinks = [
   { label: "소개", href: "#about" },
@@ -12,126 +16,127 @@ const navLinks = [
 ];
 
 export default function Navigation() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const scrolled = useScroll(10);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  React.useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
 
   const handleNavClick = (href: string) => {
-    setMenuOpen(false);
+    setOpen(false);
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0A0A0A]/90 backdrop-blur-xl border-b border-[#1E1E1E]"
-          : "bg-[#0A0A0A]"
-      }`}
+      className={cn(
+        'fixed top-0 left-0 right-0 z-50 mx-auto w-full max-w-5xl border-b border-transparent md:rounded-md md:border md:transition-all md:ease-out',
+        {
+          'bg-[#0A0A0A]/90 supports-[backdrop-filter]:bg-[#0A0A0A]/50 border-[#1E1E1E] backdrop-blur-lg md:top-4 md:max-w-4xl md:shadow-lg md:shadow-black/20':
+            scrolled && !open,
+          'bg-[#0A0A0A]/90': open,
+        },
+      )}
     >
-      <nav className="max-w-[1280px] mx-auto px-6 lg:px-10 h-[64px] flex items-center justify-between">
-        <a
-          href="#"
-          className="flex items-center gap-2.5 group"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
+      <nav
+        className={cn(
+          'flex h-14 w-full items-center justify-between px-4 md:h-12 md:transition-all md:ease-out',
+          {
+            'md:px-2': scrolled,
+          },
+        )}
+      >
+        {/* Logo */}
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="flex items-center gap-2 group"
         >
           <span className="text-white font-bold text-[18px] tracking-[0.02em]">
             HYBIS
           </span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-white">
-            <path d="M2 14L14 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-        </a>
+        </button>
 
-        <ul className="hidden md:flex items-center gap-1">
+        {/* Desktop nav */}
+        <div className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
-            <li key={link.href}>
+            <button
+              key={link.href}
+              onClick={() => handleNavClick(link.href)}
+              className={cn(
+                buttonVariants({ variant: 'ghost' }),
+                'text-[#9AA0A6] hover:text-white hover:bg-[#1A1A1A] text-[13px]'
+              )}
+            >
+              {link.label}
+            </button>
+          ))}
+          <GlassButton
+            size="sm"
+            onClick={() => handleNavClick("#contact")}
+          >
+            문의하기
+          </GlassButton>
+        </div>
+
+        {/* Mobile hamburger */}
+        <Button
+          size="icon"
+          variant="outline"
+          onClick={() => setOpen(!open)}
+          className="md:hidden border-[#2A2A2A] bg-transparent hover:bg-[#1A1A1A] text-white"
+        >
+          <MenuToggleIcon open={open} className="size-5" duration={300} />
+        </Button>
+      </nav>
+
+      {/* Mobile menu */}
+      <div
+        className={cn(
+          'bg-[#0A0A0A]/95 backdrop-blur-xl fixed top-14 right-0 bottom-0 left-0 z-50 flex flex-col overflow-hidden border-y border-[#1E1E1E] md:hidden',
+          open ? 'block' : 'hidden',
+        )}
+      >
+        <div
+          data-slot={open ? 'open' : 'closed'}
+          className={cn(
+            'data-[slot=open]:animate-in data-[slot=open]:zoom-in-95 data-[slot=closed]:animate-out data-[slot=closed]:zoom-out-95 ease-out',
+            'flex h-full w-full flex-col justify-between gap-y-2 p-4',
+          )}
+        >
+          <div className="grid gap-y-1">
+            {navLinks.map((link) => (
               <button
+                key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="text-[#9AA0A6] hover:text-white text-[14px] font-medium px-3 py-2 rounded-lg hover:bg-[#1A1A1A] transition-all duration-200"
+                className={cn(
+                  buttonVariants({ variant: 'ghost' }),
+                  'justify-start text-[#F1F3F5] hover:text-[#7EBAB5] hover:bg-[#1A1A1A] text-[15px]'
+                )}
               >
                 {link.label}
               </button>
-            </li>
-          ))}
-        </ul>
-
-        <div className="hidden md:flex items-center gap-3">
-          <button
-            onClick={() => handleNavClick("#contact")}
-            className="text-[#9AA0A6] hover:text-white text-[14px] font-medium px-3 py-2 transition-colors duration-200"
-          >
-            Sign in
-          </button>
-          <button
-            onClick={() => handleNavClick("#contact")}
-            className="bg-[#7EBAB5] hover:bg-[#6AA8A3] text-[#0A0A0A] text-[14px] font-semibold px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-[#7EBAB5]/15"
-          >
-            문의하기
-          </button>
+            ))}
+          </div>
+          <div className="flex flex-col gap-2">
+            <GlassButton
+              size="default"
+              className="w-full"
+              onClick={() => handleNavClick("#contact")}
+            >
+              문의하기
+            </GlassButton>
+          </div>
         </div>
-
-        <button
-          className="md:hidden flex flex-col gap-[5px] p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="메뉴"
-        >
-          <motion.span
-            animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-            className="block w-5 h-[1.5px] bg-white origin-center"
-          />
-          <motion.span
-            animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block w-5 h-[1.5px] bg-white"
-          />
-          <motion.span
-            animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-            className="block w-5 h-[1.5px] bg-white origin-center"
-          />
-        </button>
-      </nav>
-
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden bg-[#0A0A0A]/95 backdrop-blur-xl border-b border-[#1E1E1E] overflow-hidden"
-          >
-            <ul className="px-6 py-3 flex flex-col">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <button
-                    onClick={() => handleNavClick(link.href)}
-                    className="text-[#F1F3F5] text-[15px] w-full text-left py-3 hover:text-[#7EBAB5] transition-colors"
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-              <li>
-                <button
-                  onClick={() => handleNavClick("#contact")}
-                  className="mt-2 w-full bg-[#7EBAB5] text-[#0A0A0A] text-[14px] font-semibold px-5 py-3 rounded-full"
-                >
-                  문의하기
-                </button>
-              </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </div>
     </header>
   );
 }

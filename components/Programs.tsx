@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FadeIn } from "./FadeIn";
+import { GlassButton } from "@/components/ui/glass-button";
 
 const tabs = [
   { key: "master", label: "석사" },
@@ -15,7 +16,7 @@ const programData: Record<
 > = {
   master: [
     {
-      title: "기초를 다지다.",
+      title: "기초 과정",
       subtitle: "Phase 01",
       items: [
         "화폐의 역사와 본질 이해",
@@ -24,7 +25,7 @@ const programData: Record<
       ],
     },
     {
-      title: "깊이를 더하다.",
+      title: "심화 과정",
       subtitle: "Phase 02",
       items: [
         "오스트리아 경제학파와 비트코인",
@@ -33,7 +34,7 @@ const programData: Record<
       ],
     },
     {
-      title: "전문가로 거듭나다.",
+      title: "연구 및 수료",
       subtitle: "Phase 03",
       items: [
         "독립 연구 주제 발표",
@@ -44,7 +45,7 @@ const programData: Record<
   ],
   doctor: [
     {
-      title: "연구 기반을 세우다.",
+      title: "연구 기반 구축",
       subtitle: "Phase 01",
       items: [
         "화폐철학 심화 이론 탐구",
@@ -53,7 +54,7 @@ const programData: Record<
       ],
     },
     {
-      title: "독자적 연구를 수행하다.",
+      title: "독자적 연구 수행",
       subtitle: "Phase 02",
       items: [
         "박사 논문 주제 설정 및 연구",
@@ -62,7 +63,7 @@ const programData: Record<
       ],
     },
     {
-      title: "학문적 리더가 되다.",
+      title: "논문 완성 및 기여",
       subtitle: "Phase 03",
       items: [
         "학술지 논문 게재",
@@ -99,17 +100,14 @@ export default function Programs() {
         <FadeIn delay={0.2}>
           <div className="flex items-center justify-center gap-4 mb-12">
             {tabs.map((tab) => (
-              <button
+              <GlassButton
                 key={tab.key}
+                size="sm"
                 onClick={() => setActiveTab(tab.key)}
-                className={`px-6 py-2.5 rounded-full text-[14px] font-medium transition-all duration-200 border ${
-                  activeTab === tab.key
-                    ? "bg-[#7EBAB5] text-[#0A0A0A] border-[#7EBAB5]"
-                    : "bg-transparent text-[#9AA0A6] border-[#2A2A2A] hover:border-[#444]"
-                }`}
+                className={activeTab === tab.key ? "glass-button-active" : ""}
               >
                 {tab.label}
-              </button>
+              </GlassButton>
             ))}
           </div>
         </FadeIn>
