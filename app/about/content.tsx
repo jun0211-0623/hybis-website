@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import NextImage from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
 
@@ -67,6 +67,14 @@ const partners = [
   },
 ];
 
+const sponsors = [
+  {
+    name: "모비커스(주)",
+    nameEn: "Mobickers Inc.",
+    image: "/partners/mobickers.jpg",
+  },
+];
+
 export default function AboutContent() {
   return (
     <div className="bg-[#0A0A0A] pt-[80px]">
@@ -90,23 +98,37 @@ export default function AboutContent() {
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.15}>
-          <h1 className="text-[clamp(2rem,4vw,3.5rem)] font-bold text-white leading-tight mb-4 tracking-[-0.02em]">
-            센터 소개
-          </h1>
-        </FadeIn>
+        <div className="flex items-start justify-between gap-8">
+          <div>
+            <FadeIn delay={0.15}>
+              <h1 className="text-[clamp(2rem,4vw,3.5rem)] font-bold text-white leading-tight mb-4 tracking-[-0.02em]">
+                센터 소개
+              </h1>
+            </FadeIn>
 
-        <FadeIn delay={0.2}>
-          <div className="w-12 h-1 rounded-full bg-[#7EBAB5] mb-8" />
-        </FadeIn>
+            <FadeIn delay={0.2}>
+              <div className="w-12 h-1 rounded-full bg-[#7EBAB5] mb-8" />
+            </FadeIn>
 
-        <FadeIn delay={0.25}>
-          <p className="text-[#9AA0A6] text-[17px] leading-[1.8] max-w-[680px]">
-            한양대학교 비트코인화폐철학연구센터(HYBIS)는 경제학, 철학, 법학,
-            컴퓨터과학의 관점에서 화폐와 비트코인을 학제적으로 연구하는
-            인문과학대학 소속 연구센터입니다.
-          </p>
-        </FadeIn>
+            <FadeIn delay={0.25}>
+              <p className="text-[#9AA0A6] text-[17px] leading-[1.8] max-w-[680px]">
+                한양대학교 비트코인화폐철학연구센터(HYBIS)는 경제학, 철학, 법학,
+                컴퓨터과학의 관점에서 화폐와 비트코인을 학제적으로 연구하는
+                인문과학대학 소속 연구센터입니다.
+              </p>
+            </FadeIn>
+          </div>
+
+          <FadeIn delay={0.2}>
+            <NextImage
+              src="/logo-hybis.jpeg"
+              alt="HYBIS Logo"
+              width={180}
+              height={150}
+              className="rounded-xl flex-shrink-0 hidden md:block"
+            />
+          </FadeIn>
+        </div>
       </section>
 
       <div className="section-divider" />
@@ -343,7 +365,7 @@ export default function AboutContent() {
             <FadeIn key={partner.name} delay={0.1 + i * 0.08}>
               <div className="bg-[#111111] rounded-2xl border border-[#1E1E1E] p-8 flex flex-col items-center text-center hover:border-[#333] transition-colors duration-200">
                 <div className="relative w-[140px] h-[60px] mb-5 flex items-center justify-center">
-                  <Image
+                  <NextImage
                     src={partner.image}
                     alt={partner.name}
                     width={140}
@@ -355,6 +377,45 @@ export default function AboutContent() {
                   {partner.name}
                 </h3>
                 <p className="text-[13px] text-[#6B7280]">{partner.nameEn}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      <div className="section-divider" />
+
+      {/* 후원 기관 */}
+      <section className="max-w-[1280px] mx-auto px-6 lg:px-10 py-16 lg:py-24">
+        <FadeIn>
+          <div className="flex items-center gap-2.5 mb-4">
+            <div className="w-6 h-[2px] bg-[#7EBAB5]" />
+            <p className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
+              Sponsors
+            </p>
+          </div>
+          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-white mb-10 tracking-[-0.02em]">
+            후원 기관
+          </h2>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-[600px]">
+          {sponsors.map((sponsor, i) => (
+            <FadeIn key={sponsor.name} delay={0.1 + i * 0.08}>
+              <div className="bg-[#111111] rounded-2xl border border-[#1E1E1E] p-8 flex flex-col items-center text-center hover:border-[#333] transition-colors duration-200">
+                <div className="relative w-[140px] h-[60px] mb-5 flex items-center justify-center">
+                  <NextImage
+                    src={sponsor.image}
+                    alt={sponsor.name}
+                    width={140}
+                    height={60}
+                    className="object-contain max-h-[60px]"
+                  />
+                </div>
+                <h3 className="text-[16px] font-semibold text-white mb-1">
+                  {sponsor.name}
+                </h3>
+                <p className="text-[13px] text-[#6B7280]">{sponsor.nameEn}</p>
               </div>
             </FadeIn>
           ))}

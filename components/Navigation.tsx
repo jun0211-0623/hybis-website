@@ -10,6 +10,7 @@ import { useScroll } from '@/components/ui/use-scroll';
 
 const navLinks = [
   { label: "소개", href: "/about" },
+  { label: "소식", href: "/news" },
   { label: "프로그램", href: "#programs" },
   { label: "학술", href: "#academics" },
   { label: "자료", href: "#resources" },

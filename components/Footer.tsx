@@ -13,6 +13,12 @@ const footerLinks = [
     ],
   },
   {
+    title: "소식",
+    links: [
+      { label: "언론보도", href: "/news" },
+    ],
+  },
+  {
     title: "프로그램",
     links: [
       { label: "최고위 과정", href: "/programs/executive" },
@@ -95,7 +101,7 @@ export default function Footer() {
       {/* Footer Links */}
       <div className="bg-[#0A0A0A] border-t border-[#1A1A1A]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-16">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10">
             {footerLinks.map((group) => (
               <div key={group.title}>
                 <h4 className="text-[14px] font-semibold text-white mb-4">
