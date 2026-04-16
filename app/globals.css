@@ -92,6 +92,14 @@ body {
   animation: timeline-pulse 2.5s ease-in-out infinite;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* ── Glass Button ── */
 .glass-button-wrap {
   position: relative;
