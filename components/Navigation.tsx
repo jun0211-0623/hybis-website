@@ -58,7 +58,7 @@ export default function Navigation() {
           className="flex items-center gap-2 group"
         >
           <span className="text-white font-bold text-[18px] tracking-[0.02em] font-[family-name:var(--font-display)]">
-            HYBIS
+            Bitcoinology Lab
           </span>
         </a>
 

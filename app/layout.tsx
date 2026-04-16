@@ -9,14 +9,14 @@ const quintessential = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "HYBIS — 한양대학교 비트코인 학제간연구소",
+  title: "Bitcoinology Lab — Where Money, Code, Culture Converge",
   description:
-    "새로운 화폐의 언어를 탐구하다. 비트코인과 화폐철학의 교차점에서 학문이 새로운 답을 찾습니다.",
+    "디지털 화폐와 인공지능 시대의 가치·신뢰·사회를 인문학적으로 탐구하는 학제적 연구 허브",
   keywords:
-    "HYBIS, 비트코인, 화폐철학, 한양대학교, 학제간연구소, Bitcoin, 암호화폐",
+    "Bitcoinology Lab, 비트코인, 화폐철학, 한양대학교, Bitcoin, Bitcoinology, Value Code Society",
   openGraph: {
-    title: "HYBIS — 한양대학교 비트코인 학제간연구소",
-    description: "새로운 화폐의 언어를 탐구하다.",
+    title: "Bitcoinology Lab — Where Money, Code, Culture Converge",
+    description: "Where Money, Code, Culture Converge",
     locale: "ko_KR",
     type: "website",
   },

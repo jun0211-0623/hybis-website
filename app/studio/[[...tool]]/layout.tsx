@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "HYBIS 관리자",
+  title: "Bitcoinology Lab 관리자",
 };
 
 export default function StudioLayout({

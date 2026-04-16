@@ -145,7 +145,7 @@ export default function Resources() {
             </FadeIn>
             <FadeIn delay={0.1}>
               <p className="text-[#9AA0A6] text-[15px] max-w-[440px]">
-                HYBIS의 정책보고서와 학술논문을 확인하세요.
+                Bitcoinology Lab의 정책보고서와 학술논문을 확인하세요.
               </p>
             </FadeIn>
           </div>

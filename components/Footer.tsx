@@ -127,9 +127,9 @@ export default function Footer() {
         <div className="border-t border-[#1A1A1A]">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2">
-              <span className="text-white font-bold text-[15px] font-[family-name:var(--font-display)]">HYBIS</span>
+              <span className="text-white font-bold text-[15px] font-[family-name:var(--font-display)]">Bitcoinology Lab</span>
               <span className="text-[#333] text-[12px]">
-                &copy; {currentYear} Hanyang Bitcoin Interdisciplinary Studies
+                &copy; {currentYear} Bitcoinology Lab
               </span>
             </div>
             <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-4 gap-y-1">

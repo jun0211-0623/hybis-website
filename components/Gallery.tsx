@@ -103,7 +103,7 @@ export default function Gallery() {
 
             <FadeIn delay={0.15}>
               <p className="text-[#9AA0A6] text-[15px] leading-relaxed mb-8 max-w-[400px]">
-                북콘서트, 최고위과정 강의, 총동문회 등 HYBIS의 주요 활동
+                북콘서트, 최고위과정 강의, 총동문회 등 Bitcoinology Lab의 주요 활동
                 현장을 소개합니다.
               </p>
             </FadeIn>

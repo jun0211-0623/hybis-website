@@ -118,7 +118,7 @@ export default function NewsContent() {
 
         <FadeIn delay={0.25}>
           <p className="text-[#9AA0A6] text-[17px] leading-[1.8] max-w-[680px]">
-            HYBIS 관련 언론보도와 주요 소식을 확인하세요.
+            Bitcoinology Lab 관련 언론보도와 주요 소식을 확인하세요.
           </p>
         </FadeIn>
       </section>

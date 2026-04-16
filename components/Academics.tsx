@@ -51,7 +51,7 @@ export default function Academics({
         </FadeIn>
         <FadeIn delay={0.1}>
           <p className="text-[#9AA0A6] text-[15px] text-center mb-14 max-w-[520px] mx-auto">
-            HYBIS의 세미나, 콜로키움, 학술대회 등 주요 행사 이력을
+            Bitcoinology Lab의 세미나, 콜로키움, 학술대회 등 주요 행사 이력을
             확인하세요.
           </p>
         </FadeIn>

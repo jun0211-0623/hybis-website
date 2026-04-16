@@ -33,7 +33,7 @@ export default function Hero() {
             <motion.div {...fadeUp(0.1)} className="flex items-center gap-2.5 mb-6">
               <div className="w-8 h-[2px] bg-[#7EBAB5]" />
               <span className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
-                Hanyang Bitcoin Interdisciplinary Studies
+                Value, Code, Society
               </span>
             </motion.div>
           )}
@@ -54,8 +54,9 @@ export default function Hero() {
               {...fadeUp(0.4)}
               className="text-[#9AA0A6] text-[17px] leading-[1.7] mb-10 max-w-[460px]"
             >
-              한양대학교 화폐철학연구센터(HYBIS)는 경제학, 철학, 법학,
-              컴퓨터과학의 관점에서 화폐와 비트코인을 학제적으로 연구합니다.
+              Bitcoinology Lab은 디지털 화폐와 인공지능 시대에
+              가치·신뢰·사회가 어떻게 재구성되는지를 인문학적으로 탐구하는
+              학제적 연구 허브입니다.
             </motion.p>
           )}
 

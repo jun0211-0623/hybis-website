@@ -108,7 +108,7 @@ export default function Monographs() {
             <FadeIn delay={0.15}>
               <p className="text-[#9AA0A6] text-[15px] max-w-[480px] leading-relaxed">
                 Hanyang University Monograph Series on Bitcoin and the
-                Humanities. HYBIS 연구진의 학술 단행본 시리즈입니다.
+                Humanities. Bitcoinology Lab 연구진의 학술 단행본 시리즈입니다.
               </p>
             </FadeIn>
           </div>

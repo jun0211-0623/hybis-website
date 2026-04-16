@@ -4,30 +4,30 @@ import { FadeIn, StaggerContainer, StaggerItem } from "./FadeIn";
 
 const researchAreas = [
   {
-    title: "화폐 개념의 전환적 탐구",
+    title: "가치·신뢰·사회의 인문학적 탐구",
     description:
-      "비트코인은 코드와 네트워크 합의만으로 희소성과 가치를 보장합니다. 아리스토텔레스부터 현대 암호경제까지 화폐의 역사를 연속적으로 검토하고, 가치·권력·윤리의 삼중 구조를 동시대 언어로 재구성합니다.",
+      "비트코인을 문명사적 실험으로 읽어내며, 공동체의 조율 방식, 권위의 정당화, 화폐와 자유의 의미가 어떻게 재편되는지 인문학적으로 분석합니다.",
     span: "lg:col-span-2 lg:row-span-2",
     featured: true,
   },
   {
+    title: "연산적 신뢰의 인프라 연구",
+    description:
+      "블록체인, 플랫폼, AI 기반 의사결정 시스템 등 computational trust의 인프라와 상상력을 철학·윤리·정치사상의 렌즈로 분석합니다.",
+    span: "",
+    featured: false,
+  },
+  {
     title: "학제적 융합 연구",
     description:
-      "철학·역사·문화연구를 기축으로 암호경제학, 분산시스템 공학, 법, 회계 등을 유기적으로 연결하는 입체적 연구 모델을 개발합니다.",
+      "철학, 문학·문화연구, 지성사, 윤리학, 정치사상, 과학기술학(STS)을 연결하고, 시장·규제·일상 실천에 대한 경험적 연구를 결합합니다.",
     span: "",
     featured: false,
   },
   {
-    title: "정책·사회 실천",
+    title: "학문적 엄밀성과 공적 통찰",
     description:
-      "주권 구조, 금융 접근성, 기후 행동에 미치는 영향을 경험적 데이터와 비판적 이론으로 분석하고, 정책 브리프와 공개 교육 자료로 환류합니다.",
-    span: "",
-    featured: false,
-  },
-  {
-    title: "인재 양성",
-    description:
-      "대학원 전공, 집중 워크숍, 최고위과정을 통해 코드·데이터·담론을 통합적으로 해석하고 설계할 수 있는 다음 세대의 연구자를 양성합니다.",
+      "세미나·워크숍·출판·공동 프로젝트를 통해 엄밀한 학술 연구와 사회적 통찰을 함께 생산하고, 더 책임 있는 미래를 설계합니다.",
     span: "lg:col-span-2",
     featured: false,
   },
@@ -57,8 +57,8 @@ export default function About() {
         </FadeIn>
         <FadeIn delay={0.15} className="mb-14">
           <p className="text-[#9AA0A6] text-[16px] leading-relaxed max-w-[520px]">
-            이론 창출, 학제 연대, 사회 실천, 인재 양성의 네 축을 통합하여
-            디지털 네트워크 위에서 형성되는 인간·공동체·경제의 미래를 설계합니다.
+            디지털 화폐와 인공지능 시대에 가치·신뢰·사회가 어떻게 재구성되는지를
+            인문학적으로 탐구합니다.
           </p>
         </FadeIn>
 

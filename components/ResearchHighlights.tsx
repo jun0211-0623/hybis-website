@@ -54,7 +54,7 @@ export default function ResearchHighlights({
         </FadeIn>
         <FadeIn delay={0.1}>
           <p className="text-[#9AA0A6] text-[15px] text-center mb-16 max-w-[450px] mx-auto">
-            HYBIS의 주요 출판물과 연구 성과를 확인하세요.
+            Bitcoinology Lab의 주요 출판물과 연구 성과를 확인하세요.
           </p>
         </FadeIn>
 

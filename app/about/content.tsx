@@ -7,8 +7,8 @@ import Gallery from "@/components/Gallery";
 
 const history = [
   { date: "2025.07", event: "비트코인화폐철학 대학원협동과정 출범" },
-  { date: "2025.01", event: "HYBIS 모노그래프 시리즈 출간" },
-  { date: "2024.05", event: "HYBIS 설립" },
+  { date: "2025.01", event: "Bitcoinology Lab 모노그래프 시리즈 출간" },
+  { date: "2024.05", event: "Bitcoinology Lab 설립" },
   { date: "2024.03", event: "제1기 비트코인화폐철학 최고위과정 개설" },
   { date: "2024.02", event: "비트코인화폐철학 대학원협동과정 정식 인가" },
 ];
@@ -94,7 +94,7 @@ export default function AboutContent() {
           <div className="flex items-center gap-2.5 mb-4">
             <div className="w-6 h-[2px] bg-[#7EBAB5]" />
             <p className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
-              About HYBIS
+              About Bitcoinology Lab
             </p>
           </div>
         </FadeIn>
@@ -113,9 +113,9 @@ export default function AboutContent() {
 
             <FadeIn delay={0.25}>
               <p className="text-[#9AA0A6] text-[17px] leading-[1.8] max-w-[680px]">
-                한양대학교 비트코인화폐철학연구센터(HYBIS)는 경제학, 철학, 법학,
-                컴퓨터과학의 관점에서 화폐와 비트코인을 학제적으로 연구하는
-                인문과학대학 소속 연구센터입니다.
+                Bitcoinology Lab은 디지털 화폐와 인공지능이 결합하는 시대에
+                가치(value)·신뢰(trust)·사회(society)가 어떻게 재구성되는지를
+                인문학적으로 탐구하는 학제적 연구 허브입니다.
               </p>
             </FadeIn>
           </div>
@@ -123,7 +123,7 @@ export default function AboutContent() {
           <FadeIn delay={0.2}>
             <NextImage
               src="/logo-hybis.jpeg"
-              alt="HYBIS Logo"
+              alt="Bitcoinology Lab Logo"
               width={180}
               height={150}
               className="rounded-xl flex-shrink-0 hidden md:block"
@@ -134,34 +134,34 @@ export default function AboutContent() {
 
       <div className="section-divider" />
 
-      {/* 인사말 */}
+      {/* 소개 */}
       <section className="max-w-[1280px] mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <FadeIn>
           <div className="flex items-center gap-2.5 mb-4">
             <div className="w-6 h-[2px] bg-[#7EBAB5]" />
-            <p className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase">
-              Greeting
+            <p className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
+              About
             </p>
           </div>
           <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-white mb-8 tracking-[-0.02em]">
-            센터장 인사말
+            Bitcoinology란
           </h2>
         </FadeIn>
 
         <FadeIn delay={0.1}>
           <div className="max-w-[720px] space-y-5">
             <p className="text-[16px] text-[#9AA0A6] leading-[1.8]">
-              HYBIS는 비트코인 연구에서 기술적 접근보다 <strong className="text-white">인문학적 질문</strong>을 중심에 놓습니다.
-              &lsquo;블록체인의 처리 속도와 비용&rsquo;이 아니라 &lsquo;디지털 희소성이 인간의 삶과 공동체를 어떻게 다시
-              사유하게 만드는가?&rsquo;라는 질문을 던집니다.
+              &lsquo;Bitcoinology&rsquo;는 비트코인을 단순한 기술이나 투자대상이 아니라, <strong className="text-white">신뢰의 계산화·제도화, 화폐와 주권의 재배치, 자유와 공동체의 재정의</strong>를 촉발하는 문명사적 실험으로 읽어내는 연구영역을 뜻합니다.
             </p>
             <p className="text-[16px] text-[#9AA0A6] leading-[1.8]">
-              HYBIS의 학제성은 철학·역사·문화 연구에 기반하면서, 경제학과 컴퓨터공학 기법을 선택적으로 활용합니다.
-              서로 다른 언어코드와 텍스트, 데이터와 은유, 수식과 윤리가 맞부딪치는 접점에서 새로운 지식을 창출하려 합니다.
+              본 랩은 철학, 문학·문화연구, 지성사, 윤리학, 정치사상, 과학기술학(STS) 등을 연결하여 블록체인, 플랫폼, AI 기반 의사결정 시스템 등 <strong className="text-white">연산적 신뢰(computational trust)</strong>의 인프라와 상상력을 분석합니다.
+            </p>
+            <p className="text-[16px] text-[#9AA0A6] leading-[1.8]">
+              개념 분석과 텍스트 읽기를 기반으로 하되, 시장·규제·일상적 실천에 대한 경험적 연구를 결합해 실제 세계의 변화를 입체적으로 해명합니다. 세미나·워크숍·출판·공동 프로젝트를 통해 학문적 엄밀성과 공적 통찰을 함께 생산하는 것이 목표입니다.
             </p>
             <div className="pt-4">
               <p className="text-[15px] text-white font-medium">윤성호</p>
-              <p className="text-[13px] text-[#6B7280]">HYBIS 센터장 · 한양대학교 영어영문학과 교수</p>
+              <p className="text-[13px] text-[#6B7280]">Bitcoinology Lab 센터장 · 한양대학교 영어영문학과 교수</p>
             </div>
           </div>
         </FadeIn>
@@ -187,23 +187,23 @@ export default function AboutContent() {
           {[
             {
               num: "01",
-              title: "화폐 개념의 전환적 탐구",
-              desc: "아리스토텔레스부터 현대 코드 기반 합의까지 연속적으로 검토하여, 가치·권력·윤리의 삼중 구조를 동시대 언어로 재구성합니다.",
+              title: "가치·신뢰·사회의 인문학적 탐구",
+              desc: "비트코인을 문명사적 실험으로 읽어내며, 공동체의 조율 방식, 권위의 정당화, 화폐와 자유의 의미가 어떻게 재편되는지 인문학적으로 분석합니다.",
             },
             {
               num: "02",
-              title: "지식의 다차원적 연결",
-              desc: "철학·역사·문화연구를 주축으로 하되, 암호경제학·분산시스템 공학·법·회계 등을 유기적으로 결합합니다.",
+              title: "연산적 신뢰의 인프라 연구",
+              desc: "블록체인, 플랫폼, AI 기반 의사결정 시스템 등 computational trust의 인프라와 상상력을 철학·윤리·정치사상의 렌즈로 분석합니다.",
             },
             {
               num: "03",
-              title: "현실 문제에 대한 실천적 개입",
-              desc: "경험적 데이터와 비판적 이론을 결합하여 디지털 화폐의 다층적 영향을 분석하고, 정책·교육·사회 예술 프로그램으로 환류시킵니다.",
+              title: "학제적 융합 연구",
+              desc: "철학, 문학·문화연구, 지성사, 윤리학, 정치사상, 과학기술학(STS)을 연결하고, 시장·규제·일상 실천에 대한 경험적 연구를 결합합니다.",
             },
             {
               num: "04",
-              title: "다음 세대를 위한 학습 생태계",
-              desc: "대학원 전공·집중 워크숍·최고위과정을 통해 코드·데이터·담론을 통합적으로 해석하고 설계하는 역량을 개발합니다.",
+              title: "학문적 엄밀성과 공적 통찰",
+              desc: "세미나·워크숍·출판·공동 프로젝트를 통해 엄밀한 학술 연구와 사회적 통찰을 함께 생산하고, 더 책임 있는 미래를 설계합니다.",
             },
           ].map((item, i) => (
             <FadeIn key={item.num} delay={0.1 + i * 0.08}>
