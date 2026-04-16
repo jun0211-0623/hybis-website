@@ -39,6 +39,18 @@ const monographs: MonographItem[] = [
     year: "2025",
   },
   {
+    id: "no-future-without-bitcoin",
+    title: "비트코인 없는 미래는 없다",
+    subtitle: "",
+    author: "오태민, 손혜민, 김유정",
+    description:
+      "화폐의 본질을 신뢰의 기록으로 정의하며, 비트코인이 분산된 기술 구조와 합의 메커니즘을 통해 세계 경제 질서를 어떻게 재편할 수 있는지를 인문학적 관점에서 탐구합니다.",
+    image: "",
+    isbn: "",
+    publisher: "",
+    year: "2025",
+  },
+  {
     id: "language-of-currency",
     title: "화폐의 언어",
     subtitle: "돈은 어떻게 우리에게 말을 거는가",
@@ -148,12 +160,22 @@ export default function Monographs() {
                     <div className="relative w-[120px] sm:w-[140px] lg:w-[160px] h-[175px] sm:h-[200px] lg:h-[230px] group-hover:scale-[1.03] transition-transform duration-500">
                       {/* Book shadow */}
                       <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[80%] h-6 rounded-full blur-xl bg-black/60" />
-                      <Image
-                        src={book.image}
-                        alt={book.title}
-                        fill
-                        className="object-cover rounded-sm shadow-2xl"
-                      />
+                      {book.image ? (
+                        <Image
+                          src={book.image}
+                          alt={book.title}
+                          fill
+                          className="object-cover rounded-sm shadow-2xl"
+                        />
+                      ) : (
+                        <div className="w-full h-full rounded-sm shadow-2xl bg-gradient-to-br from-[#7EBAB5]/20 to-[#141414] flex flex-col justify-between p-4">
+                          <div className="w-8 h-[2px] bg-[#7EBAB5]/40" />
+                          <div>
+                            <p className="text-[11px] font-bold text-white/80 leading-tight">{book.title}</p>
+                            <p className="text-[8px] text-white/40 mt-1">{book.author}</p>
+                          </div>
+                        </div>
+                      )}
                     </div>
                     {/* Year badge */}
                     <div className="absolute top-4 right-4 bg-[#0A0A0A]/70 backdrop-blur-sm rounded-full px-3 py-1">

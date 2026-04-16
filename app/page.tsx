@@ -2,7 +2,6 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Monographs from "@/components/Monographs";
-import Gallery from "@/components/Gallery";
 import Programs from "@/components/Programs";
 import Academics from "@/components/Academics";
 import Resources from "@/components/Resources";
@@ -15,7 +14,6 @@ export default function Home() {
       <Hero />
       <About />
       <Monographs />
-      <Gallery />
       <Programs />
       <Academics />
       <Resources />

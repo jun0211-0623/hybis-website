@@ -29,7 +29,7 @@ const items: ResourceItem[] = [
     title: "스테이블코인의 지정학: 디지털 달러가 재편하는 세계체제와 한국의 대응 전략",
     summary:
       "디지털 달러 중심의 스테이블코인이 국제 금융 질서에 미치는 지정학적 영향과 한국의 전략적 대응 방안을 분석한 정책보고서",
-    date: "2024.11",
+    date: "2025",
     color: "#7EBAB5",
     url: "/resources/stablecoin-geopolitics.pdf",
   },
@@ -39,17 +39,57 @@ const items: ResourceItem[] = [
     title: "스테이블 코인 해외입법례와 국내법안 비교",
     summary:
       "미국, EU 등 주요국의 스테이블코인 규제 법안과 국내 입법 동향을 비교 분석한 보고서",
-    date: "2024.11",
+    date: "2025",
     color: "#7EBAB5",
     url: "/resources/stablecoin-legislation.pdf",
+  },
+  {
+    id: "r3",
+    category: "정책보고서",
+    title: "자산 토큰화 혁신 및 머니 레고 기반 탈중앙 금융",
+    summary:
+      "진성훈. 자산 토큰화의 혁신적 접근과 머니 레고 구조를 활용한 탈중앙화 금융(DeFi) 체계를 분석한 보고서",
+    date: "2025",
+    color: "#7EBAB5",
+    url: "https://bitcoinphilosophy.hanyang.ac.kr/home",
+  },
+  {
+    id: "r4",
+    category: "정책보고서",
+    title: "자산 토큰화(RWA) 보고서",
+    summary:
+      "이창준. 실물 자산 토큰화(Real World Assets)의 현황과 전망을 다룬 정책 보고서",
+    date: "2025",
+    color: "#7EBAB5",
+    url: "https://bitcoinphilosophy.hanyang.ac.kr/home",
+  },
+  {
+    id: "r5",
+    category: "정책보고서",
+    title: "토큰화 경제: 삼성전자의 글로벌 전략",
+    summary:
+      "노성준. 토큰화 경제 패러다임 속에서 삼성전자의 글로벌 전략적 대응을 분석한 보고서",
+    date: "2025",
+    color: "#7EBAB5",
+    url: "https://bitcoinphilosophy.hanyang.ac.kr/home",
+  },
+  {
+    id: "r6",
+    category: "정책보고서",
+    title: "인프라시설 토큰화의 필요성과 유용성",
+    summary:
+      "박수훈. 공공 인프라 시설의 토큰화가 가져올 효율성과 접근성 개선 방안을 제시한 보고서",
+    date: "2025",
+    color: "#7EBAB5",
+    url: "https://bitcoinphilosophy.hanyang.ac.kr/home",
   },
   {
     id: "p1",
     category: "학술논문",
     title: "반연방과 반연준: 미국 자유지상주의의 통화론",
     summary:
-      "미국 자유지상주의 전통에서 연방준비제도에 대한 비판과 대안적 통화 체계 논의를 다룬 학술논문",
-    date: "2024.12",
+      "김승우. 미국 자유지상주의 전통에서 연방준비제도에 대한 비판과 대안적 통화 체계 논의를 다룬 학술논문 (『미국사연구』 제62호, 2025)",
+    date: "2025",
     color: "#7A8FA6",
     url: "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003267129",
   },
@@ -58,8 +98,8 @@ const items: ResourceItem[] = [
     category: "학술논문",
     title: "출력제한 전력의 가치화: 암호화폐 채굴을 통한 계통 유연성 확보",
     summary:
-      "유종민, 이서진 공저. 출력 제한 전력을 암호화폐 채굴에 활용하여 전력 계통의 유연성을 확보하는 방안을 제시한 논문",
-    date: "2024.12",
+      "유종민, 이서진 공저. 출력 제한 전력을 암호화폐 채굴에 활용하여 전력 계통의 유연성을 확보하는 방안을 제시 (『한국기후변화학회지』 제16권 6호, 2025)",
+    date: "2025",
     color: "#7A8FA6",
     url: "/resources/mining-energy.pdf",
   },

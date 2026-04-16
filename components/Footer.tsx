@@ -150,6 +150,15 @@ export default function Footer() {
               <span className="text-[#6B7280] text-[12px]">
                 서울 성동구 왕십리로 222
               </span>
+              <span className="text-[#2A2A2A] hidden sm:inline">|</span>
+              <a
+                href="https://bitcoinphilosophy.hanyang.ac.kr/home"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#6B7280] hover:text-[#7EBAB5] text-[12px] transition-colors duration-200 min-h-[44px] flex items-center"
+              >
+                비트코인화폐철학과 →
+              </a>
             </div>
           </div>
         </div>

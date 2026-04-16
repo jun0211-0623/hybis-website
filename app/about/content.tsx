@@ -3,6 +3,7 @@
 import NextImage from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
+import Gallery from "@/components/Gallery";
 
 const history = [
   { date: "2025.07", event: "비트코인화폐철학 대학원협동과정 출범" },
@@ -269,7 +270,8 @@ export default function AboutContent() {
         </div>
       </section>
 
-      <div className="section-divider" />
+      {/* Beyond the Page - 활동 사진 */}
+      <Gallery />
 
       {/* 조직도 */}
       <section className="max-w-[1280px] mx-auto px-6 lg:px-10 py-16 lg:py-24">
