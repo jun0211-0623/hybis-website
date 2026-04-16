@@ -72,7 +72,7 @@ const sponsors = [
   {
     name: "모비커스(주)",
     nameEn: "Mobickers Inc.",
-    image: "/partners/mobickers.jpg",
+    image: "/partners/mobickers.png",
   },
 ];
 
@@ -366,13 +366,13 @@ export default function AboutContent() {
           {partners.map((partner, i) => (
             <FadeIn key={partner.name} delay={0.1 + i * 0.08}>
               <div className="bg-[#111111] rounded-2xl border border-[#1E1E1E] p-8 flex flex-col items-center text-center hover:border-[#333] transition-colors duration-200">
-                <div className="relative w-[140px] h-[60px] mb-5 flex items-center justify-center">
+                <div className="relative w-[260px] h-[110px] mb-5 flex items-center justify-center bg-white/90 rounded-xl p-4">
                   <NextImage
                     src={partner.image}
                     alt={partner.name}
-                    width={140}
-                    height={60}
-                    className="object-contain max-h-[60px]"
+                    width={260}
+                    height={110}
+                    className="object-contain max-h-[90px]"
                   />
                 </div>
                 <h3 className="text-[16px] font-semibold text-white mb-1">
@@ -427,13 +427,13 @@ export default function AboutContent() {
           {sponsors.map((sponsor, i) => (
             <FadeIn key={sponsor.name} delay={0.1 + i * 0.08}>
               <div className="bg-[#111111] rounded-2xl border border-[#1E1E1E] p-8 flex flex-col items-center text-center hover:border-[#333] transition-colors duration-200">
-                <div className="relative w-[140px] h-[60px] mb-5 flex items-center justify-center">
+                <div className="relative w-[160px] h-[70px] mb-5 flex items-center justify-center rounded-xl overflow-hidden">
                   <NextImage
                     src={sponsor.image}
                     alt={sponsor.name}
-                    width={140}
-                    height={60}
-                    className="object-contain max-h-[60px]"
+                    width={160}
+                    height={70}
+                    className="object-contain max-h-[70px]"
                   />
                 </div>
                 <h3 className="text-[16px] font-semibold text-white mb-1">
