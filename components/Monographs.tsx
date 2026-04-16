@@ -45,8 +45,8 @@ const monographs: MonographItem[] = [
     author: "오태민, 손혜민, 김유정",
     description:
       "화폐의 본질을 신뢰의 기록으로 정의하며, 비트코인이 분산된 기술 구조와 합의 메커니즘을 통해 세계 경제 질서를 어떻게 재편할 수 있는지를 인문학적 관점에서 탐구합니다.",
-    image: "",
-    isbn: "",
+    image: "/books/9791193869338.jpg",
+    isbn: "979-11-93869-33-8",
     publisher: "",
     year: "2025",
   },

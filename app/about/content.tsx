@@ -385,6 +385,28 @@ export default function AboutContent() {
         </div>
       </section>
 
+      {/* 협력 활동 사진 슬라이더 */}
+      <div className="py-12 lg:py-16 overflow-hidden">
+        <div className="partner-slider-mask">
+          <div className="partner-slider-animate flex gap-4 w-max">
+            {[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6].map((num, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 w-[200px] h-[140px] sm:w-[280px] sm:h-[180px] lg:w-[340px] lg:h-[220px] rounded-xl overflow-hidden"
+              >
+                <NextImage
+                  src={`/partner-photos/partner-${num}.jpg`}
+                  alt={`협력 활동 사진 ${num}`}
+                  width={340}
+                  height={220}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="section-divider" />
 
       {/* 후원 기관 */}

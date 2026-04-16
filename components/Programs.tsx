@@ -120,11 +120,18 @@ export default function Programs() {
               ))}
             </div>
 
-            <Link href={current.href}>
-              <GlassButton size="default">
-                자세히 보기 →
-              </GlassButton>
-            </Link>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+              <Link href={current.href}>
+                <GlassButton size="default">
+                  자세히 보기 →
+                </GlassButton>
+              </Link>
+              <a href="https://bitcoinphilosophy.hanyang.ac.kr/home" target="_blank" rel="noopener noreferrer">
+                <GlassButton size="default">
+                  학과 홈페이지 →
+                </GlassButton>
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>

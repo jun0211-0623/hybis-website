@@ -268,7 +268,7 @@ export default function GraduateContent() {
           <p className="text-[#9AA0A6] text-[15px] mb-8 max-w-[400px] mx-auto">
             대학원 협동과정에 대한 문의 사항이 있으시면 연락해 주세요.
           </p>
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <a href="mailto:iamyam@hanyang.ac.kr">
               <GlassButton size="default">
                 문의하기 →
@@ -277,6 +277,11 @@ export default function GraduateContent() {
             <a href="tel:02-2220-0751">
               <GlassButton size="default">
                 02-2220-0751
+              </GlassButton>
+            </a>
+            <a href="https://bitcoinphilosophy.hanyang.ac.kr/home" target="_blank" rel="noopener noreferrer">
+              <GlassButton size="default">
+                학과 홈페이지 →
               </GlassButton>
             </a>
           </div>

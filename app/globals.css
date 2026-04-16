@@ -92,6 +92,24 @@ body {
   animation: timeline-pulse 2.5s ease-in-out infinite;
 }
 
+@keyframes partner-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.partner-slider-animate {
+  animation: partner-scroll 25s linear infinite;
+}
+
+.partner-slider-animate:hover {
+  animation-play-state: paused;
+}
+
+.partner-slider-mask {
+  mask: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
