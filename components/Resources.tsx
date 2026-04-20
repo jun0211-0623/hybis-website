@@ -113,7 +113,7 @@ const papersAndReports: PaperItem[] = [
       "진성훈. 자산 토큰화의 혁신적 접근과 머니 레고 구조를 활용한 탈중앙화 금융(DeFi) 체계를 분석한 보고서",
     date: "2025",
     color: "#7EBAB5",
-    url: "https://bitcoinphilosophy.hanyang.ac.kr/home",
+    url: "/resources/tokenization-composability.pdf",
   },
   {
     id: "r4",
@@ -123,7 +123,7 @@ const papersAndReports: PaperItem[] = [
       "이창준. 실물 자산 토큰화(Real World Assets)의 현황과 전망을 다룬 정책 보고서",
     date: "2025",
     color: "#7EBAB5",
-    url: "https://bitcoinphilosophy.hanyang.ac.kr/home",
+    url: "/resources/rwa-report.pdf",
   },
   {
     id: "r5",
@@ -133,7 +133,7 @@ const papersAndReports: PaperItem[] = [
       "노성준. 토큰화 경제 패러다임 속에서 삼성전자의 글로벌 전략적 대응을 분석한 보고서",
     date: "2025",
     color: "#7EBAB5",
-    url: "https://bitcoinphilosophy.hanyang.ac.kr/home",
+    url: "/resources/samsung-tokenization.pdf",
   },
   {
     id: "r6",
@@ -143,7 +143,7 @@ const papersAndReports: PaperItem[] = [
       "박수훈. 공공 인프라 시설의 토큰화가 가져올 효율성과 접근성 개선 방안을 제시한 보고서",
     date: "2025",
     color: "#7EBAB5",
-    url: "https://bitcoinphilosophy.hanyang.ac.kr/home",
+    url: "/resources/infrastructure-tokenization.pdf",
   },
   {
     id: "p1",
