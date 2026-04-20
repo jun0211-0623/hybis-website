@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { BeamsBackground } from "@/components/ui/beams-background";
 import { GlassButton } from "@/components/ui/glass-button";
+import { AnimatedText } from "@/components/ui/animated-underline-text-one";
 
 const ease = [0.25, 0.4, 0.25, 1] as const;
 
@@ -39,19 +40,29 @@ export default function Hero() {
           )}
 
           {mounted && (
-            <motion.h1
-              {...fadeUp(0.25)}
-              className="text-[clamp(2.8rem,6vw,4.5rem)] font-bold text-white leading-[1.08] mb-6 tracking-[-0.03em]"
-            >
-              화폐의 본질을
-              <br />
-              <span className="text-[#7EBAB5]">학문</span>으로 증명하다.
-            </motion.h1>
+            <motion.div {...fadeUp(0.25)} className="mb-10">
+              <AnimatedText
+                as="h1"
+                text="Bitcoinology Lab"
+                textClassName="text-[clamp(3.6rem,8vw,6rem)] font-bold text-white leading-[1.02] tracking-[-0.035em] font-[family-name:var(--font-display)]"
+                underlineClassName="text-[#7EBAB5]"
+                underlineDuration={1.8}
+              />
+            </motion.div>
           )}
 
           {mounted && (
             <motion.p
-              {...fadeUp(0.4)}
+              {...fadeUp(0.35)}
+              className="text-[clamp(1.25rem,2.3vw,1.75rem)] text-white/90 font-medium leading-[1.35] mb-8 tracking-[-0.01em]"
+            >
+              화폐의 본질을 <span className="text-[#7EBAB5]">학문</span>으로 증명하다.
+            </motion.p>
+          )}
+
+          {mounted && (
+            <motion.p
+              {...fadeUp(0.45)}
               className="text-[#9AA0A6] text-[17px] leading-[1.7] mb-10 max-w-[460px]"
             >
               Bitcoinology Lab은 디지털 화폐와 인공지능 시대에
