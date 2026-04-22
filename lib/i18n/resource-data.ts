@@ -1,6 +1,4 @@
-// Publication data — shared across locales. Titles and author names stay in their
-// original Korean (these are Korean-language publications), only UI labels are
-// translated via the dictionary.
+import type { Locale } from "./config";
 
 export interface MonographItem {
   id: string;
@@ -24,7 +22,7 @@ export interface PaperItem {
   url: string;
 }
 
-export const monographs: MonographItem[] = [
+const monographsKo: MonographItem[] = [
   {
     id: "in-search-of-satoshi",
     title: "사토시를 찾아서",
@@ -63,7 +61,46 @@ export const monographs: MonographItem[] = [
   },
 ];
 
-export const papersAndReports: PaperItem[] = [
+const monographsEn: MonographItem[] = [
+  {
+    id: "in-search-of-satoshi",
+    title: "In Search of Satoshi",
+    subtitle: "Toward an Intellectual History of Bitcoin",
+    author: "Sungho Yoon",
+    description:
+      "Tracing the intellectual background of Satoshi Nakamoto, Bitcoin's creator, this book explores from an intellectual-history perspective how cryptography, economics, and philosophy converged to produce the innovation of Bitcoin.",
+    image: "/books/9788972188513.jpg",
+    isbn: "978-89-7218-851-3",
+    publisher: "Hanyang University Press",
+    year: "2025",
+  },
+  {
+    id: "no-future-without-bitcoin",
+    title: "There Is No Future Without Bitcoin",
+    subtitle: "",
+    author: "Taemin Oh, Hyemin Son, Yujung Kim",
+    description:
+      "Defining the essence of money as a record of trust, this book explores from a humanistic perspective how Bitcoin — through its distributed technical architecture and consensus mechanism — could reshape the global economic order.",
+    image: "/books/9791193869338.jpg",
+    isbn: "979-11-93869-33-8",
+    publisher: "",
+    year: "2025",
+  },
+  {
+    id: "language-of-currency",
+    title: "The Language of Money",
+    subtitle: "How Money Speaks to Us",
+    author: "Gwanghee Lee",
+    description:
+      "A philosophical and economic analysis showing that money is not merely a medium of exchange but also a medium of social communication and an institutional language — an academic work that poses fundamental questions about the nature of money.",
+    image: "/books/9788972188537.jpg",
+    isbn: "978-89-7218-853-7",
+    publisher: "Hanyang University Press",
+    year: "2025",
+  },
+];
+
+const papersAndReportsKo: PaperItem[] = [
   {
     id: "r1",
     categoryKey: "report",
@@ -146,3 +183,102 @@ export const papersAndReports: PaperItem[] = [
     url: "/resources/mining-energy.pdf",
   },
 ];
+
+const papersAndReportsEn: PaperItem[] = [
+  {
+    id: "r1",
+    categoryKey: "report",
+    title:
+      "Stablecoin Geopolitics: The World Order Reshaped by the Digital Dollar and Korea's Strategic Response",
+    summary:
+      "A policy report analyzing the geopolitical impact of dollar-denominated stablecoins on the international financial order and Korea's strategic response.",
+    date: "2025",
+    color: "#0E4A84",
+    url: "/resources/stablecoin-geopolitics.pdf",
+  },
+  {
+    id: "r2",
+    categoryKey: "report",
+    title:
+      "A Comparison of Foreign Legislation and Domestic Bills on Stablecoins",
+    summary:
+      "A comparative analysis of stablecoin regulatory bills in major jurisdictions (U.S., EU, etc.) and domestic legislative trends in Korea.",
+    date: "2025",
+    color: "#0E4A84",
+    url: "/resources/stablecoin-legislation.pdf",
+  },
+  {
+    id: "r3",
+    categoryKey: "report",
+    title:
+      "Asset Tokenization Innovation and Money-Lego–Based Decentralized Finance",
+    summary:
+      "Seonghun Jin. An analysis of innovative approaches to asset tokenization and DeFi architectures leveraging the money-lego composability.",
+    date: "2025",
+    color: "#0E4A84",
+    url: "/resources/tokenization-composability.pdf",
+  },
+  {
+    id: "r4",
+    categoryKey: "report",
+    title: "Real-World Asset (RWA) Tokenization Report",
+    summary:
+      "Changjun Lee. A policy report on the current state and future outlook of Real-World Asset (RWA) tokenization.",
+    date: "2025",
+    color: "#0E4A84",
+    url: "/resources/rwa-report.pdf",
+  },
+  {
+    id: "r5",
+    categoryKey: "report",
+    title: "The Tokenization Economy: Samsung Electronics' Global Strategy",
+    summary:
+      "Seongjun Noh. A report analyzing Samsung Electronics' global strategic response within the emerging tokenization-economy paradigm.",
+    date: "2025",
+    color: "#0E4A84",
+    url: "/resources/samsung-tokenization.pdf",
+  },
+  {
+    id: "r6",
+    categoryKey: "report",
+    title: "The Necessity and Utility of Infrastructure Tokenization",
+    summary:
+      "Suhoon Park. A report on how tokenizing public infrastructure can improve efficiency and accessibility.",
+    date: "2025",
+    color: "#0E4A84",
+    url: "/resources/infrastructure-tokenization.pdf",
+  },
+  {
+    id: "p1",
+    categoryKey: "paper",
+    title:
+      "Anti-Federalism and Anti-Fed: The Monetary Thought of American Libertarianism",
+    summary:
+      "Seungwoo Kim. An academic paper on the libertarian critique of the Federal Reserve and discussions of alternative monetary systems in the American libertarian tradition (Korean Journal of American History, No. 62, 2025).",
+    date: "2025",
+    color: "#3A6EA5",
+    url: "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003267129",
+  },
+  {
+    id: "p2",
+    categoryKey: "paper",
+    title:
+      "Valuing Curtailed Electricity: Securing Grid Flexibility Through Cryptocurrency Mining",
+    summary:
+      "Jongmin Yoo and Seojin Lee. Proposes using curtailed electricity for cryptocurrency mining to secure grid flexibility (Journal of Climate Change Research, Vol. 16, No. 6, 2025).",
+    date: "2025",
+    color: "#3A6EA5",
+    url: "/resources/mining-energy.pdf",
+  },
+];
+
+export function getMonographs(locale: Locale): MonographItem[] {
+  return locale === "en" ? monographsEn : monographsKo;
+}
+
+export function getPapersAndReports(locale: Locale): PaperItem[] {
+  return locale === "en" ? papersAndReportsEn : papersAndReportsKo;
+}
+
+export const monographs = monographsKo;
+export const papersAndReports = papersAndReportsKo;

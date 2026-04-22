@@ -62,6 +62,7 @@ export default async function ResourceDetailPage({
         title={resource.title}
         description={resource.description}
         body={resource.body}
+        emptyBodyText={dict.detail.emptyBody}
       >
         {resource.fileUrl && (
           <div className="mt-12">

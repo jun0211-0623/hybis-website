@@ -1,7 +1,5 @@
 "use client";
 
-import { FadeIn } from "./FadeIn";
-import { GlassButton } from "@/components/ui/glass-button";
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n/config";
 import { defaultLocale } from "@/lib/i18n/config";
@@ -48,58 +46,9 @@ export default function Footer({
     router.push(withLocale(href, locale));
   };
 
-  const programsHref = withLocale("/#programs", locale);
-
   return (
-    <footer id="contact">
-      {/* CTA section */}
-      <div className="bg-[#1C1B1F] relative overflow-hidden">
-        <div className="section-divider-dark" />
-
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#5B9BD5]/[0.08] rounded-full blur-[120px] pointer-events-none" />
-
-        <div className="relative max-w-[1280px] mx-auto px-6 lg:px-10 py-24 lg:py-32 text-center">
-          <FadeIn>
-            <div className="flex items-center justify-center gap-2.5 mb-6">
-              <div className="w-8 h-[2px] bg-[#5B9BD5]" />
-              <span className="text-[#5B9BD5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
-                {dict.cta.eyebrow}
-              </span>
-              <div className="w-8 h-[2px] bg-[#5B9BD5]" />
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.1}>
-            <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-white leading-[1.15] tracking-[-0.02em] mb-4">
-              {dict.cta.title}
-            </h2>
-          </FadeIn>
-
-          <FadeIn delay={0.15}>
-            <p className="text-white/70 text-[16px] mb-10 max-w-[420px] mx-auto leading-relaxed">
-              {dict.cta.body}
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.2}>
-            <div className="flex items-center justify-center gap-4">
-              <a href={`mailto:${dict.contacts.email}`}>
-                <GlassButton size="default" className="glass-on-dark">
-                  {dict.cta.contact}
-                </GlassButton>
-              </a>
-              <a href={programsHref}>
-                <GlassButton size="default" className="glass-on-dark">
-                  {dict.cta.viewPrograms}
-                </GlassButton>
-              </a>
-            </div>
-          </FadeIn>
-        </div>
-      </div>
-
-      {/* Footer Links */}
-      <div className="bg-[#1C1B1F] border-t border-white/5">
+    <footer>
+      <div className="bg-[#1C1B1F]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-16">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10">
             {dict.groups.map((group) => (

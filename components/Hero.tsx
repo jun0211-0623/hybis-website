@@ -91,13 +91,6 @@ export default function Hero({ dict }: { dict: HeroDict }) {
               >
                 {dict.ctaResearch}
               </GlassButton>
-              <GlassButton
-                size="default"
-                onClick={() => handleScroll("#programs")}
-                className="glass-on-dark"
-              >
-                {dict.ctaPrograms}
-              </GlassButton>
             </motion.div>
           )}
         </div>

@@ -14,6 +14,7 @@ interface DetailLayoutProps {
   color?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body?: any[];
+  emptyBodyText?: string;
   children?: React.ReactNode;
 }
 
@@ -27,6 +28,7 @@ export default function DetailLayout({
   description,
   color = "#0E4A84",
   body,
+  emptyBodyText,
   children,
 }: DetailLayoutProps) {
   return (
@@ -118,7 +120,7 @@ export default function DetailLayout({
             </div>
           ) : (
             <p className="text-[#6B7280] text-[16px]">
-              아직 작성된 본문이 없습니다. 관리자 페이지에서 콘텐츠를 추가해주세요.
+              {emptyBodyText}
             </p>
           )}
           {children}

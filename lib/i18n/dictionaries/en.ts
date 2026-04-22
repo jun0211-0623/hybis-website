@@ -10,10 +10,37 @@ const en: KoDict = {
   },
   nav: {
     links: [
-      { label: "About", href: "/about" },
-      { label: "News", href: "/news" },
-      { label: "Programs", href: "#programs" },
-      { label: "Resources", href: "#resources" },
+      {
+        label: "About",
+        children: [
+          { label: "Greeting", href: "/about/greeting" },
+          { label: "Mission", href: "/about/mission" },
+          { label: "History", href: "/about/history" },
+          { label: "Organization", href: "/about/structure" },
+          { label: "Partners", href: "/about/partners" },
+          { label: "Location", href: "/about/location" },
+        ],
+      },
+      {
+        label: "News",
+        children: [{ label: "Press", href: "/news" }],
+      },
+      {
+        label: "Programs",
+        children: [
+          { label: "Executive Program", href: "/programs/executive" },
+          { label: "Graduate Program", href: "/programs/graduate" },
+        ],
+      },
+      {
+        label: "Resources",
+        children: [
+          { label: "Monographs", href: "/resources/monographs" },
+          { label: "Papers", href: "/resources/papers" },
+          { label: "Reports", href: "/resources/reports" },
+          { label: "Photos", href: "/resources/photos" },
+        ],
+      },
     ],
     contact: "Contact",
     openMenu: "Open menu",
@@ -127,11 +154,14 @@ const en: KoDict = {
     },
     groups: [
       {
-        title: "Lab",
+        title: "About",
         links: [
-          { label: "About", href: "/about" },
-          { label: "Organization", href: "/about" },
-          { label: "History", href: "/about" },
+          { label: "Greeting", href: "/about/greeting" },
+          { label: "Mission", href: "/about/mission" },
+          { label: "History", href: "/about/history" },
+          { label: "Organization", href: "/about/structure" },
+          { label: "Partners", href: "/about/partners" },
+          { label: "Location", href: "/about/location" },
         ],
       },
       {
@@ -146,15 +176,12 @@ const en: KoDict = {
         ],
       },
       {
-        title: "Academics",
-        links: [{ label: "Events & Activities", href: "/#academics" }],
-      },
-      {
         title: "Resources",
         links: [
-          { label: "Monographs", href: "/#monographs" },
-          { label: "Policy Reports", href: "/#resources" },
-          { label: "Papers", href: "/#resources" },
+          { label: "Monographs", href: "/resources/monographs" },
+          { label: "Papers", href: "/resources/papers" },
+          { label: "Reports", href: "/resources/reports" },
+          { label: "Photos", href: "/resources/photos" },
         ],
       },
     ],
@@ -174,8 +201,8 @@ const en: KoDict = {
       "Bitcoinology Lab is an interdisciplinary research hub that examines, through the humanities, how value, trust, and society are being reconstituted as digital money converges with artificial intelligence.",
     sections: {
       bitcoinology: {
-        eyebrow: "About",
-        title: "What is Bitcoinology?",
+        eyebrow: "Greeting",
+        title: "Greeting — What is Bitcoinology?",
         paragraphs: [
           {
             type: "mixed",
@@ -423,28 +450,28 @@ const en: KoDict = {
     curriculumEyebrow: "Curriculum",
     curriculumTitle: "Curriculum",
     curriculum: {
-      "1학기": {
-        "1년차": [
+      "Semester 1": {
+        "Year 1": [
           "Intellectual History of Bitcoin",
           "Topics in the Philosophy of Information",
           "Bitcoin as a Monetary Phenomenon",
           "Bitcoin Technology and Industry",
         ],
-        "2년차": [
+        "Year 2": [
           "Crypto Cultural Studies",
           "Political Philosophy of the DAO",
           "Geopolitics of Bitcoin and the Dollar",
           "History of Money",
         ],
       },
-      "2학기": {
-        "1년차": [
+      "Semester 2": {
+        "Year 1": [
           "Topics in Digital Ethics",
           "The Humanities and Economics of the Metaverse",
           "Foundations of International Finance",
           "Master's Thesis Writing",
         ],
-        "2년차": [
+        "Year 2": [
           "Supply-Chain Finance and Smart Contracts",
           "Key Figures in Cryptocurrency",
           "Key Figures in Crypto",

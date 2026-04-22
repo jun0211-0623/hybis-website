@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import JoinUsCta from "@/components/JoinUsCta";
 import GraduateContent from "./content";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale } from "@/lib/i18n/config";
@@ -30,6 +31,11 @@ export default async function GraduateProgramPage({
     <main>
       <Navigation dict={dict.nav} locale={locale} />
       <GraduateContent dict={dict.graduatePage} />
+      <JoinUsCta
+        dict={dict.footer.cta}
+        email={dict.footer.contacts.email}
+        locale={locale}
+      />
       <Footer dict={dict.footer} locale={locale} />
     </main>
   );

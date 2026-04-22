@@ -6,10 +6,37 @@ const ko = {
   },
   nav: {
     links: [
-      { label: "소개", href: "/about" },
-      { label: "소식", href: "/news" },
-      { label: "프로그램", href: "#programs" },
-      { label: "자료", href: "#resources" },
+      {
+        label: "소개",
+        children: [
+          { label: "인사말", href: "/about/greeting" },
+          { label: "설립 취지", href: "/about/mission" },
+          { label: "연혁", href: "/about/history" },
+          { label: "구조도", href: "/about/structure" },
+          { label: "대외협력", href: "/about/partners" },
+          { label: "오시는길", href: "/about/location" },
+        ],
+      },
+      {
+        label: "소식",
+        children: [{ label: "언론보도", href: "/news" }],
+      },
+      {
+        label: "프로그램",
+        children: [
+          { label: "최고위 과정", href: "/programs/executive" },
+          { label: "대학원 협동과정", href: "/programs/graduate" },
+        ],
+      },
+      {
+        label: "자료",
+        children: [
+          { label: "모노그래프", href: "/resources/monographs" },
+          { label: "논문", href: "/resources/papers" },
+          { label: "보고서", href: "/resources/reports" },
+          { label: "학술행사 사진", href: "/resources/photos" },
+        ],
+      },
     ],
     contact: "문의하기",
     openMenu: "메뉴 열기",
@@ -116,11 +143,14 @@ const ko = {
     },
     groups: [
       {
-        title: "연구소",
+        title: "소개",
         links: [
-          { label: "센터 소개", href: "/about" },
-          { label: "조직 구성", href: "/about" },
-          { label: "연혁", href: "/about" },
+          { label: "인사말", href: "/about/greeting" },
+          { label: "설립 취지", href: "/about/mission" },
+          { label: "연혁", href: "/about/history" },
+          { label: "구조도", href: "/about/structure" },
+          { label: "대외협력", href: "/about/partners" },
+          { label: "오시는길", href: "/about/location" },
         ],
       },
       {
@@ -135,15 +165,12 @@ const ko = {
         ],
       },
       {
-        title: "학술 활동",
-        links: [{ label: "행사 및 활동", href: "/#academics" }],
-      },
-      {
         title: "자료",
         links: [
-          { label: "모노그래프", href: "/#monographs" },
-          { label: "정책보고서", href: "/#resources" },
-          { label: "학술논문", href: "/#resources" },
+          { label: "모노그래프", href: "/resources/monographs" },
+          { label: "논문", href: "/resources/papers" },
+          { label: "보고서", href: "/resources/reports" },
+          { label: "학술행사 사진", href: "/resources/photos" },
         ],
       },
     ],
@@ -163,8 +190,8 @@ const ko = {
       "Bitcoinology Lab은 디지털 화폐와 인공지능이 결합하는 시대에 가치(value)·신뢰(trust)·사회(society)가 어떻게 재구성되는지를 인문학적으로 탐구하는 학제적 연구 허브입니다.",
     sections: {
       bitcoinology: {
-        eyebrow: "About",
-        title: "Bitcoinology란",
+        eyebrow: "Greeting",
+        title: "인사말 — Bitcoinology란",
         paragraphs: [
           {
             type: "mixed",

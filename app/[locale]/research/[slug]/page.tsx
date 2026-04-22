@@ -59,6 +59,7 @@ export default async function ResearchDetailPage({
         description={publication.description}
         color={publication.color}
         body={publication.body}
+        emptyBodyText={dict.detail.emptyBody}
       />
       <Footer dict={dict.footer} locale={locale} />
     </main>

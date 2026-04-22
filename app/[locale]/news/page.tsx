@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import NewsContent from "./content";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { getPressItems } from "@/lib/i18n/press-data";
 import { isLocale } from "@/lib/i18n/config";
 import { notFound } from "next/navigation";
 
@@ -29,7 +30,11 @@ export default async function NewsPage({
   return (
     <main>
       <Navigation dict={dict.nav} locale={locale} />
-      <NewsContent dict={dict.newsPage} locale={locale} />
+      <NewsContent
+        dict={dict.newsPage}
+        locale={locale}
+        pressItems={getPressItems(locale)}
+      />
       <Footer dict={dict.footer} locale={locale} />
     </main>
   );
