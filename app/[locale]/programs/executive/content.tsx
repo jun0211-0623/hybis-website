@@ -1,9 +1,21 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/FadeIn";
 import { GlassButton } from "@/components/ui/glass-button";
+
+type ExecutiveDict = {
+  back: string;
+  eyebrow: string;
+  title: string;
+  intro: string;
+  stats: { label: string; value: string }[];
+  curriculumEyebrow: string;
+  curriculumTitle: string;
+  contactTitle: string;
+  contactBody: string;
+  contactCta: string;
+};
 
 const lecturers = [
   { name: "Roland B Wilson", topic: "한반도에 대한 지정학적 이해: 미국의 관점", role: "한국조지메이슨대학교 분쟁분석 및 해결학부 교수" },
@@ -29,62 +41,57 @@ const lecturers = [
   { name: "홍남기", topic: "한국경제 점프업을 위한 6개 매듭풀이와 가상자산", role: "한국항공대학교 석좌교수, 전 경제부총리" },
 ];
 
-export default function ExecutiveContent() {
+export default function ExecutiveContent({ dict }: { dict: ExecutiveDict }) {
   return (
-    <div className="bg-[#0A0A0A] pt-[80px]">
-      {/* Hero */}
+    <div className="bg-white pt-[80px]">
       <section className="max-w-[1280px] mx-auto px-6 lg:px-10 pt-12 pb-16 lg:pt-20 lg:pb-24">
         <FadeIn>
-          <Link
-            href="/#programs"
-            className="text-[#6B7280] hover:text-white text-[14px] flex items-center gap-2 transition-colors mb-8"
+          <button
+            onClick={() => history.back()}
+            className="text-[#6B7280] hover:text-[#0E4A84] text-[14px] flex items-center gap-2 transition-colors mb-8"
           >
-            <span>&larr;</span> 프로그램
-          </Link>
+            <span>&larr;</span> {dict.back}
+          </button>
         </FadeIn>
 
         <FadeIn delay={0.1}>
           <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-6 h-[2px] bg-[#7EBAB5]" />
-            <p className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
-              Executive Program
+            <div className="w-6 h-[2px] bg-[#0E4A84]" />
+            <p className="text-[#0E4A84] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
+              {dict.eyebrow}
             </p>
           </div>
         </FadeIn>
 
         <FadeIn delay={0.15}>
-          <h1 className="text-[clamp(2rem,4vw,3.5rem)] font-bold text-white leading-tight mb-4 tracking-[-0.02em]">
-            비트코인화폐철학 최고위과정
+          <h1 className="text-[clamp(2rem,4vw,3.5rem)] font-bold text-[#1C1B1F] leading-tight mb-4 tracking-[-0.02em]">
+            {dict.title}
           </h1>
         </FadeIn>
 
         <FadeIn delay={0.2}>
-          <div className="w-12 h-1 rounded-full bg-[#7EBAB5] mb-8" />
+          <div className="w-12 h-1 rounded-full bg-[#0E4A84] mb-8" />
         </FadeIn>
 
         <FadeIn delay={0.25}>
-          <p className="text-[#9AA0A6] text-[17px] leading-[1.8] max-w-[680px] mb-6">
-            비트코인이라는 지적 현상은 화폐의 모든 이슈가 &lsquo;오래된 미래&rsquo;임을 보여줍니다.
-            본 과정은 비트코인을 단순한 기술이나 경제 현상이 아닌 &lsquo;화폐현상&rsquo;으로 정의하며,
-            새로운 금융 형태의 탐구뿐 아니라 인류의 가치관과 사회 구조에 미치는 영향을
-            다학제적으로 분석합니다.
+          <p className="text-[#4A4A4F] text-[17px] leading-[1.8] max-w-[680px] mb-6">
+            {dict.intro}
           </p>
         </FadeIn>
 
         <FadeIn delay={0.3}>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
-            <div className="bg-[#141414] border border-[#1E1E1E] rounded-xl px-5 py-3">
-              <p className="text-[11px] text-[#6B7280] uppercase tracking-wider mb-0.5">주임교수</p>
-              <p className="text-[15px] text-white font-medium">윤성호</p>
-            </div>
-            <div className="bg-[#141414] border border-[#1E1E1E] rounded-xl px-5 py-3">
-              <p className="text-[11px] text-[#6B7280] uppercase tracking-wider mb-0.5">강사진</p>
-              <p className="text-[15px] text-white font-medium">21명</p>
-            </div>
-            <div className="bg-[#141414] border border-[#1E1E1E] rounded-xl px-5 py-3">
-              <p className="text-[11px] text-[#6B7280] uppercase tracking-wider mb-0.5">대상</p>
-              <p className="text-[15px] text-white font-medium">기업 임원·정책 관계자·전문가</p>
-            </div>
+            {dict.stats.map((s) => (
+              <div
+                key={s.label}
+                className="bg-white border border-[#E5E5E7] rounded-xl px-5 py-3"
+              >
+                <p className="text-[11px] text-[#6B7280] uppercase tracking-wider mb-0.5">
+                  {s.label}
+                </p>
+                <p className="text-[15px] text-[#1C1B1F] font-medium">{s.value}</p>
+              </div>
+            ))}
           </div>
         </FadeIn>
       </section>
@@ -95,13 +102,13 @@ export default function ExecutiveContent() {
       <section className="max-w-[1280px] mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <FadeIn>
           <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-6 h-[2px] bg-[#7EBAB5]" />
-            <p className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase">
-              Curriculum
+            <div className="w-6 h-[2px] bg-[#0E4A84]" />
+            <p className="text-[#0E4A84] text-[12px] font-medium tracking-[0.1em] uppercase">
+              {dict.curriculumEyebrow}
             </p>
           </div>
-          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-white mb-10 tracking-[-0.02em]">
-            커리큘럼
+          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-[#1C1B1F] mb-10 tracking-[-0.02em]">
+            {dict.curriculumTitle}
           </h2>
         </FadeIn>
 
@@ -114,23 +121,19 @@ export default function ExecutiveContent() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.03, duration: 0.4 }}
             >
-              <div className="group bg-[#111111] rounded-xl border border-[#1E1E1E] p-5 hover:border-[#333] transition-all duration-200">
+              <div className="group bg-[#F5F5F7] rounded-xl border border-[#E5E5E7] p-5 hover:border-[#0E4A84]/40 transition-all duration-200">
                 <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-[#7EBAB5]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-[#7EBAB5] text-[12px] font-bold">
+                  <div className="w-8 h-8 rounded-full bg-[#0E4A84]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-[#0E4A84] text-[12px] font-bold">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[15px] text-white font-medium mb-1">
+                    <p className="text-[15px] text-[#1C1B1F] font-medium mb-1">
                       {lecturer.topic}
                     </p>
-                    <p className="text-[13px] text-[#9AA0A6]">
-                      {lecturer.name}
-                    </p>
-                    <p className="text-[12px] text-[#6B7280]">
-                      {lecturer.role}
-                    </p>
+                    <p className="text-[13px] text-[#4A4A4F]">{lecturer.name}</p>
+                    <p className="text-[12px] text-[#6B7280]">{lecturer.role}</p>
                   </div>
                 </div>
               </div>
@@ -144,16 +147,14 @@ export default function ExecutiveContent() {
       {/* Contact CTA */}
       <section className="max-w-[1280px] mx-auto px-6 lg:px-10 py-16 lg:py-20 text-center">
         <FadeIn>
-          <h3 className="text-[24px] font-bold text-white mb-4">
-            참여를 원하시나요?
+          <h3 className="text-[24px] font-bold text-[#1C1B1F] mb-4">
+            {dict.contactTitle}
           </h3>
-          <p className="text-[#9AA0A6] text-[15px] mb-8 max-w-[400px] mx-auto">
-            최고위과정에 대한 문의 사항이 있으시면 연락해 주세요.
+          <p className="text-[#4A4A4F] text-[15px] mb-8 max-w-[400px] mx-auto">
+            {dict.contactBody}
           </p>
           <a href="mailto:iamyam@hanyang.ac.kr">
-            <GlassButton size="default">
-              문의하기 →
-            </GlassButton>
+            <GlassButton size="default">{dict.contactCta}</GlassButton>
           </a>
         </FadeIn>
       </section>

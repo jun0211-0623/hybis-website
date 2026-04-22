@@ -16,7 +16,16 @@ function fadeUp(delay: number) {
   };
 }
 
-export default function Hero() {
+type HeroDict = {
+  eyebrow: string;
+  title: string;
+  tagline: { prefix: string; highlight: string; suffix: string };
+  body: string;
+  ctaResearch: string;
+  ctaPrograms: string;
+};
+
+export default function Hero({ dict }: { dict: HeroDict }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
@@ -29,12 +38,11 @@ export default function Hero() {
     <BeamsBackground intensity="medium" className="pt-[64px]">
       <div className="max-w-[1280px] w-full mx-auto px-6 lg:px-10">
         <div className="max-w-[620px]">
-          {/* Accent label */}
           {mounted && (
             <motion.div {...fadeUp(0.1)} className="flex items-center gap-2.5 mb-6">
-              <div className="w-8 h-[2px] bg-[#7EBAB5]" />
-              <span className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
-                Value, Code, Society
+              <div className="w-8 h-[2px] bg-[#5B9BD5]" />
+              <span className="text-[#5B9BD5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
+                {dict.eyebrow}
               </span>
             </motion.div>
           )}
@@ -43,9 +51,9 @@ export default function Hero() {
             <motion.div {...fadeUp(0.25)} className="mb-10">
               <AnimatedText
                 as="h1"
-                text="Bitcoinology Lab"
+                text={dict.title}
                 textClassName="text-[clamp(3.6rem,8vw,6rem)] font-bold text-white leading-[1.02] tracking-[-0.035em] font-[family-name:var(--font-display)]"
-                underlineClassName="text-[#7EBAB5]"
+                underlineClassName="text-[#5B9BD5]"
                 underlineDuration={1.8}
               />
             </motion.div>
@@ -56,34 +64,39 @@ export default function Hero() {
               {...fadeUp(0.35)}
               className="text-[clamp(1.25rem,2.3vw,1.75rem)] text-white/90 font-medium leading-[1.35] mb-8 tracking-[-0.01em]"
             >
-              화폐의 본질을 <span className="text-[#7EBAB5]">학문</span>으로 증명하다.
+              {dict.tagline.prefix}
+              <span className="text-[#5B9BD5]">{dict.tagline.highlight}</span>
+              {dict.tagline.suffix}
             </motion.p>
           )}
 
           {mounted && (
             <motion.p
               {...fadeUp(0.45)}
-              className="text-[#9AA0A6] text-[17px] leading-[1.7] mb-10 max-w-[460px]"
+              className="text-white/70 text-[17px] leading-[1.7] mb-10 max-w-[460px]"
             >
-              Bitcoinology Lab은 디지털 화폐와 인공지능 시대에
-              가치·신뢰·사회가 어떻게 재구성되는지를 인문학적으로 탐구하는
-              학제적 연구 허브입니다.
+              {dict.body}
             </motion.p>
           )}
 
           {mounted && (
-            <motion.div {...fadeUp(0.55)} className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+            <motion.div
+              {...fadeUp(0.55)}
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4"
+            >
               <GlassButton
                 size="default"
                 onClick={() => handleScroll("#about")}
+                className="glass-on-dark"
               >
-                연구 살펴보기
+                {dict.ctaResearch}
               </GlassButton>
               <GlassButton
                 size="default"
                 onClick={() => handleScroll("#programs")}
+                className="glass-on-dark"
               >
-                프로그램 안내
+                {dict.ctaPrograms}
               </GlassButton>
             </motion.div>
           )}

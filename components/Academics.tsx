@@ -13,78 +13,90 @@ interface Activity {
   slug?: { current: string };
 }
 
-// CMS 데이터가 없을 때 보여줄 빈 상태 — 플레이스홀더 데이터 없음
-const emptyMessage = "행사 정보가 준비되면 이곳에 게시됩니다.";
+type AcademicsDict = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  emptyMessage: string;
+  cmsHint: string;
+  speakerPrefix: string;
+  categories: {
+    seminar: string;
+    colloquium: string;
+    conference: string;
+    workshop: string;
+  };
+};
 
-const categoryLabels: Record<string, { label: string; color: string }> = {
-  seminar: { label: "세미나", color: "#7EBAB5" },
-  colloquium: { label: "콜로키움", color: "#7A8FA6" },
-  conference: { label: "학술대회", color: "#A89078" },
-  workshop: { label: "워크숍", color: "#9B7A7A" },
+const categoryColors: Record<string, string> = {
+  seminar: "#0E4A84",
+  colloquium: "#3A6EA5",
+  conference: "#7A4E2D",
+  workshop: "#8B4A4A",
 };
 
 export default function Academics({
+  dict,
   activities,
 }: {
+  dict: AcademicsDict;
   activities?: Activity[];
 }) {
   const hasData = activities && activities.length > 0;
 
   return (
-    <section id="academics" className="py-20 lg:py-28 bg-[#0A0A0A]">
+    <section id="academics" className="py-20 lg:py-28 bg-white">
       <div className="section-divider mb-20" />
 
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
         <FadeIn>
           <div className="flex items-center justify-center gap-2.5 mb-5">
-            <div className="w-8 h-[2px] bg-[#7EBAB5]" />
-            <span className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
-              Events &amp; Activities
+            <div className="w-8 h-[2px] bg-[#0E4A84]" />
+            <span className="text-[#0E4A84] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
+              {dict.eyebrow}
             </span>
-            <div className="w-8 h-[2px] bg-[#7EBAB5]" />
+            <div className="w-8 h-[2px] bg-[#0E4A84]" />
           </div>
         </FadeIn>
         <FadeIn>
-          <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-white leading-[1.15] tracking-[-0.02em] text-center mb-4">
-            행사 및 활동
+          <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-[#1C1B1F] leading-[1.15] tracking-[-0.02em] text-center mb-4">
+            {dict.title}
           </h2>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <p className="text-[#9AA0A6] text-[15px] text-center mb-14 max-w-[520px] mx-auto">
-            Bitcoinology Lab의 세미나, 콜로키움, 학술대회 등 주요 행사 이력을
-            확인하세요.
+          <p className="text-[#4A4A4F] text-[15px] text-center mb-14 max-w-[520px] mx-auto">
+            {dict.body}
           </p>
         </FadeIn>
 
         {hasData ? (
           <StaggerContainer className="space-y-4">
             {activities.map((activity) => {
-              const cat = categoryLabels[activity.category] || {
-                label: activity.category,
-                color: "#7EBAB5",
-              };
+              const color = categoryColors[activity.category] ?? "#0E4A84";
+              const label =
+                dict.categories[
+                  activity.category as keyof AcademicsDict["categories"]
+                ] ?? activity.category;
               return (
                 <StaggerItem key={activity._id}>
-                  <div className="group bg-[#111111] rounded-2xl border border-[#1E1E1E] p-6 sm:p-7 hover:border-[#333] hover:shadow-lg hover:shadow-black/15 transition-all duration-300">
+                  <div className="group bg-[#F5F5F7] rounded-2xl border border-[#E5E5E7] p-6 sm:p-7 hover:border-[#0E4A84]/40 hover:shadow-lg hover:shadow-[#0E4A84]/10 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-                      {/* Date */}
                       <div className="flex-shrink-0 sm:w-24">
                         <span className="text-[13px] font-mono text-[#6B7280]">
                           {activity.date}
                         </span>
                       </div>
 
-                      {/* Content */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-2">
                           <span
                             className="text-[11px] font-medium px-2.5 py-1 rounded-full"
                             style={{
-                              color: cat.color,
-                              background: `${cat.color}15`,
+                              color,
+                              background: `${color}15`,
                             }}
                           >
-                            {cat.label}
+                            {label}
                           </span>
                           {activity.location && (
                             <span className="text-[11px] text-[#6B7280]">
@@ -92,15 +104,15 @@ export default function Academics({
                             </span>
                           )}
                         </div>
-                        <h3 className="text-[17px] font-semibold text-white mb-1.5 group-hover:text-[#7EBAB5] transition-colors duration-200">
+                        <h3 className="text-[17px] font-semibold text-[#1C1B1F] mb-1.5 group-hover:text-[#0E4A84] transition-colors duration-200">
                           {activity.title}
                         </h3>
-                        <p className="text-[14px] text-[#9AA0A6] leading-relaxed">
+                        <p className="text-[14px] text-[#4A4A4F] leading-relaxed">
                           {activity.description}
                         </p>
                         {activity.speaker && (
                           <p className="text-[13px] text-[#6B7280] mt-2">
-                            발표: {activity.speaker}
+                            {dict.speakerPrefix} {activity.speaker}
                           </p>
                         )}
                       </div>
@@ -111,16 +123,15 @@ export default function Academics({
             })}
           </StaggerContainer>
         ) : (
-          /* Empty state */
           <FadeIn delay={0.2}>
             <div className="text-center py-20">
-              <div className="w-16 h-16 rounded-full bg-[#7EBAB5]/10 flex items-center justify-center mx-auto mb-5">
+              <div className="w-16 h-16 rounded-full bg-[#0E4A84]/10 flex items-center justify-center mx-auto mb-5">
                 <svg
                   width="28"
                   height="28"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#7EBAB5"
+                  stroke="#0E4A84"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -132,11 +143,9 @@ export default function Academics({
                 </svg>
               </div>
               <p className="text-[#6B7280] text-[15px] mb-2">
-                {emptyMessage}
+                {dict.emptyMessage}
               </p>
-              <p className="text-[#444] text-[13px]">
-                Sanity CMS에서 행사를 등록하면 자동으로 표시됩니다.
-              </p>
+              <p className="text-[#A0A0A5] text-[13px]">{dict.cmsHint}</p>
             </div>
           </FadeIn>
         )}

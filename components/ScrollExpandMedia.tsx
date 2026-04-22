@@ -265,7 +265,7 @@ const ScrollExpandMedia = ({
                 <div className="flex flex-col items-center text-center relative z-10 mt-4 transition-none">
                   {scrollToExpand && scrollProgress < 0.3 && (
                     <motion.p
-                      className="text-[#7EBAB5]/70 font-medium text-[13px] tracking-[0.1em] uppercase text-center"
+                      className="text-[#5B9BD5]/70 font-medium text-[13px] tracking-[0.1em] uppercase text-center"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 - scrollProgress * 3 }}
                       transition={{ duration: 0.3 }}
@@ -290,11 +290,11 @@ const ScrollExpandMedia = ({
                     animate={{ opacity: Math.max(0, 1 - scrollProgress * 2) }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="w-8 h-[2px] bg-[#7EBAB5]" />
-                    <span className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
+                    <div className="w-8 h-[2px] bg-[#5B9BD5]" />
+                    <span className="text-[#5B9BD5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
                       {accentLabel}
                     </span>
-                    <div className="w-8 h-[2px] bg-[#7EBAB5]" />
+                    <div className="w-8 h-[2px] bg-[#5B9BD5]" />
                   </motion.div>
                 )}
 
@@ -308,7 +308,7 @@ const ScrollExpandMedia = ({
                   className="text-[clamp(2.2rem,5.5vw,4.2rem)] font-bold text-center transition-none tracking-[-0.03em] leading-[1.1]"
                   style={{ transform: `translateX(${textTranslateX}vw)` }}
                 >
-                  <span className="text-[#7EBAB5]">{line2.split(' ')[0]}</span>
+                  <span className="text-[#5B9BD5]">{line2.split(' ')[0]}</span>
                   <span className="text-white">
                     {' '}
                     {line2.split(' ').slice(1).join(' ')}

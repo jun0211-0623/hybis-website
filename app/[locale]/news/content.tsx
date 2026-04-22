@@ -12,6 +12,18 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { FadeIn } from "@/components/FadeIn";
+import type { Locale } from "@/lib/i18n/config";
+import { defaultLocale } from "@/lib/i18n/config";
+
+type NewsDict = {
+  backHome: string;
+  eyebrow: string;
+  title: string;
+  body: string;
+  pressEyebrow: string;
+  pressTitle: string;
+  articleLink: string;
+};
 
 interface PressItem {
   id: string;
@@ -32,7 +44,7 @@ const pressItems: PressItem[] = [
     summary:
       "JP모건의 이더리움 기반 머니마켓펀드 토큰화 상품 출시, 실물 자산 토큰화 시장 확대 등 이더리움이 제도권 금융의 표준 플랫폼으로 부상하는 현황을 분석한 기고문",
     url: "https://www.chosun.com/economy/weeklybiz/2026/01/08/PMI7ZXCSTZDMDBNEE3XKJHQL3A/",
-    color: "#7EBAB5",
+    color: "#0E4A84",
   },
   {
     id: "press-3",
@@ -42,7 +54,7 @@ const pressItems: PressItem[] = [
     summary:
       "윤성호 교수가 저술한 『사토시를 찾아서』에 관한 인터뷰. 비트코인을 둘러싼 인문학적 논의와 학계의 역할을 탐구",
     url: "https://www.unipress.co.kr/news/articleView.html?idxno=13721",
-    color: "#7A8FA6",
+    color: "#3A6EA5",
   },
   {
     id: "press-2",
@@ -66,7 +78,17 @@ const pressItems: PressItem[] = [
   },
 ];
 
-export default function NewsContent() {
+function homeHref(locale: Locale): string {
+  return locale === defaultLocale ? "/" : `/${locale}`;
+}
+
+export default function NewsContent({
+  dict,
+  locale,
+}: {
+  dict: NewsDict;
+  locale: Locale;
+}) {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -85,62 +107,60 @@ export default function NewsContent() {
   }, [carouselApi]);
 
   return (
-    <div className="bg-[#0A0A0A] pt-[80px]">
-      {/* Hero */}
+    <div className="bg-white pt-[80px]">
       <section className="max-w-[1280px] mx-auto px-6 lg:px-10 pt-8 pb-16 md:pt-12 lg:pt-20 lg:pb-24">
         <FadeIn>
           <Link
-            href="/"
-            className="text-[#6B7280] hover:text-white text-[14px] flex items-center gap-2 transition-colors mb-8"
+            href={homeHref(locale)}
+            className="text-[#6B7280] hover:text-[#0E4A84] text-[14px] flex items-center gap-2 transition-colors mb-8"
           >
-            <span>&larr;</span> 홈
+            <span>&larr;</span> {dict.backHome}
           </Link>
         </FadeIn>
 
         <FadeIn delay={0.1}>
           <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-6 h-[2px] bg-[#7EBAB5]" />
-            <p className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
-              News
+            <div className="w-6 h-[2px] bg-[#0E4A84]" />
+            <p className="text-[#0E4A84] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
+              {dict.eyebrow}
             </p>
           </div>
         </FadeIn>
 
         <FadeIn delay={0.15}>
-          <h1 className="text-[clamp(2rem,4vw,3.5rem)] font-bold text-white leading-tight mb-4 tracking-[-0.02em]">
-            소식
+          <h1 className="text-[clamp(2rem,4vw,3.5rem)] font-bold text-[#1C1B1F] leading-tight mb-4 tracking-[-0.02em]">
+            {dict.title}
           </h1>
         </FadeIn>
 
         <FadeIn delay={0.2}>
-          <div className="w-12 h-1 rounded-full bg-[#7EBAB5] mb-8" />
+          <div className="w-12 h-1 rounded-full bg-[#0E4A84] mb-8" />
         </FadeIn>
 
         <FadeIn delay={0.25}>
-          <p className="text-[#9AA0A6] text-[17px] leading-[1.8] max-w-[680px]">
-            Bitcoinology Lab 관련 언론보도와 주요 소식을 확인하세요.
+          <p className="text-[#4A4A4F] text-[17px] leading-[1.8] max-w-[680px]">
+            {dict.body}
           </p>
         </FadeIn>
       </section>
 
       <div className="section-divider" />
 
-      {/* 언론보도 Gallery */}
       <section className="py-16 lg:py-24">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
           <div className="mb-10 flex flex-col justify-between md:mb-14 md:flex-row md:items-end">
             <div>
               <FadeIn>
                 <div className="flex items-center gap-2.5 mb-4">
-                  <div className="w-6 h-[2px] bg-[#7EBAB5]" />
-                  <p className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
-                    Press
+                  <div className="w-6 h-[2px] bg-[#0E4A84]" />
+                  <p className="text-[#0E4A84] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
+                    {dict.pressEyebrow}
                   </p>
                 </div>
               </FadeIn>
               <FadeIn delay={0.05}>
-                <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-white tracking-[-0.02em]">
-                  언론보도
+                <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-[#1C1B1F] tracking-[-0.02em]">
+                  {dict.pressTitle}
                 </h2>
               </FadeIn>
             </div>
@@ -150,7 +170,7 @@ export default function NewsContent() {
                 variant="ghost"
                 onClick={() => carouselApi?.scrollPrev()}
                 disabled={!canScrollPrev}
-                className="text-[#9AA0A6] hover:text-white hover:bg-[#1A1A1A] disabled:opacity-30"
+                className="text-[#4A4A4F] hover:text-[#0E4A84] hover:bg-[#E7EEF7] disabled:opacity-30"
               >
                 <ArrowLeft className="size-5" />
               </Button>
@@ -159,7 +179,7 @@ export default function NewsContent() {
                 variant="ghost"
                 onClick={() => carouselApi?.scrollNext()}
                 disabled={!canScrollNext}
-                className="text-[#9AA0A6] hover:text-white hover:bg-[#1A1A1A] disabled:opacity-30"
+                className="text-[#4A4A4F] hover:text-[#0E4A84] hover:bg-[#E7EEF7] disabled:opacity-30"
               >
                 <ArrowRight className="size-5" />
               </Button>
@@ -192,7 +212,6 @@ export default function NewsContent() {
                     rel="noopener noreferrer"
                     className="group flex flex-col justify-between h-full"
                   >
-                    {/* Cover */}
                     <div>
                       <div
                         className="flex aspect-[3/2] overflow-clip rounded-xl relative"
@@ -236,27 +255,26 @@ export default function NewsContent() {
                                 <path d="M10 6h8v4h-8V6Z" />
                               </svg>
                             </div>
-                            <p className="text-[13px] text-[#9AA0A6] leading-relaxed line-clamp-2">
+                            <p className="text-[13px] text-[#4A4A4F] leading-relaxed line-clamp-2">
                               {item.title}
                             </p>
                           </div>
                         </div>
                         <div
-                          className="absolute inset-0 rounded-xl border transition-colors duration-200 group-hover:border-[#333]"
+                          className="absolute inset-0 rounded-xl border transition-colors duration-200 group-hover:border-[#0E4A84]/40"
                           style={{ borderColor: `${item.color}15` }}
                         />
                       </div>
                     </div>
 
-                    {/* Text */}
-                    <div className="mb-2 line-clamp-3 break-words pt-4 text-[16px] sm:text-[17px] font-semibold text-white md:mb-3 group-hover:text-[#7EBAB5] transition-colors duration-200">
+                    <div className="mb-2 line-clamp-3 break-words pt-4 text-[16px] sm:text-[17px] font-semibold text-[#1C1B1F] md:mb-3 group-hover:text-[#0E4A84] transition-colors duration-200">
                       {item.title}
                     </div>
-                    <div className="mb-6 line-clamp-2 text-[14px] text-[#9AA0A6] leading-relaxed">
+                    <div className="mb-6 line-clamp-2 text-[14px] text-[#4A4A4F] leading-relaxed">
                       {item.summary}
                     </div>
-                    <div className="flex items-center text-[13px] text-[#6B7280] group-hover:text-[#7EBAB5] transition-colors duration-200">
-                      기사 보기
+                    <div className="flex items-center text-[13px] text-[#6B7280] group-hover:text-[#0E4A84] transition-colors duration-200">
+                      {dict.articleLink}
                       <ArrowUpRight className="ml-2 size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </div>
                   </a>

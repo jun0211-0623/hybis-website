@@ -2,17 +2,34 @@
 @import "tailwindcss";
 
 @theme {
-  --color-surface: #0A0A0A;
-  --color-surface-alt: #111111;
-  --color-surface-raised: #141414;
-  --color-surface-container: #1A1A1A;
-  --color-on-surface: #F1F3F5;
-  --color-on-surface-secondary: #9AA0A6;
+  /* Light base (btcpolicy-style) */
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F5F5F7;
+  --color-surface-raised: #FFFFFF;
+  --color-surface-container: #ECECEF;
+
+  /* Dark sections (Hero, Footer, CTA) */
+  --color-surface-dark: #1C1B1F;
+  --color-surface-dark-alt: #2A292E;
+
+  /* Text */
+  --color-on-surface: #1C1B1F;
+  --color-on-surface-secondary: #4A4A4F;
   --color-on-surface-tertiary: #6B7280;
-  --color-outline: #2A2A2A;
-  --color-outline-variant: #333333;
-  --color-accent: #7EBAB5;
-  --color-accent-hover: #6AA8A3;
+
+  --color-on-dark: #FFFFFF;
+  --color-on-dark-secondary: #C4C4C8;
+  --color-on-dark-tertiary: #8A8A90;
+
+  /* Borders */
+  --color-outline: #E5E5E7;
+  --color-outline-variant: #DADADA;
+
+  /* Hanyang Blue */
+  --color-accent: #0E4A84;
+  --color-accent-hover: #0B3E70;
+  --color-accent-soft: #E7EEF7;
+  --color-accent-light: #5B9BD5;
 
   --font-sans: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-serif: var(--font-display), 'Quintessential', Georgia, 'Times New Roman', serif;
@@ -23,30 +40,30 @@ html {
 }
 
 body {
-  background-color: #0A0A0A;
-  color: #F1F3F5;
+  background-color: #FFFFFF;
+  color: #1C1B1F;
   font-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 3px;
+  background: #D0D3D8;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #0E4A84;
 }
 
 ::selection {
-  background: rgba(126, 186, 181, 0.3);
-  color: #F1F3F5;
+  background: rgba(14, 74, 132, 0.18);
+  color: #0E4A84;
 }
 
 @keyframes shimmer {
@@ -55,7 +72,7 @@ body {
 }
 
 .shimmer {
-  background: linear-gradient(90deg, #1A1A1A 25%, #222 50%, #1A1A1A 75%);
+  background: linear-gradient(90deg, #F0F0F2 25%, #E5E5E8 50%, #F0F0F2 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
 }
@@ -69,23 +86,21 @@ body {
   animation: scroll-bounce 2s ease-in-out infinite;
 }
 
-@keyframes grain {
-  0%, 100% { transform: translate(0, 0); }
-  10% { transform: translate(-5%, -10%); }
-  30% { transform: translate(3%, -15%); }
-  50% { transform: translate(12%, 9%); }
-  70% { transform: translate(9%, 4%); }
-  90% { transform: translate(-1%, 7%); }
-}
-
+/* Light section divider (on white) */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #2A2A2A 20%, #444 50%, #2A2A2A 80%, transparent);
+  background: linear-gradient(90deg, transparent, #DADADA 20%, #BFBFBF 50%, #DADADA 80%, transparent);
+}
+
+/* Dark section divider (on #1C1B1F) */
+.section-divider-dark {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08) 20%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.08) 80%, transparent);
 }
 
 @keyframes timeline-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(126, 186, 181, 0.3); }
-  50% { box-shadow: 0 0 0 6px rgba(126, 186, 181, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(14, 74, 132, 0.35); }
+  50% { box-shadow: 0 0 0 6px rgba(14, 74, 132, 0); }
 }
 
 .timeline-dot-active {
@@ -118,7 +133,10 @@ body {
   scrollbar-width: none;
 }
 
-/* ── Glass Button ── */
+/* ─────────────────────────────────────────────
+   Glass Button — default (light-context, blue tint)
+   Used on white backgrounds: nav, content sections.
+   ───────────────────────────────────────────── */
 .glass-button-wrap {
   position: relative;
   display: inline-block;
@@ -130,11 +148,11 @@ body {
   border-radius: 9999px;
   background: linear-gradient(
     135deg,
-    rgba(126, 186, 181, 0.15) 0%,
-    rgba(126, 186, 181, 0.05) 50%,
-    rgba(126, 186, 181, 0.12) 100%
+    rgba(14, 74, 132, 0.08) 0%,
+    rgba(14, 74, 132, 0.02) 50%,
+    rgba(14, 74, 132, 0.06) 100%
   );
-  border: 1px solid rgba(126, 186, 181, 0.2);
+  border: 1px solid rgba(14, 74, 132, 0.22);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -148,9 +166,9 @@ body {
   padding: 1px;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.15),
-    rgba(255, 255, 255, 0.02),
-    rgba(126, 186, 181, 0.15)
+    rgba(14, 74, 132, 0.28),
+    rgba(14, 74, 132, 0.04),
+    rgba(91, 155, 213, 0.25)
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -168,7 +186,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.5),
     transparent
   );
   transition: left 0.5s ease;
@@ -182,26 +200,27 @@ body {
 .glass-button-wrap:hover .glass-button {
   background: linear-gradient(
     135deg,
-    rgba(126, 186, 181, 0.25) 0%,
-    rgba(126, 186, 181, 0.1) 50%,
-    rgba(126, 186, 181, 0.2) 100%
+    rgba(14, 74, 132, 0.16) 0%,
+    rgba(14, 74, 132, 0.08) 50%,
+    rgba(14, 74, 132, 0.14) 100%
   );
-  border-color: rgba(126, 186, 181, 0.35);
-  box-shadow:
-    0 0 20px rgba(126, 186, 181, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transform: translateY(-1px);
+  border-color: rgba(14, 74, 132, 0.45);
 }
 
 .glass-button-wrap:active .glass-button {
-  transform: translateY(1px);
-  box-shadow: 0 0 10px rgba(126, 186, 181, 0.1);
+  background: linear-gradient(
+    135deg,
+    rgba(14, 74, 132, 0.22) 0%,
+    rgba(14, 74, 132, 0.12) 50%,
+    rgba(14, 74, 132, 0.2) 100%
+  );
 }
 
 .glass-button-text {
   position: relative;
   z-index: 1;
-  color: #F1F3F5;
+  color: #0E4A84;
+  font-weight: 600;
 }
 
 .glass-button-shadow {
@@ -210,14 +229,14 @@ body {
   left: 10%;
   right: 10%;
   height: 60%;
-  background: rgba(126, 186, 181, 0.12);
+  background: rgba(14, 74, 132, 0.15);
   filter: blur(16px);
   transition: all 0.3s ease;
   pointer-events: none;
 }
 
 .glass-button-wrap:hover .glass-button-shadow {
-  background: rgba(126, 186, 181, 0.2);
+  background: rgba(14, 74, 132, 0.28);
   filter: blur(20px);
   bottom: -6px;
 }
@@ -226,17 +245,64 @@ body {
 .glass-button-active .glass-button {
   background: linear-gradient(
     135deg,
-    rgba(126, 186, 181, 0.3) 0%,
-    rgba(126, 186, 181, 0.15) 50%,
-    rgba(126, 186, 181, 0.25) 100%
+    rgba(14, 74, 132, 0.9) 0%,
+    rgba(14, 74, 132, 0.75) 50%,
+    rgba(11, 62, 112, 0.9) 100%
   );
-  border-color: rgba(126, 186, 181, 0.4);
-  box-shadow:
-    0 0 24px rgba(126, 186, 181, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(14, 74, 132, 0.95);
+}
+
+.glass-button-active .glass-button-text {
+  color: #FFFFFF;
 }
 
 .glass-button-active .glass-button-shadow {
-  background: rgba(126, 186, 181, 0.25);
+  background: rgba(14, 74, 132, 0.3);
   filter: blur(18px);
+}
+
+/* ─────────────────────────────────────────────
+   Glass Button — dark variant
+   Use on dark sections (Hero, Footer) by adding
+   the `.glass-on-dark` wrapper class.
+   ───────────────────────────────────────────── */
+.glass-on-dark .glass-button {
+  background: linear-gradient(
+    135deg,
+    rgba(91, 155, 213, 0.18) 0%,
+    rgba(91, 155, 213, 0.06) 50%,
+    rgba(91, 155, 213, 0.14) 100%
+  );
+  border-color: rgba(91, 155, 213, 0.35);
+}
+
+.glass-on-dark .glass-button::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.04),
+    rgba(91, 155, 213, 0.3)
+  );
+}
+
+.glass-on-dark .glass-button-text {
+  color: #FFFFFF;
+}
+
+.glass-on-dark.glass-button-wrap:hover .glass-button {
+  background: linear-gradient(
+    135deg,
+    rgba(91, 155, 213, 0.28) 0%,
+    rgba(91, 155, 213, 0.12) 50%,
+    rgba(91, 155, 213, 0.22) 100%
+  );
+  border-color: rgba(91, 155, 213, 0.55);
+}
+
+.glass-on-dark .glass-button-shadow {
+  background: rgba(91, 155, 213, 0.18);
+}
+
+.glass-on-dark.glass-button-wrap:hover .glass-button-shadow {
+  background: rgba(91, 155, 213, 0.32);
 }

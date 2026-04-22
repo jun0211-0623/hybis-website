@@ -25,16 +25,16 @@ export default function DetailLayout({
   title,
   subtitle,
   description,
-  color = "#4285F4",
+  color = "#0E4A84",
   body,
   children,
 }: DetailLayoutProps) {
   return (
-    <div className="min-h-screen bg-[#0A0A0A]">
+    <div className="min-h-screen bg-white pt-[80px]">
       <nav className="max-w-[1280px] mx-auto px-6 lg:px-10 h-16 flex items-center">
         <Link
           href={backHref}
-          className="text-[#6B7280] hover:text-white text-[14px] flex items-center gap-2 transition-colors"
+          className="text-[#6B7280] hover:text-[#0E4A84] text-[14px] flex items-center gap-2 transition-colors"
         >
           <span>&larr;</span>
           {backLabel}
@@ -57,7 +57,7 @@ export default function DetailLayout({
             )}
           </div>
 
-          <h1 className="text-[clamp(2rem,4vw,3.5rem)] font-bold text-white leading-tight mb-3 tracking-[-0.02em]">
+          <h1 className="text-[clamp(2rem,4vw,3.5rem)] font-bold text-[#1C1B1F] leading-tight mb-3 tracking-[-0.02em]">
             {title}
           </h1>
 
@@ -66,7 +66,7 @@ export default function DetailLayout({
           )}
 
           {description && (
-            <p className="text-[#9AA0A6] text-[17px] leading-relaxed">{description}</p>
+            <p className="text-[#4A4A4F] text-[17px] leading-relaxed">{description}</p>
           )}
 
           <div className="w-12 h-1 rounded-full mt-8" style={{ background: color }} />
@@ -82,35 +82,35 @@ export default function DetailLayout({
                 components={{
                   block: {
                     normal: ({ children }) => (
-                      <p className="text-[#C8C8C8] text-[16px] leading-[1.8] mb-6">{children}</p>
+                      <p className="text-[#3A3A3F] text-[16px] leading-[1.8] mb-6">{children}</p>
                     ),
                     h2: ({ children }) => (
-                      <h2 className="text-white text-[24px] font-semibold mt-12 mb-4">{children}</h2>
+                      <h2 className="text-[#1C1B1F] text-[24px] font-semibold mt-12 mb-4">{children}</h2>
                     ),
                     h3: ({ children }) => (
-                      <h3 className="text-white text-[20px] font-semibold mt-8 mb-3">{children}</h3>
+                      <h3 className="text-[#1C1B1F] text-[20px] font-semibold mt-8 mb-3">{children}</h3>
                     ),
                     blockquote: ({ children }) => (
-                      <blockquote className="border-l-2 border-[#2A2A2A] pl-5 my-6 text-[#9AA0A6] italic">{children}</blockquote>
+                      <blockquote className="border-l-2 border-[#0E4A84]/30 pl-5 my-6 text-[#4A4A4F] italic">{children}</blockquote>
                     ),
                   },
                   list: {
                     bullet: ({ children }) => (
-                      <ul className="list-disc list-inside text-[#C8C8C8] text-[16px] leading-[1.8] mb-6 space-y-1">{children}</ul>
+                      <ul className="list-disc list-inside text-[#3A3A3F] text-[16px] leading-[1.8] mb-6 space-y-1">{children}</ul>
                     ),
                     number: ({ children }) => (
-                      <ol className="list-decimal list-inside text-[#C8C8C8] text-[16px] leading-[1.8] mb-6 space-y-1">{children}</ol>
+                      <ol className="list-decimal list-inside text-[#3A3A3F] text-[16px] leading-[1.8] mb-6 space-y-1">{children}</ol>
                     ),
                   },
                   marks: {
                     strong: ({ children }) => (
-                      <strong className="text-white font-semibold">{children}</strong>
+                      <strong className="text-[#1C1B1F] font-semibold">{children}</strong>
                     ),
                     em: ({ children }) => (
-                      <em className="text-[#9AA0A6]">{children}</em>
+                      <em className="text-[#4A4A4F]">{children}</em>
                     ),
                     link: ({ value, children }) => (
-                      <a href={value?.href} target="_blank" rel="noopener noreferrer" className="text-[#4285F4] hover:underline">{children}</a>
+                      <a href={value?.href} target="_blank" rel="noopener noreferrer" className="text-[#0E4A84] hover:underline">{children}</a>
                     ),
                   },
                 }}

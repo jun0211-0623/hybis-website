@@ -1,24 +1,54 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { buttonVariants } from '@/components/ui/button';
 import { GlassButton } from '@/components/ui/glass-button';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { cn } from '@/lib/utils';
 import { useScroll } from '@/components/ui/use-scroll';
+import type { Locale } from '@/lib/i18n/config';
+import { defaultLocale, locales } from '@/lib/i18n/config';
 
-const navLinks = [
-  { label: "소개", href: "/about" },
-  { label: "소식", href: "/news" },
-  { label: "프로그램", href: "#programs" },
-  { label: "자료", href: "#resources" },
-];
+type NavDict = {
+  links: { label: string; href: string }[];
+  contact: string;
+  openMenu: string;
+  closeMenu: string;
+};
 
-export default function Navigation() {
-  const scrolled = useScroll(10);
+function stripLocale(pathname: string): string {
+  for (const l of locales) {
+    if (pathname === `/${l}`) return '/';
+    if (pathname.startsWith(`/${l}/`)) return pathname.slice(`/${l}`.length);
+  }
+  return pathname;
+}
+
+function withLocale(path: string, locale: Locale): string {
+  // `path` is locale-agnostic ("/", "/about", "#contact", "/#programs").
+  if (path.startsWith('#')) return path; // in-page anchors stay as-is
+  if (locale === defaultLocale) return path;
+  if (path === '/') return `/${locale}`;
+  return `/${locale}${path}`;
+}
+
+export default function Navigation({
+  dict,
+  locale,
+}: {
+  dict: NavDict;
+  locale: Locale;
+}) {
+  const scrolledY = useScroll(10);
   const router = useRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  const homePath = locale === defaultLocale ? '/' : `/${locale}`;
+  const onHome = pathname === homePath;
+  const onDarkHero = onHome && !scrolledY;
+  const scrolled = !onDarkHero;
 
   useEffect(() => {
     if (!open) return;
@@ -36,16 +66,23 @@ export default function Navigation() {
 
   const handleNavClick = (href: string) => {
     setOpen(false);
-    if (href.startsWith("/")) {
-      router.push(href);
-    } else if (href.startsWith("#")) {
-      const el = document.querySelector(href);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      } else {
-        router.push(`/${href}`);
+    if (href.startsWith('#')) {
+      if (!onHome) {
+        router.push(`${homePath}${href}`);
+        return;
       }
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      return;
     }
+    router.push(withLocale(href, locale));
+  };
+
+  const switchLocale = (target: Locale) => {
+    if (target === locale) return;
+    const relative = stripLocale(pathname);
+    const nextPath = withLocale(relative, target);
+    router.push(nextPath);
   };
 
   return (
@@ -54,7 +91,7 @@ export default function Navigation() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 mx-auto w-full max-w-5xl border-b border-transparent md:rounded-md md:border md:transition-all md:ease-out',
           {
-            'bg-[#0A0A0A]/90 supports-[backdrop-filter]:bg-[#0A0A0A]/50 border-[#1E1E1E] backdrop-blur-lg md:top-4 md:max-w-4xl md:shadow-lg md:shadow-black/20':
+            'bg-white/90 supports-[backdrop-filter]:bg-white/70 border-[#E5E5E7] backdrop-blur-lg md:top-4 md:max-w-4xl md:shadow-[0_10px_40px_-12px_rgba(14,74,132,0.18)]':
               scrolled,
           },
         )}
@@ -67,43 +104,97 @@ export default function Navigation() {
             },
           )}
         >
-          <a href="/" className="flex items-center gap-2 group">
-            <span className="text-white font-bold text-[18px] tracking-[0.02em] font-[family-name:var(--font-display)]">
+          <a
+            href={homePath}
+            className="flex items-center gap-2 group"
+            onClick={(e) => {
+              e.preventDefault();
+              router.push(homePath);
+            }}
+          >
+            <span
+              className={cn(
+                'font-bold text-[18px] tracking-[0.02em] font-[family-name:var(--font-display)] transition-colors',
+                scrolled ? 'text-[#0E4A84]' : 'text-white',
+              )}
+            >
               Bitcoinology Lab
             </span>
           </a>
 
           {/* Desktop: inline nav links */}
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
+            {dict.links.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
                 className={cn(
                   buttonVariants({ variant: 'ghost' }),
-                  'text-[#9AA0A6] hover:text-white hover:bg-[#1A1A1A] text-[13px] px-3 h-10 flex-shrink-0'
+                  'text-[13px] px-3 h-10 flex-shrink-0 transition-colors',
+                  scrolled
+                    ? 'text-[#4A4A4F] hover:text-[#0E4A84] hover:bg-[#E7EEF7]'
+                    : 'text-white/80 hover:text-white hover:bg-white/10',
                 )}
               >
                 {link.label}
               </button>
             ))}
+
+            {/* Locale switcher */}
+            <div
+              className={cn(
+                'ml-2 flex items-center gap-0.5 rounded-full p-0.5 border text-[11px] font-medium tracking-[0.1em] uppercase transition-colors',
+                scrolled
+                  ? 'border-[#E5E5E7] bg-white'
+                  : 'border-white/20 bg-white/5 backdrop-blur-sm',
+              )}
+            >
+              {locales.map((l) => {
+                const active = l === locale;
+                return (
+                  <button
+                    key={l}
+                    onClick={() => switchLocale(l)}
+                    aria-pressed={active}
+                    className={cn(
+                      'px-2.5 h-7 rounded-full transition-colors',
+                      active
+                        ? scrolled
+                          ? 'bg-[#0E4A84] text-white'
+                          : 'bg-white text-[#0E4A84]'
+                        : scrolled
+                        ? 'text-[#4A4A4F] hover:text-[#0E4A84]'
+                        : 'text-white/70 hover:text-white',
+                    )}
+                  >
+                    {l}
+                  </button>
+                );
+              })}
+            </div>
+
             <GlassButton
               size="sm"
               onClick={() => handleNavClick('#contact')}
-              className="flex-shrink-0 ml-1"
+              className={cn('flex-shrink-0 ml-1', !scrolled && 'glass-on-dark')}
             >
-              문의하기
+              {dict.contact}
             </GlassButton>
           </div>
 
           {/* Mobile: hamburger toggle */}
           <button
             type="button"
-            aria-label={open ? '메뉴 닫기' : '메뉴 열기'}
+            aria-label={open ? dict.closeMenu : dict.openMenu}
             aria-expanded={open}
             aria-controls="primary-navigation"
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-[#E5E7EB] hover:text-white hover:bg-[#1A1A1A] transition-colors"
+            className={cn(
+              'md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors',
+              scrolled
+                ? 'text-[#1C1B1F] hover:text-[#0E4A84] hover:bg-[#E7EEF7]'
+                : 'text-white hover:bg-white/10',
+            )}
           >
             <MenuToggleIcon open={open} className="h-6 w-6" />
           </button>
@@ -114,38 +205,59 @@ export default function Navigation() {
       <div
         onClick={() => setOpen(false)}
         className={cn(
-          'md:hidden fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300',
+          'md:hidden fixed inset-0 z-40 bg-black/30 backdrop-blur-sm transition-opacity duration-300',
           open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none',
         )}
         aria-hidden="true"
       />
 
-      {/* Mobile drawer panel (slides in from the right, unfolding leftward) */}
+      {/* Mobile drawer panel */}
       <aside
         id="primary-navigation"
         aria-hidden={!open}
         className={cn(
-          'md:hidden fixed top-0 right-0 z-50 h-full w-[85%] max-w-sm border-l border-[#1E1E1E] bg-[#0A0A0A] shadow-2xl shadow-black/40 transition-transform duration-300 ease-out',
+          'md:hidden fixed top-0 right-0 z-50 h-full w-[85%] max-w-sm border-l border-[#E5E5E7] bg-white shadow-2xl shadow-[#0E4A84]/10 transition-transform duration-300 ease-out',
           open ? 'translate-x-0' : 'translate-x-full',
         )}
       >
-        <div className="flex h-14 items-center justify-end px-4">
+        <div className="flex h-14 items-center justify-between px-4">
+          {/* Locale switcher on mobile */}
+          <div className="flex items-center gap-0.5 rounded-full p-0.5 border border-[#E5E5E7] bg-white text-[11px] font-medium tracking-[0.1em] uppercase">
+            {locales.map((l) => {
+              const active = l === locale;
+              return (
+                <button
+                  key={l}
+                  onClick={() => switchLocale(l)}
+                  aria-pressed={active}
+                  className={cn(
+                    'px-2.5 h-7 rounded-full transition-colors',
+                    active
+                      ? 'bg-[#0E4A84] text-white'
+                      : 'text-[#4A4A4F] hover:text-[#0E4A84]',
+                  )}
+                >
+                  {l}
+                </button>
+              );
+            })}
+          </div>
           <button
             type="button"
-            aria-label="메뉴 닫기"
+            aria-label={dict.closeMenu}
             onClick={() => setOpen(false)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-[#E5E7EB] hover:text-white hover:bg-[#1A1A1A] transition-colors"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-[#1C1B1F] hover:text-[#0E4A84] hover:bg-[#E7EEF7] transition-colors"
           >
             <MenuToggleIcon open={true} className="h-6 w-6" />
           </button>
         </div>
 
         <nav className="flex flex-col px-6 pt-4 pb-10 gap-1">
-          {navLinks.map((link) => (
+          {dict.links.map((link) => (
             <button
               key={link.href}
               onClick={() => handleNavClick(link.href)}
-              className="text-left text-[#E5E7EB] hover:text-white hover:bg-[#151515] rounded-md px-3 py-3.5 text-[17px] font-medium tracking-[-0.01em] transition-colors"
+              className="text-left text-[#1C1B1F] hover:text-[#0E4A84] hover:bg-[#E7EEF7] rounded-md px-3 py-3.5 text-[17px] font-medium tracking-[-0.01em] transition-colors"
             >
               {link.label}
             </button>
@@ -157,7 +269,7 @@ export default function Navigation() {
               onClick={() => handleNavClick('#contact')}
               className="w-full"
             >
-              문의하기
+              {dict.contact}
             </GlassButton>
           </div>
         </nav>

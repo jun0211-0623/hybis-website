@@ -2,95 +2,95 @@
 
 import { FadeIn } from "./FadeIn";
 import { GlassButton } from "@/components/ui/glass-button";
+import { useRouter } from "next/navigation";
+import type { Locale } from "@/lib/i18n/config";
+import { defaultLocale } from "@/lib/i18n/config";
 
-const footerLinks = [
-  {
-    title: "연구소",
-    links: [
-      { label: "센터 소개", href: "/about" },
-      { label: "조직 구성", href: "/about" },
-      { label: "연혁", href: "/about" },
-    ],
-  },
-  {
-    title: "소식",
-    links: [
-      { label: "언론보도", href: "/news" },
-    ],
-  },
-  {
-    title: "프로그램",
-    links: [
-      { label: "최고위 과정", href: "/programs/executive" },
-      { label: "대학원 협동과정", href: "/programs/graduate" },
-    ],
-  },
-  {
-    title: "학술 활동",
-    links: [
-      { label: "행사 및 활동", href: "/#academics" },
-    ],
-  },
-  {
-    title: "자료",
-    links: [
-      { label: "모노그래프", href: "/#monographs" },
-      { label: "정책보고서", href: "/#resources" },
-      { label: "학술논문", href: "/#resources" },
-    ],
-  },
-];
+type FooterDict = {
+  cta: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    contact: string;
+    viewPrograms: string;
+  };
+  groups: { title: string; links: { label: string; href: string }[] }[];
+  copyright: string;
+  contacts: {
+    email: string;
+    phone: string;
+    address: string;
+    deptLink: string;
+  };
+};
 
-export default function Footer() {
+function withLocale(href: string, locale: Locale): string {
+  if (href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("tel:")) return href;
+  if (locale === defaultLocale) return href;
+  // Handle "/#academics" style
+  if (href.startsWith("/#")) return `/${locale}${href.slice(1)}`;
+  if (href === "/") return `/${locale}`;
+  return `/${locale}${href}`;
+}
+
+export default function Footer({
+  dict,
+  locale,
+}: {
+  dict: FooterDict;
+  locale: Locale;
+}) {
   const currentYear = new Date().getFullYear();
+  const router = useRouter();
 
   const handleNavClick = (href: string) => {
     if (href === "#") return;
-    window.location.href = href;
+    router.push(withLocale(href, locale));
   };
+
+  const programsHref = withLocale("/#programs", locale);
 
   return (
     <footer id="contact">
       {/* CTA section */}
-      <div className="bg-[#0A0A0A] relative overflow-hidden">
-        <div className="section-divider" />
+      <div className="bg-[#1C1B1F] relative overflow-hidden">
+        <div className="section-divider-dark" />
 
-        {/* Ambient glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#7EBAB5]/[0.03] rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#5B9BD5]/[0.08] rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative max-w-[1280px] mx-auto px-6 lg:px-10 py-24 lg:py-32 text-center">
           <FadeIn>
             <div className="flex items-center justify-center gap-2.5 mb-6">
-              <div className="w-8 h-[2px] bg-[#7EBAB5]" />
-              <span className="text-[#7EBAB5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
-                Join Us
+              <div className="w-8 h-[2px] bg-[#5B9BD5]" />
+              <span className="text-[#5B9BD5] text-[12px] font-medium tracking-[0.1em] uppercase font-[family-name:var(--font-display)]">
+                {dict.cta.eyebrow}
               </span>
-              <div className="w-8 h-[2px] bg-[#7EBAB5]" />
+              <div className="w-8 h-[2px] bg-[#5B9BD5]" />
             </div>
           </FadeIn>
 
           <FadeIn delay={0.1}>
             <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-white leading-[1.15] tracking-[-0.02em] mb-4">
-              함께 연구에 참여하세요.
+              {dict.cta.title}
             </h2>
           </FadeIn>
 
           <FadeIn delay={0.15}>
-            <p className="text-[#9AA0A6] text-[16px] mb-10 max-w-[420px] mx-auto leading-relaxed">
-              비트코인과 화폐철학의 미래를 함께 만들어갈 연구자, 학생, 기관의 참여를 기다립니다.
+            <p className="text-white/70 text-[16px] mb-10 max-w-[420px] mx-auto leading-relaxed">
+              {dict.cta.body}
             </p>
           </FadeIn>
 
           <FadeIn delay={0.2}>
             <div className="flex items-center justify-center gap-4">
-              <a href="mailto:iamyam@hanyang.ac.kr">
-                <GlassButton size="default">
-                  Contact Us
+              <a href={`mailto:${dict.contacts.email}`}>
+                <GlassButton size="default" className="glass-on-dark">
+                  {dict.cta.contact}
                 </GlassButton>
               </a>
-              <a href="/#programs">
-                <GlassButton size="default">
-                  프로그램 보기
+              <a href={programsHref}>
+                <GlassButton size="default" className="glass-on-dark">
+                  {dict.cta.viewPrograms}
                 </GlassButton>
               </a>
             </div>
@@ -99,10 +99,10 @@ export default function Footer() {
       </div>
 
       {/* Footer Links */}
-      <div className="bg-[#0A0A0A] border-t border-[#1A1A1A]">
+      <div className="bg-[#1C1B1F] border-t border-white/5">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-16">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10">
-            {footerLinks.map((group) => (
+            {dict.groups.map((group) => (
               <div key={group.title}>
                 <h4 className="text-[14px] font-semibold text-white mb-4">
                   {group.title}
@@ -112,7 +112,7 @@ export default function Footer() {
                     <li key={link.label}>
                       <button
                         onClick={() => handleNavClick(link.href)}
-                        className="text-[13px] text-[#6B7280] hover:text-[#7EBAB5] transition-colors duration-200"
+                        className="text-[13px] text-white/50 hover:text-[#5B9BD5] transition-colors duration-200"
                       >
                         {link.label}
                       </button>
@@ -124,40 +124,42 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-[#1A1A1A]">
+        <div className="border-t border-white/5">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2">
-              <span className="text-white font-bold text-[15px] font-[family-name:var(--font-display)]">Bitcoinology Lab</span>
-              <span className="text-[#333] text-[12px]">
-                &copy; {currentYear} Bitcoinology Lab
+              <span className="text-white font-bold text-[15px] font-[family-name:var(--font-display)]">
+                {dict.copyright}
+              </span>
+              <span className="text-white/30 text-[12px]">
+                &copy; {currentYear} {dict.copyright}
               </span>
             </div>
             <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-4 gap-y-1">
               <a
-                href="mailto:iamyam@hanyang.ac.kr"
-                className="text-[#6B7280] hover:text-[#7EBAB5] text-[12px] transition-colors duration-200 min-h-[44px] flex items-center"
+                href={`mailto:${dict.contacts.email}`}
+                className="text-white/50 hover:text-[#5B9BD5] text-[12px] transition-colors duration-200 min-h-[44px] flex items-center"
               >
-                iamyam@hanyang.ac.kr
+                {dict.contacts.email}
               </a>
-              <span className="text-[#2A2A2A] hidden sm:inline">|</span>
+              <span className="text-white/20 hidden sm:inline">|</span>
               <a
-                href="tel:02-2220-0751"
-                className="text-[#6B7280] hover:text-[#7EBAB5] text-[12px] transition-colors duration-200 min-h-[44px] flex items-center"
+                href={`tel:${dict.contacts.phone.replace(/[^0-9+]/g, "")}`}
+                className="text-white/50 hover:text-[#5B9BD5] text-[12px] transition-colors duration-200 min-h-[44px] flex items-center"
               >
-                02-2220-0751
+                {dict.contacts.phone}
               </a>
-              <span className="text-[#2A2A2A] hidden sm:inline">|</span>
-              <span className="text-[#6B7280] text-[12px]">
-                서울 성동구 왕십리로 222
+              <span className="text-white/20 hidden sm:inline">|</span>
+              <span className="text-white/50 text-[12px]">
+                {dict.contacts.address}
               </span>
-              <span className="text-[#2A2A2A] hidden sm:inline">|</span>
+              <span className="text-white/20 hidden sm:inline">|</span>
               <a
                 href="https://bitcoinphilosophy.hanyang.ac.kr/home"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#6B7280] hover:text-[#7EBAB5] text-[12px] transition-colors duration-200 min-h-[44px] flex items-center"
+                className="text-white/50 hover:text-[#5B9BD5] text-[12px] transition-colors duration-200 min-h-[44px] flex items-center"
               >
-                비트코인화폐철학과 →
+                {dict.contacts.deptLink}
               </a>
             </div>
           </div>
