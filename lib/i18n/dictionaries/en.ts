@@ -26,6 +26,10 @@ const en: KoDict = {
         children: [{ label: "Press", href: "/news" }],
       },
       {
+        label: "Academic Events",
+        children: [{ label: "Colloquium", href: "/academics/colloquium" }],
+      },
+      {
         label: "Programs",
         children: [
           { label: "Executive Program", href: "/programs/executive" },
@@ -58,6 +62,16 @@ const en: KoDict = {
       "Bitcoinology Lab is an interdisciplinary research hub that examines, through the humanities, how value, trust, and society are being reconstituted in the era of digital money and artificial intelligence.",
     ctaResearch: "Explore Research",
     ctaPrograms: "View Programs",
+  },
+  highlights: {
+    eyebrow: "News & Events",
+    title: "Latest Highlights",
+    body:
+      "A snapshot of Bitcoinology Lab's latest colloquia, monographs, and press coverage.",
+    readMore: "Read more",
+    viewArticle: "Read article",
+    prev: "Previous",
+    next: "Next",
   },
   about: {
     eyebrow: "Research Areas",
@@ -411,6 +425,23 @@ const en: KoDict = {
     pressEyebrow: "Press",
     pressTitle: "Press Coverage",
     articleLink: "Read article",
+  },
+  colloquiumPage: {
+    backHome: "Home",
+    eyebrow: "Colloquium",
+    title: "Colloquium",
+    body:
+      "A colloquium series hosted by Hanyang University's Department of Bitcoin & Monetary Philosophy. Leading voices share frontier perspectives on digital money, trust, and society.",
+    listEyebrow: "Upcoming & Past",
+    listTitle: "Colloquium Schedule",
+    statusUpcoming: "Upcoming",
+    statusPast: "Past",
+    topicLabel: "Topic",
+    speakerLabel: "Speaker",
+    dateLabel: "Date",
+    venueLabel: "Venue",
+    hostLabel: "Host",
+    posterAlt: "Colloquium poster",
   },
   executivePage: {
     back: "Programs",

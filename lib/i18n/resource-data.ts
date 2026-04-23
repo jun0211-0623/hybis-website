@@ -10,6 +10,7 @@ export interface MonographItem {
   isbn: string;
   publisher: string;
   year: string;
+  publishedAt?: string;
 }
 
 export interface PaperItem {
@@ -34,6 +35,7 @@ const monographsKo: MonographItem[] = [
     isbn: "978-89-7218-851-3",
     publisher: "한양대학교 출판부",
     year: "2025",
+    publishedAt: "2025-10-30",
   },
   {
     id: "no-future-without-bitcoin",
@@ -46,6 +48,7 @@ const monographsKo: MonographItem[] = [
     isbn: "979-11-93869-33-8",
     publisher: "",
     year: "2025",
+    publishedAt: "2025-09-19",
   },
   {
     id: "language-of-currency",
@@ -57,7 +60,8 @@ const monographsKo: MonographItem[] = [
     image: "/books/9788972188537.jpg",
     isbn: "978-89-7218-853-7",
     publisher: "한양대학교 출판부",
-    year: "2025",
+    year: "2026",
+    publishedAt: "2026-01-10",
   },
 ];
 
@@ -73,6 +77,7 @@ const monographsEn: MonographItem[] = [
     isbn: "978-89-7218-851-3",
     publisher: "Hanyang University Press",
     year: "2025",
+    publishedAt: "2025-10-30",
   },
   {
     id: "no-future-without-bitcoin",
@@ -85,6 +90,7 @@ const monographsEn: MonographItem[] = [
     isbn: "979-11-93869-33-8",
     publisher: "",
     year: "2025",
+    publishedAt: "2025-09-19",
   },
   {
     id: "language-of-currency",
@@ -96,7 +102,8 @@ const monographsEn: MonographItem[] = [
     image: "/books/9788972188537.jpg",
     isbn: "978-89-7218-853-7",
     publisher: "Hanyang University Press",
-    year: "2025",
+    year: "2026",
+    publishedAt: "2026-01-10",
   },
 ];
 
@@ -274,6 +281,36 @@ const papersAndReportsEn: PaperItem[] = [
 
 export function getMonographs(locale: Locale): MonographItem[] {
   return locale === "en" ? monographsEn : monographsKo;
+}
+
+const EN_MONTHS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+export function formatMonographDate(
+  m: Pick<MonographItem, "year" | "publishedAt">,
+  locale: Locale,
+): string {
+  if (m.publishedAt) {
+    const match = m.publishedAt.match(/(\d{4})-(\d{2})-(\d{2})/);
+    if (match) {
+      const [, y, mm, dd] = match;
+      if (locale === "en") return `${EN_MONTHS[Number(mm) - 1]} ${Number(dd)}, ${y}`;
+      return `${y}.${mm}.${dd}`;
+    }
+  }
+  return m.year;
 }
 
 export function getPapersAndReports(locale: Locale): PaperItem[] {

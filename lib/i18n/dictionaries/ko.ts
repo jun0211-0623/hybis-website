@@ -22,6 +22,10 @@ const ko = {
         children: [{ label: "언론보도", href: "/news" }],
       },
       {
+        label: "학술행사",
+        children: [{ label: "콜로키움", href: "/academics/colloquium" }],
+      },
+      {
         label: "프로그램",
         children: [
           { label: "최고위 과정", href: "/programs/executive" },
@@ -54,6 +58,16 @@ const ko = {
       "Bitcoinology Lab은 디지털 화폐와 인공지능 시대에 가치·신뢰·사회가 어떻게 재구성되는지를 인문학적으로 탐구하는 학제적 연구 허브입니다.",
     ctaResearch: "연구 살펴보기",
     ctaPrograms: "프로그램 안내",
+  },
+  highlights: {
+    eyebrow: "News & Events",
+    title: "최신 소식",
+    body:
+      "Bitcoinology Lab의 학술행사, 모노그래프 발간, 언론보도 등 최신 활동을 한눈에 확인하세요.",
+    readMore: "자세히 보기",
+    viewArticle: "기사 보기",
+    prev: "이전",
+    next: "다음",
   },
   about: {
     eyebrow: "Research Areas",
@@ -348,6 +362,23 @@ const ko = {
     pressEyebrow: "Press",
     pressTitle: "언론보도",
     articleLink: "기사 보기",
+  },
+  colloquiumPage: {
+    backHome: "홈",
+    eyebrow: "Colloquium",
+    title: "콜로퀴움",
+    body:
+      "한양대학교 비트코인화폐철학과가 주관하는 콜로퀴움 시리즈. 각계 전문가를 모시고 디지털 화폐·신뢰·사회를 둘러싼 최전선 논의를 공유합니다.",
+    listEyebrow: "Upcoming & Past",
+    listTitle: "콜로퀴움 일정",
+    statusUpcoming: "예정",
+    statusPast: "종료",
+    topicLabel: "주제",
+    speakerLabel: "발표자",
+    dateLabel: "일시",
+    venueLabel: "장소",
+    hostLabel: "주관",
+    posterAlt: "콜로퀴움 포스터",
   },
   executivePage: {
     back: "프로그램",

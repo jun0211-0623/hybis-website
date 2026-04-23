@@ -6,7 +6,7 @@ import { FadeIn } from "@/components/FadeIn";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale } from "@/lib/i18n/config";
 import { notFound } from "next/navigation";
-import { getMonographs } from "@/lib/i18n/resource-data";
+import { getMonographs, formatMonographDate } from "@/lib/i18n/resource-data";
 
 export async function generateMetadata({
   params,
@@ -61,7 +61,7 @@ export default async function MonographsPage({
                     </div>
                     <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1 border border-[#E5E5E7]">
                       <span className="text-[12px] font-mono text-[#1C1B1F]">
-                        {book.year}
+                        {formatMonographDate(book, locale)}
                       </span>
                     </div>
                   </div>
