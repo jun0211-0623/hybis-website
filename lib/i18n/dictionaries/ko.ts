@@ -415,7 +415,7 @@ const ko = {
           "화폐와 언어의 철학",
         ],
       },
-    },
+    } as Record<string, Record<string, string[]>>,
     requirementsEyebrow: "Requirements",
     requirementsTitle: "이수 요건",
     requirements: [
