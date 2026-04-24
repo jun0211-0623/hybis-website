@@ -209,7 +209,8 @@ const ko = {
     sections: {
       bitcoinology: {
         eyebrow: "Greeting",
-        title: "인사말 — Bitcoinology란",
+        title: "인사말",
+        subtitle: "Bitcoinology란",
         paragraphs: [
           {
             type: "mixed",

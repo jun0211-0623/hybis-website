@@ -220,7 +220,8 @@ const en: KoDict = {
     sections: {
       bitcoinology: {
         eyebrow: "Greeting",
-        title: "Greeting — What is Bitcoinology?",
+        title: "Greeting",
+        subtitle: "What is Bitcoinology?",
         paragraphs: [
           {
             type: "mixed",

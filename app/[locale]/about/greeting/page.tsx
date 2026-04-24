@@ -64,8 +64,10 @@ export default async function GreetingPage({
       <SubPageShell
         eyebrow={s.eyebrow}
         title={s.title}
+        subtitle={s.subtitle}
         backLabel={dict.aboutPage.backHome}
         locale={locale}
+        showLogo
       >
         <section className="max-w-[1280px] mx-auto px-6 lg:px-10 py-14 lg:py-20">
           <FadeIn delay={0.1}>

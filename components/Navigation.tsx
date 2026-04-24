@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import { buttonVariants } from '@/components/ui/button';
 import { GlassButton } from '@/components/ui/glass-button';
@@ -122,12 +123,23 @@ export default function Navigation({
         >
           <a
             href={homePath}
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-2.5 group"
             onClick={(e) => {
               e.preventDefault();
               router.push(homePath);
             }}
           >
+            <Image
+              src="/brand/icon-128.png"
+              alt=""
+              width={28}
+              height={28}
+              priority
+              className={cn(
+                'h-7 w-7 transition-all duration-300',
+                scrolled || openMenu !== null ? '' : 'brightness-0 invert',
+              )}
+            />
             <span
               className={cn(
                 'font-bold text-[18px] tracking-[0.02em] font-[family-name:var(--font-display)] transition-colors',

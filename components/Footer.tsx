@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n/config";
 import { defaultLocale } from "@/lib/i18n/config";
@@ -75,7 +76,14 @@ export default function Footer({
 
         <div className="border-t border-white/5">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
+              <Image
+                src="/brand/icon-128.png"
+                alt=""
+                width={32}
+                height={32}
+                className="h-8 w-8 brightness-0 invert opacity-90"
+              />
               <span className="text-white font-bold text-[15px] font-[family-name:var(--font-display)]">
                 {dict.copyright}
               </span>
