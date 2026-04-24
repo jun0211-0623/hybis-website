@@ -22,12 +22,11 @@ const photos: Photo[] = [
   { id: 4, src: "/gallery/photo-4.jpg", title: "비트코인 화폐철학 북콘서트 03", date: "2025.11.26" },
   { id: 6, src: "/gallery/photo-6.jpg", title: "최고위 총동문회 01", date: "2025.11.26" },
   { id: 5, src: "/gallery/photo-5.jpg", title: "최고위 총동문회 02", date: "2025.11.26" },
-  { id: 1, src: "/gallery/photo-1.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
-  { id: 7, src: "/gallery/photo-7.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
-  { id: 8, src: "/gallery/photo-8.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
-  { id: 9, src: "/gallery/photo-9.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
-  { id: 10, src: "/gallery/photo-10.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
-  { id: 11, src: "/gallery/photo-11.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
+  { id: 11, src: "/gallery/photo-11.jpg", title: "비트코인화폐철학 최고위과정 3기 해외연수 — 대만", date: "2025.04.27" },
+  { id: 8, src: "/gallery/photo-8.jpg", title: "비트코인화폐철학 최고위과정 수료식", date: "YYYY.MM.DD" },
+  { id: 10, src: "/gallery/photo-10.jpg", title: "최고위과정 수료증 수여식", date: "YYYY.MM.DD" },
+  { id: 7, src: "/gallery/photo-7.jpg", title: "최고위과정 수료식 단체사진", date: "YYYY.MM.DD" },
+  { id: 1, src: "/gallery/photo-1.jpg", title: "최고위과정 수료식 리셉션", date: "YYYY.MM.DD" },
 ];
 
 export async function generateMetadata({
