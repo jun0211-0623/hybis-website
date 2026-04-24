@@ -61,7 +61,7 @@ const ko = {
   },
   highlights: {
     eyebrow: "News & Events",
-    title: "최신 소식",
+    title: "연구소 소식",
     body:
       "Bitcoinology Lab의 학술행사, 모노그래프 발간, 언론보도 등 최신 활동을 한눈에 확인하세요.",
     readMore: "자세히 보기",
@@ -80,22 +80,26 @@ const ko = {
         title: "가치·신뢰·사회의 인문학적 탐구",
         description:
           "비트코인을 문명사적 실험으로 읽어내며, 공동체의 조율 방식, 권위의 정당화, 화폐와 자유의 의미가 어떻게 재편되는지 인문학적으로 분석합니다.",
+        image: "/research-areas/value-trust.png",
         featured: true,
       },
       {
         title: "연산적 신뢰의 인프라 연구",
         description:
           "블록체인, 플랫폼, AI 기반 의사결정 시스템 등 computational trust의 인프라와 상상력을 철학·윤리·정치사상의 렌즈로 분석합니다.",
+        image: "/research-areas/computational-trust.png",
       },
       {
         title: "학제적 융합 연구",
         description:
           "철학, 문학·문화연구, 지성사, 윤리학, 정치사상, 과학기술학(STS)을 연결하고, 시장·규제·일상 실천에 대한 경험적 연구를 결합합니다.",
+        image: "/research-areas/interdisciplinary.png",
       },
       {
         title: "학문적 엄밀성과 공적 통찰",
         description:
           "세미나·워크숍·출판·공동 프로젝트를 통해 엄밀한 학술 연구와 사회적 통찰을 함께 생산하고, 더 책임 있는 미래를 설계합니다.",
+        image: "/research-areas/scholarly-insight.png",
       },
     ],
   },

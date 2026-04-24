@@ -84,22 +84,26 @@ const en: KoDict = {
         title: "The Humanities of Value, Trust, and Society",
         description:
           "Reading Bitcoin as a civilizational experiment, we analyze how modes of communal coordination, legitimation of authority, and the meaning of money and freedom are being reshaped.",
+        image: "/research-areas/value-trust.png",
         featured: true,
       },
       {
         title: "Infrastructures of Computational Trust",
         description:
           "Blockchain, platforms, and AI-driven decision systems are examined through philosophy, ethics, and political thought as infrastructures and imaginaries of computational trust.",
+        image: "/research-areas/computational-trust.png",
       },
       {
         title: "Interdisciplinary Integration",
         description:
           "We connect philosophy, literary and cultural studies, intellectual history, ethics, political thought, and science and technology studies (STS), combined with empirical work on markets, regulation, and everyday practice.",
+        image: "/research-areas/interdisciplinary.png",
       },
       {
         title: "Scholarly Rigor and Public Insight",
         description:
           "Through seminars, workshops, publications, and joint projects, we produce both rigorous scholarship and public insight toward a more responsible future.",
+        image: "/research-areas/scholarly-insight.png",
       },
     ],
   },
