@@ -36,8 +36,8 @@ const ko = {
         label: "자료",
         children: [
           { label: "모노그래프", href: "/resources/monographs" },
-          { label: "논문", href: "/resources/papers" },
-          { label: "보고서", href: "/resources/reports" },
+          { label: "학술논문", href: "/resources/papers" },
+          { label: "정책 보고서", href: "/resources/reports" },
           { label: "학술행사 사진", href: "/resources/photos" },
         ],
       },
@@ -186,8 +186,8 @@ const ko = {
         title: "자료",
         links: [
           { label: "모노그래프", href: "/resources/monographs" },
-          { label: "논문", href: "/resources/papers" },
-          { label: "보고서", href: "/resources/reports" },
+          { label: "학술논문", href: "/resources/papers" },
+          { label: "정책 보고서", href: "/resources/reports" },
           { label: "학술행사 사진", href: "/resources/photos" },
         ],
       },

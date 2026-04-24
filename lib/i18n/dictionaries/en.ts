@@ -40,8 +40,8 @@ const en: KoDict = {
         label: "Resources",
         children: [
           { label: "Monographs", href: "/resources/monographs" },
-          { label: "Papers", href: "/resources/papers" },
-          { label: "Reports", href: "/resources/reports" },
+          { label: "Academic Papers", href: "/resources/papers" },
+          { label: "Policy Reports", href: "/resources/reports" },
           { label: "Photos", href: "/resources/photos" },
         ],
       },
@@ -197,8 +197,8 @@ const en: KoDict = {
         title: "Resources",
         links: [
           { label: "Monographs", href: "/resources/monographs" },
-          { label: "Papers", href: "/resources/papers" },
-          { label: "Reports", href: "/resources/reports" },
+          { label: "Academic Papers", href: "/resources/papers" },
+          { label: "Policy Reports", href: "/resources/reports" },
           { label: "Photos", href: "/resources/photos" },
         ],
       },
