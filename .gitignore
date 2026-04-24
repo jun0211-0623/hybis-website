@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# logo source asset (used only by scripts/rebuild-logo.mjs)
+/scripts/logo-src.png

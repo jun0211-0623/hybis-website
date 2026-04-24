@@ -23,7 +23,7 @@ const ko = {
       },
       {
         label: "학술행사",
-        children: [{ label: "콜로키움", href: "/academics/colloquium" }],
+        children: [{ label: "콜로퀴움", href: "/academics/colloquium" }],
       },
       {
         label: "프로그램",
@@ -491,13 +491,13 @@ const ko = {
     eyebrow: "Events & Activities",
     title: "행사 및 활동",
     body:
-      "Bitcoinology Lab의 세미나, 콜로키움, 학술대회 등 주요 행사 이력을 확인하세요.",
+      "Bitcoinology Lab의 세미나, 콜로퀴움, 학술대회 등 주요 행사 이력을 확인하세요.",
     emptyMessage: "행사 정보가 준비되면 이곳에 게시됩니다.",
     cmsHint: "Sanity CMS에서 행사를 등록하면 자동으로 표시됩니다.",
     speakerPrefix: "발표:",
     categories: {
       seminar: "세미나",
-      colloquium: "콜로키움",
+      colloquium: "콜로퀴움",
       conference: "학술대회",
       workshop: "워크숍",
     },

@@ -30,7 +30,7 @@ const KIND_COLOR: Record<HighlightKind, string> = {
 type KindLabels = Record<HighlightKind, string>;
 
 const KIND_LABELS: Record<Locale, KindLabels> = {
-  ko: { press: "언론보도", colloquium: "콜로키움", monograph: "모노그래프" },
+  ko: { press: "언론보도", colloquium: "콜로퀴움", monograph: "모노그래프" },
   en: { press: "Press", colloquium: "Colloquium", monograph: "Monograph" },
 };
 

@@ -18,7 +18,7 @@ export default defineType({
       options: {
         list: [
           { title: "학술대회", value: "학술대회" },
-          { title: "콜로키움", value: "콜로키움" },
+          { title: "콜로퀴움", value: "콜로키움" },
           { title: "세미나", value: "세미나" },
         ],
       },
