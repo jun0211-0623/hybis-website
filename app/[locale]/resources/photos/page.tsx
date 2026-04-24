@@ -17,12 +17,12 @@ type Photo = {
 };
 
 const photos: Photo[] = [
+  { id: 3, src: "/gallery/photo-3.jpg", title: "비트코인 화폐철학 북콘서트 01", date: "2025.11.26" },
+  { id: 2, src: "/gallery/photo-2.jpg", title: "비트코인 화폐철학 북콘서트 02", date: "2025.11.26" },
+  { id: 4, src: "/gallery/photo-4.jpg", title: "비트코인 화폐철학 북콘서트 03", date: "2025.11.26" },
+  { id: 6, src: "/gallery/photo-6.jpg", title: "최고위 총동문회 01", date: "2025.11.26" },
+  { id: 5, src: "/gallery/photo-5.jpg", title: "최고위 총동문회 02", date: "2025.11.26" },
   { id: 1, src: "/gallery/photo-1.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
-  { id: 2, src: "/gallery/photo-2.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
-  { id: 3, src: "/gallery/photo-3.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
-  { id: 4, src: "/gallery/photo-4.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
-  { id: 5, src: "/gallery/photo-5.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
-  { id: 6, src: "/gallery/photo-6.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
   { id: 7, src: "/gallery/photo-7.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
   { id: 8, src: "/gallery/photo-8.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
   { id: 9, src: "/gallery/photo-9.jpg", title: "제목을 입력하세요", date: "YYYY.MM.DD" },
@@ -38,7 +38,7 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   return {
-    title: `${locale === "en" ? "Photos" : "학술행사 사진"} — Bitcoinology Lab`,
+    title: `${locale === "en" ? "Photos" : "행사 사진"} — Bitcoinology Lab`,
   };
 }
 
@@ -57,7 +57,7 @@ export default async function PhotosPage({
       <Navigation dict={dict.nav} locale={locale} />
       <SubPageShell
         eyebrow={dict.gallery.eyebrow}
-        title={isKo ? "학술행사 사진" : "Event Photos"}
+        title={isKo ? "행사 사진" : "Event Photos"}
         intro={dict.gallery.body}
         backLabel={dict.aboutPage.backHome}
         locale={locale}

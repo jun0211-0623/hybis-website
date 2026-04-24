@@ -22,6 +22,10 @@ const FONT_TTF = path.join(ROOT, "public/fonts/Quintessential-Regular.ttf");
 
 const BRAND_BLUE = "#0E4A84";
 
+// Faux-bold stroke width (Quintessential only ships Regular).
+// Increase to thicken the wordmark. 0 = no faux-bold. Tuned against 440px type size.
+const FAUX_BOLD_STROKE = 12;
+
 // Measured from the 5000x5000 source:
 const GRAPHIC = { minX: 1305, minY: 881, maxX: 3750, maxY: 3329 };
 const PAD = 80;
@@ -86,7 +90,7 @@ async function buildFull() {
   const textCanvasH = 1200;
   const textSvg = Buffer.from(`
 <svg xmlns="http://www.w3.org/2000/svg" width="${textBlockW}" height="${textCanvasH}" viewBox="0 0 ${textBlockW} ${textCanvasH}">
-  <g fill="${BRAND_BLUE}">${textPath}</g>
+  <g fill="${BRAND_BLUE}" stroke="${BRAND_BLUE}" stroke-width="${FAUX_BOLD_STROKE}" stroke-linejoin="round">${textPath}</g>
   <g stroke="${BRAND_BLUE}" stroke-width="6" fill="${BRAND_BLUE}">
     <line x1="2060" y1="${sepY}" x2="2430" y2="${sepY}"/>
     <circle cx="2500" cy="${sepY}" r="14"/>
