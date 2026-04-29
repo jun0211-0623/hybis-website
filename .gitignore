@@ -42,3 +42,6 @@ next-env.d.ts
 
 # logo source asset (used only by scripts/rebuild-logo.mjs)
 /scripts/logo-src.png
+
+# local backup of replaced gallery photos
+/public/gallery/.backup-*/

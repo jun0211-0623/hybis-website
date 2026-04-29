@@ -28,7 +28,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const h = await headers();
-  const locale = h.get("x-locale") ?? "ko";
+  const locale = h.get("x-locale") ?? "en";
   return (
     <html lang={locale} className={quintessential.variable}>
       <body>{children}</body>

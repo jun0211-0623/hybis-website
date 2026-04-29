@@ -17,6 +17,7 @@ const en: KoDict = {
           { label: "Mission", href: "/about/mission" },
           { label: "History", href: "/about/history" },
           { label: "Organization", href: "/about/structure" },
+          { label: "Faculty", href: "/about/faculty" },
           { label: "Partners", href: "/about/partners" },
           { label: "Location", href: "/about/location" },
         ],
@@ -54,8 +55,8 @@ const en: KoDict = {
     eyebrow: "Value, Code, Society",
     title: "Bitcoinology Lab",
     tagline: {
-      prefix: "Proving the nature of money through ",
-      highlight: "scholarship",
+      prefix: "Where Money, Code, and Culture ",
+      highlight: "Converge",
       suffix: ".",
     },
     body:
@@ -178,6 +179,7 @@ const en: KoDict = {
           { label: "Mission", href: "/about/mission" },
           { label: "History", href: "/about/history" },
           { label: "Organization", href: "/about/structure" },
+          { label: "Faculty", href: "/about/faculty" },
           { label: "Partners", href: "/about/partners" },
           { label: "Location", href: "/about/location" },
         ],
@@ -337,10 +339,6 @@ const en: KoDict = {
               },
               { name: "Seung-woo Kim", dept: "History" },
               { name: "Hyung-seop Lee", dept: "English Literature" },
-              {
-                name: "Seong-hwan Shin",
-                dept: "Future Humanities Convergence",
-              },
             ],
           },
           {
@@ -376,13 +374,106 @@ const en: KoDict = {
           {
             title: "Research Fellows",
             members: [
-              { name: "Sung-hyun Kim", dept: "" },
-              { name: "Seung-jong Lee", dept: "" },
-              { name: "Dae-hong Kang", dept: "" },
-              { name: "Chang-jun Lee", dept: "Graduate Research Assistant" },
+              { name: "Min-gu Park", dept: "Senior Research Fellow" },
+              { name: "Yong-rae Cho", dept: "Research Assistant" },
+              { name: "Myeong-seung Choi", dept: "Research Assistant" },
+              { name: "Chang-jun Lee", dept: "Research Assistant" },
+              { name: "Dae-hong Kang", dept: "Industry-Academia Research Fellow" },
             ],
           },
         ],
+      },
+      faculty: {
+        eyebrow: "Faculty",
+        title: "Faculty",
+        intro:
+          "Scholars affiliated with both Bitcoinology Lab and the Hanyang University Graduate Cooperative Program in Bitcoin & Monetary Philosophy.",
+        people: [
+          {
+            name: "Seong-ho Yoon",
+            role: "Director · Professor",
+            affiliation:
+              "Hanyang University, Department of English Language and Literature · Bitcoin & Monetary Philosophy",
+            field: "Modern American Literature · Bitcoin Humanities",
+            bio:
+              "Earned his B.A. from Seoul National University and his Ph.D. from the University of Massachusetts. Teaches Bitcoin Intellectual History, Crypto Cultural Studies, and Crypto Key Figures, and leads research in Bitcoin humanities.",
+            works: [
+              "Underdog Writing: Mapping Asian American Literature",
+              "The Transgressive Spatial Imagination in the 20th-Century American Novel",
+              "Academic Prize, The English Language and Literature Association of Korea",
+              "Best Paper Award, The Yeats Society of Korea",
+            ],
+            photo: "/faculty/yoon-seong-ho.png",
+          },
+          {
+            name: "Tae-min Oh",
+            role: "Adjunct Professor",
+            affiliation: "Bitcoin & Monetary Philosophy",
+            field: "Humanities · Geopolitics · International Financial Order",
+            bio:
+              "A thinker who pioneered Bitcoin humanities in Korea. Beginning with Bitcoin Was Strong (2014), through more than ten books and continuous lectures, he reads Bitcoin as a reinvention of trust and a fissure in dollar hegemony — building an independent humanistic interpretation. Through unceasing co-authorship with his graduate students, he lays the intellectual foundations surrounding digital assets.",
+            works: [
+              "Bitcoin Was Strong (2014)",
+              "Smart Contract: A Trust Revolution (2018)",
+              "The Genealogy of Bitcoin Wisdom (2020)",
+              "The Metaverse and the Future of Money (2022)",
+              "The Geopolitics of the Dollar and Bitcoin (2023)",
+              "The Great Bitcoin (2023)",
+              "Geopolitics in the Trump Era and Bitcoin (2025)",
+              "There Is No Future Without Bitcoin (2025)",
+              "There Is No Future Without Tokenization (2026)",
+              "There Is No Future Without Ethereum (Forthcoming)",
+            ],
+            photo: "/faculty/oh-tae-min.jpg",
+          },
+          {
+            name: "Sang-wook Lee",
+            role: "Professor",
+            affiliation: "Hanyang University, Department of Philosophy",
+            field: "",
+            bio: "",
+            works: [],
+            photo: "",
+          },
+          {
+            name: "Kwang-hee Lee",
+            role: "Assistant Professor",
+            affiliation:
+              "English Literature · Popular Culture & Scenario Studies · Bitcoin & Monetary Philosophy",
+            field: "Linguistics-based Popular Culture and Monetary Philosophy",
+            bio:
+              "Researches popular culture and monetary philosophy from a linguistic foundation. Has authored 18 publications including textbooks and monographs.",
+            works: [],
+            photo: "/faculty/lee-kwang-hee.png",
+          },
+          {
+            name: "Seung-woo Kim",
+            role: "Assistant Professor",
+            affiliation: "Hanyang University, Department of History",
+            field:
+              "Cultural History · Financial Sociology · Cryptocurrency and Neoliberalism · Public History",
+            bio:
+              "Earned his Ph.D. from the Faculty of History at the University of Cambridge with research on the history of the Eurodollar market. After serving as a researcher at the Graduate Institute Geneva, postdoctoral fellow at Uppsala University, and faculty member at Kyungpook National University, he joined the Department of History at Hanyang University in March 2025.",
+            works: [
+              "Exclusionary Regimes, Financial Corporations, and Human Rights Activism in the UK, 1973–92 (2023)",
+              "A brief encounter — North Korea in the Eurocurrency market, 1973–1980 (2023)",
+              "Inflation, F. A. Hayek, and the Neoliberal Origins of Cryptocurrency (2024)",
+              "Can the Market Be Beaten? — A History of 20th-Century Stock Market Reading and Investment Techniques (2021)",
+            ],
+            photo: "/faculty/kim-seung-woo.jpg",
+          },
+          {
+            name: "Hyung-seop Lee",
+            role: "Professor",
+            affiliation: "Hanyang University, Department of English Literature",
+            field: "",
+            bio: "",
+            works: [],
+            photo: "",
+          },
+        ],
+        worksLabel: "Selected Works",
+        placeholderBio: "Biography to be added.",
       },
       partners: {
         eyebrow: "Partners",
