@@ -25,6 +25,19 @@ export interface PaperItem {
 
 const monographsKo: MonographItem[] = [
   {
+    id: "no-future-without-asset-tokens",
+    title: "자산 토큰 없는 미래는 없다",
+    subtitle: "",
+    author: "오태민, 진성훈, 박수훈, 김유정, 손혜민",
+    description:
+      "자산 토큰화가 화폐의 문법을 바꾸고 기존 금융 인프라를 재편하는 거대한 전환의 흐름임을 분석하며, 부동산·예술품·기업 지분 등 다양한 자산이 토큰 단위로 분할 거래되는 시대가 가져올 새로운 금융 질서의 가능성을 탐구합니다.",
+    image: "/books/9791193869413.jpg",
+    isbn: "979-11-93869-41-3",
+    publisher: "거인의정원",
+    year: "2026",
+    publishedAt: "2026-04-24",
+  },
+  {
     id: "in-search-of-satoshi",
     title: "사토시를 찾아서",
     subtitle: "비트코인 지성사를 위하여",
@@ -66,6 +79,19 @@ const monographsKo: MonographItem[] = [
 ];
 
 const monographsEn: MonographItem[] = [
+  {
+    id: "no-future-without-asset-tokens",
+    title: "There Is No Future Without Asset Tokens",
+    subtitle: "",
+    author: "Taemin Oh, Seonghun Jin, Suhoon Park, Yujung Kim, Hyemin Son",
+    description:
+      "This book examines asset tokenization as a structural transformation reshaping the grammar of money and the existing financial infrastructure, exploring the new financial order that emerges as assets — from real estate to artworks and corporate equity — become divisible and tradable at the token level.",
+    image: "/books/9791193869413.jpg",
+    isbn: "979-11-93869-41-3",
+    publisher: "Giant's Garden",
+    year: "2026",
+    publishedAt: "2026-04-24",
+  },
   {
     id: "in-search-of-satoshi",
     title: "In Search of Satoshi",
