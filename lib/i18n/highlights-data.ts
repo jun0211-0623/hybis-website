@@ -2,7 +2,7 @@ import type { Locale } from "./config";
 import { defaultLocale } from "./config";
 import { getPressItems } from "./press-data";
 import { getColloquiumItems } from "./colloquium-data";
-import { getMonographs, formatMonographDate } from "./resource-data";
+import { getMonographs } from "./resource-data";
 
 export type HighlightKind = "press" | "colloquium" | "monograph";
 
@@ -64,10 +64,13 @@ function toIsoFromEnglish(value: string): string {
   return `${y}-${String(m).padStart(2, "0")}-${d.padStart(2, "0")}`;
 }
 
-function parseIso(display: string, locale: Locale): string {
-  return locale === defaultLocale
-    ? toIsoFromDot(display)
-    : toIsoFromEnglish(display);
+function parseIso(display: string): string {
+  return toIsoFromEnglish(display);
+}
+
+function formatDotDate(iso: string): string {
+  const m = iso.match(/(\d{4})-(\d{2})-(\d{2})/);
+  return m ? `${m[1]}.${m[2]}.${m[3]}` : iso;
 }
 
 function colloquiumHref(locale: Locale): string {
@@ -89,48 +92,57 @@ function monographIsoDate(m: { year: string; publishedAt?: string }): string {
 export function getHighlightItems(locale: Locale, limit = 6): HighlightItem[] {
   const labels = KIND_LABELS[locale];
 
-  const press: HighlightItem[] = getPressItems(locale).map((p) => ({
-    id: `press-${p.id}`,
-    kind: "press",
-    kindLabel: labels.press,
-    kindColor: KIND_COLOR.press,
-    date: p.date,
-    isoDate: parseIso(p.date, locale),
-    title: p.title,
-    summary: p.summary,
-    image: p.image,
-    href: p.url,
-    external: true,
-    source: p.source,
-  }));
+  const press: HighlightItem[] = getPressItems(locale).map((p) => {
+    const iso = parseIso(p.date);
+    return {
+      id: `press-${p.id}`,
+      kind: "press",
+      kindLabel: labels.press,
+      kindColor: KIND_COLOR.press,
+      date: formatDotDate(iso),
+      isoDate: iso,
+      title: p.title,
+      summary: p.summary,
+      image: p.image,
+      href: p.url,
+      external: true,
+      source: p.source,
+    };
+  });
 
-  const colloquium: HighlightItem[] = getColloquiumItems(locale).map((c) => ({
-    id: `colloq-${c.id}`,
-    kind: "colloquium",
-    kindLabel: labels.colloquium,
-    kindColor: KIND_COLOR.colloquium,
-    date: c.date,
-    isoDate: parseIso(c.date, locale),
-    title: c.topic,
-    summary: `${c.speaker} · ${c.speakerRole}`,
-    image: c.poster,
-    href: colloquiumHref(locale),
-    source: c.host,
-  }));
+  const colloquium: HighlightItem[] = getColloquiumItems(locale).map((c) => {
+    const iso = parseIso(c.date);
+    return {
+      id: `colloq-${c.id}`,
+      kind: "colloquium",
+      kindLabel: labels.colloquium,
+      kindColor: KIND_COLOR.colloquium,
+      date: formatDotDate(iso),
+      isoDate: iso,
+      title: c.topic,
+      summary: `${c.speaker} · ${c.speakerRole}`,
+      image: c.poster,
+      href: colloquiumHref(locale),
+      source: c.host,
+    };
+  });
 
-  const monographs: HighlightItem[] = getMonographs(locale).map((m) => ({
-    id: `mono-${m.id}`,
-    kind: "monograph",
-    kindLabel: labels.monograph,
-    kindColor: KIND_COLOR.monograph,
-    date: formatMonographDate(m, locale),
-    isoDate: monographIsoDate(m),
-    title: m.title,
-    summary: m.description,
-    image: m.image,
-    href: monographHref(locale),
-    source: m.author,
-  }));
+  const monographs: HighlightItem[] = getMonographs(locale).map((m) => {
+    const iso = monographIsoDate(m);
+    return {
+      id: `mono-${m.id}`,
+      kind: "monograph",
+      kindLabel: labels.monograph,
+      kindColor: KIND_COLOR.monograph,
+      date: formatDotDate(iso),
+      isoDate: iso,
+      title: m.title,
+      summary: m.description,
+      image: m.image,
+      href: monographHref(locale),
+      source: m.author,
+    };
+  });
 
   return [...press, ...colloquium, ...monographs]
     .sort((a, b) => (a.isoDate < b.isoDate ? 1 : a.isoDate > b.isoDate ? -1 : 0))

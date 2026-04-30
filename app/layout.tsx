@@ -9,7 +9,12 @@ const quintessential = localFont({
   display: "swap",
 });
 
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "https://hy-bitcoinology.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Bitcoinology Lab — Where Money, Code, Culture Converge",
   description:
     "An interdisciplinary research hub exploring how value, trust, and society are being reconstituted in the age of digital money and artificial intelligence.",
@@ -17,8 +22,15 @@ export const metadata: Metadata = {
     "Bitcoinology Lab, Bitcoin, monetary philosophy, Hanyang University, 비트코인, 화폐철학, Value Code Society",
   openGraph: {
     title: "Bitcoinology Lab — Where Money, Code, Culture Converge",
-    description: "Where Money, Code, Culture Converge",
+    description: "Where Money, Code, and Culture Converge.",
     type: "website",
+    siteName: "Bitcoinology Lab",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bitcoinology Lab — Where Money, Code, Culture Converge",
+    description: "Where Money, Code, and Culture Converge.",
   },
 };
 

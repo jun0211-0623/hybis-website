@@ -38,6 +38,6 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next|api|studio|.*\\..*).*)",
+    "/((?!_next|api|studio|opengraph-image|twitter-image|.*\\..*).*)",
   ],
 };
