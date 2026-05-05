@@ -503,7 +503,7 @@ const en: KoDict = {
         email: "Email",
         address: "Address",
         addressValue:
-          "Room 504, 5F, Hanyang University, 222 Wangsimni-ro, Seongdong-gu, Seoul, Korea",
+          "Room 520, 5F, Hanyang University, 222 Wangsimni-ro, Seongdong-gu, Seoul, Korea",
       },
     },
   },

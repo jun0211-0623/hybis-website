@@ -447,7 +447,7 @@ const ko = {
         title: "연락처",
         email: "Email",
         address: "Address",
-        addressValue: "서울 성동구 왕십리로 222 한양대학교 5층 504호",
+        addressValue: "서울 성동구 왕십리로 222 한양대학교 5층 520호",
       },
     },
   },
