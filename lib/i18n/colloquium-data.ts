@@ -16,6 +16,19 @@ export interface ColloquiumItem {
 
 const ko: ColloquiumItem[] = [
   {
+    id: "colloq-3",
+    topic: "The Political Culture of Cryptocurrency",
+    speaker: "Martin Daunton",
+    speakerRole: "University of Cambridge",
+    date: "2026.05.20 (수)",
+    time: "13:00 - 14:00",
+    venue: "한양대학교 인문관 316호",
+    poster: "/academics/martin-daunton-poster.jpg",
+    status: "upcoming",
+    host: "한양대학교 비트코인화폐철학과",
+    color: "#0E4A84",
+  },
+  {
     id: "colloq-2",
     topic: "Reclaiming Asia",
     speaker: "이택광",
@@ -44,6 +57,19 @@ const ko: ColloquiumItem[] = [
 ];
 
 const en: ColloquiumItem[] = [
+  {
+    id: "colloq-3",
+    topic: "The Political Culture of Cryptocurrency",
+    speaker: "Martin Daunton",
+    speakerRole: "University of Cambridge",
+    date: "May 20, 2026 (Wed)",
+    time: "13:00 - 14:00",
+    venue: "Hanyang University, Humanities Bldg. Rm. 316",
+    poster: "/academics/martin-daunton-poster.jpg",
+    status: "upcoming",
+    host: "Department of Bitcoin and Monetary Philosophy, Hanyang University",
+    color: "#0E4A84",
+  },
   {
     id: "colloq-2",
     topic: "Reclaiming Asia",

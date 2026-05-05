@@ -298,7 +298,7 @@ export default function GraduateContent({
             {dict.contactBody}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-            <a href="mailto:iamyam@hanyang.ac.kr">
+            <a href="mailto:hybitcoinologylab@gmail.com">
               <GlassButton size="default">{dict.contactCta}</GlassButton>
             </a>
             <a

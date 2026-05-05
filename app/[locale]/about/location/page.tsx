@@ -46,10 +46,10 @@ export default async function LocationPage({
                   {s.email}
                 </p>
                 <a
-                  href="mailto:iamyam@hanyang.ac.kr"
+                  href="mailto:hybitcoinologylab@gmail.com"
                   className="text-[15px] text-[#1C1B1F] font-medium hover:text-[#0E4A84] transition-colors"
                 >
-                  iamyam@hanyang.ac.kr
+                  hybitcoinologylab@gmail.com
                 </a>
               </div>
               <div className="bg-white rounded-xl border border-[#E5E5E7] p-5">

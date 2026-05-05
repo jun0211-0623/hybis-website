@@ -186,7 +186,7 @@ const ko = {
     ],
     copyright: "Bitcoinology Lab",
     contacts: {
-      email: "iamyam@hanyang.ac.kr",
+      email: "hybitcoinologylab@gmail.com",
       address: "서울 성동구 왕십리로 222",
       deptLink: "비트코인화폐철학과 →",
     },

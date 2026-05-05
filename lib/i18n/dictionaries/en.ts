@@ -194,7 +194,7 @@ const en: KoDict = {
     ],
     copyright: "Bitcoinology Lab",
     contacts: {
-      email: "iamyam@hanyang.ac.kr",
+      email: "hybitcoinologylab@gmail.com",
       address: "222 Wangsimni-ro, Seongdong-gu, Seoul",
       deptLink: "Dept. of Bitcoin Philosophy →",
     },
