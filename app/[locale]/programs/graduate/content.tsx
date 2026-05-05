@@ -143,19 +143,19 @@ export default function GraduateContent({ dict }: { dict: GraduateDict }) {
         </FadeIn>
 
         <div className="space-y-6">
-          {Object.entries(dict.curriculum).map(([semester, years]) => (
-            <FadeIn key={semester} delay={0.1}>
+          {Object.entries(dict.curriculum).map(([year, semesters]) => (
+            <FadeIn key={year} delay={0.1}>
               <div className="bg-[#F5F5F7] rounded-2xl border border-[#E5E5E7] overflow-hidden">
                 <div className="bg-white border-b border-[#E5E5E7] px-6 py-4">
                   <h3 className="text-[16px] font-semibold text-[#1C1B1F]">
-                    {semester}
+                    {year}
                   </h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#E5E5E7]">
-                  {Object.entries(years).map(([year, subjects]) => (
-                    <div key={year} className="p-6">
+                  {Object.entries(semesters).map(([semester, subjects]) => (
+                    <div key={semester} className="p-6">
                       <p className="text-[12px] text-[#0E4A84] font-medium uppercase tracking-wider mb-4">
-                        {year}
+                        {semester}
                       </p>
                       <ul className="space-y-3">
                         {subjects.map((subject) => (

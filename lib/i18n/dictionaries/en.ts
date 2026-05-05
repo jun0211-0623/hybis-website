@@ -536,28 +536,28 @@ const en: KoDict = {
     curriculumEyebrow: "Curriculum",
     curriculumTitle: "Curriculum",
     curriculum: {
-      "Semester 1": {
-        "Year 1": [
+      "Year 1": {
+        "Semester 1": [
           "Intellectual History of Bitcoin",
           "Topics in the Philosophy of Information",
           "Bitcoin as a Monetary Phenomenon",
           "Bitcoin Technology and Industry",
         ],
-        "Year 2": [
-          "Crypto Cultural Studies",
-          "Political Philosophy of the DAO",
-          "Geopolitics of Bitcoin and the Dollar",
-          "History of Money",
-        ],
-      },
-      "Semester 2": {
-        "Year 1": [
+        "Semester 2": [
           "Topics in Digital Ethics",
           "The Humanities and Economics of the Metaverse",
           "Foundations of International Finance",
           "Master's Thesis Writing",
         ],
-        "Year 2": [
+      },
+      "Year 2": {
+        "Semester 1": [
+          "Crypto Cultural Studies",
+          "Political Philosophy of the DAO",
+          "Geopolitics of Bitcoin and the Dollar",
+          "History of Money",
+        ],
+        "Semester 2": [
           "Supply-Chain Finance and Smart Contracts",
           "Key Figures in Cryptocurrency",
           "Key Figures in Crypto",
