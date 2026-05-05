@@ -1,6 +1,6 @@
 const ko = {
   meta: {
-    title: "Bitcoinology Lab — Where Money, Code, Culture Converge",
+    title: "Bitcoinology Lab — Where Value, Trust, and Culture Converge",
     description:
       "디지털 화폐와 인공지능 시대의 가치·신뢰·사회를 인문학적으로 탐구하는 학제적 연구 허브",
   },
@@ -24,7 +24,13 @@ const ko = {
       },
       {
         label: "학술행사",
-        children: [{ label: "콜로퀴움", href: "/academics/colloquium" }],
+        children: [
+          { label: "콜로퀴움", href: "/academics/colloquium" },
+          {
+            label: "국제 컨퍼런스",
+            href: "/academics/international-conference",
+          },
+        ],
       },
       {
         label: "프로그램",
@@ -46,10 +52,10 @@ const ko = {
     closeMenu: "메뉴 닫기",
   },
   hero: {
-    eyebrow: "Value, Code, Society",
+    eyebrow: "Value, Trust, Society",
     title: "Bitcoinology Lab",
     tagline: {
-      prefix: "화폐와 코드, 문화가 ",
+      prefix: "가치, 신뢰, 문화가 ",
       highlight: "만나는",
       suffix: " 곳.",
     },
@@ -59,7 +65,7 @@ const ko = {
     ctaPrograms: "프로그램 안내",
   },
   highlights: {
-    eyebrow: "News & Events",
+    eyebrow: "News and Events",
     title: "연구소 소식",
     body:
       "Bitcoinology Lab의 학술행사, 모노그래프 발간, 언론보도 등 최신 활동을 한눈에 확인하세요.",
@@ -110,7 +116,7 @@ const ko = {
     graduate: {
       title: "비트코인화폐철학과 대학원 협동과정",
       subtitle:
-        "Graduate Cooperative Program in Bitcoin & Monetary Philosophy",
+        "Graduate Cooperative Program in Bitcoin and Monetary Philosophy",
       description:
         "인문과학대학의 학과간 협동과정으로, 디지털 화폐와 블록체인 기술이 야기한 경제·정치·문화 변화를 인문학적 관점에서 연구합니다. 문학석사(M.A.) 학위를 수여하며 매년 20명을 모집합니다.",
       highlights: [
@@ -181,7 +187,6 @@ const ko = {
     copyright: "Bitcoinology Lab",
     contacts: {
       email: "iamyam@hanyang.ac.kr",
-      phone: "02-2220-0751",
       address: "서울 성동구 왕십리로 222",
       deptLink: "비트코인화폐철학과 →",
     },
@@ -322,44 +327,51 @@ const ko = {
             bio:
               "서울대학교 영문과를 졸업하고 미국 매사추세츠대학에서 박사학위를 취득. 비트코인지성사·크립토문화연구·크립토핵심인물연구 등을 강의하며 비트코인 인문학 연구를 이끌고 있다.",
             works: [
-              "언더독의 글쓰기: 아시아계 미국문학의 지형도",
-              "The Transgressive Spatial Imagination in the 20th-Century American Novel",
-              "한국영어영문학회 학술상 수상",
-              "한국예이츠학회 논문상 수상",
+              { type: "book", title: "언더독의 글쓰기: 아시아계 미국문학의 지형도" },
+              { type: "paper", title: "The Transgressive Spatial Imagination in the 20th-Century American Novel" },
+              { type: "award", title: "한국영어영문학회 학술상 수상" },
+              { type: "award", title: "한국예이츠학회 논문상 수상" },
             ],
             photo: "/faculty/yoon-seong-ho.png",
           },
           {
             name: "오태민",
             role: "겸임교수",
-            affiliation: "비트코인화폐철학과",
+            affiliation: "한양대학교 비트코인화폐철학과",
             field: "인문학 · 지정학 · 국제금융질서",
             bio:
               "연세대학교를 졸업한 한국 비트코인 인문학의 개척자. 2014년 《비트코인은 강했다》를 시작으로 10여 권의 저서와 강의를 통해 비트코인을 신뢰 시스템의 재발명이자 달러 패권의 균열로 읽어내며, 독자적인 인문학 해석을 정립해왔다. 대학원생들과 끊임없는 공저를 이어가며, 디지털 자산을 둘러싼 지적 토대를 함께 다져가고 있다.",
             works: [
-              "비트코인은 강했다 (2014)",
-              "스마트콘트랙 신뢰혁명 (2018)",
-              "달러의 지정학과 비트코인 (2023)",
-              "트럼프 시대의 지정학과 비트코인 (2025)",
-              "비트코인 없는 미래는 없다 (2025)",
-              "토큰화 없는 미래는 없다 (2026)",
-              "이더리움 없는 미래는 없다 (예정)",
+              { type: "book", title: "비트코인은 강했다 (2014)" },
+              { type: "book", title: "스마트콘트랙 신뢰혁명 (2018)" },
+              { type: "book", title: "달러의 지정학과 비트코인 (2023)" },
+              { type: "book", title: "트럼프 시대의 지정학과 비트코인 (2025)" },
+              { type: "book", title: "비트코인 없는 미래는 없다 (2025)" },
+              { type: "book", title: "토큰화 없는 미래는 없다 (2026)" },
+              { type: "book", title: "이더리움 없는 미래는 없다 (예정)" },
             ],
             photo: "/faculty/oh-tae-min.jpg",
           },
           {
             name: "이상욱",
-            role: "교수",
-            affiliation: "한양대학교 철학과",
-            field: "",
-            bio: "",
-            works: [],
-            photo: "",
+            role: "부교수",
+            affiliation: "한양대학교 철학과 · 인공지능학과",
+            field: "과학철학 · 기술철학 · 과학기술학(STS) · 연구윤리",
+            bio:
+              "서울대학교 물리학과를 거쳐 런던정경대학(LSE)에서 응집물질물리학의 거시현상 모형화에 관한 철학적 분석으로 박사학위를 취득(로버트 맥켄지 논문상). 2002년 한양대학교에 부임해 과학기술철학·STS·연구윤리를 가르쳐왔으며, 본 학과에서는 디지털 윤리학과 암호화폐 정보철학을 강의한다. 인공지능과 블록체인이 제기하는 신뢰·정보·책임의 문제를 분석철학과 과학기술학의 시선에서 다룬다.",
+            works: [
+              { type: "paper", title: "인공지능의 한계와 일반화된 지능의 가능성 (『과학철학』 12권 1호, 2009)" },
+              { type: "paper", title: "현장성과 지향성: 현대 기술철학을 읽는 한 방식 (『철학과현실』 통권 83, 2009 봄호)" },
+              { type: "book", title: "과학기술의 철학적 이해 (제5판, 공저, 한양대학교출판부, 2010)" },
+              { type: "book", title: "욕망하는 테크놀로지 (공저, 동아시아, 2009)" },
+              { type: "book", title: "필로테크놀로지를 말한다 (공저, 해나무, 2008)" },
+            ],
+            photo: "/faculty/lee-sang-wook.jpg",
           },
           {
             name: "이광희",
             role: "조교수",
-            affiliation: "영어영문학과 · 대중문화시나리오학과 · 비트코인화폐철학과",
+            affiliation: "한양대학교 영어영문학과 · 대중문화시나리오학과 · 비트코인화폐철학과",
             field: "언어학 기반 대중문화 및 화폐철학",
             bio:
               "언어학을 기반으로 대중문화와 화폐철학을 연구한다. 교과서·단행본 등 18종의 저서를 출간했다.",
@@ -374,21 +386,28 @@ const ko = {
             bio:
               "영국 케임브리지 대학교 역사학부에서 유로달러시장 역사로 박사 학위를 취득. 제네바 국제연구대학원 연구원, 웁살라 대학교 박사후 연구원, 경북대학교 사학과를 거쳐 2025년 3월부터 한양대학교 사학과에 재직.",
             works: [
-              "Exclusionary Regimes, Financial Corporations, and Human Rights Activism in the UK, 1973–92 (2023)",
-              "A brief encounter — North Korea in the Eurocurrency market, 1973–1980 (2023)",
-              "인플레이션과 F.A. 하이에크 그리고 암호화폐의 신자유주의적 기원 (2024)",
-              "시장을 이길 수 있는가? — 20세기 주식시장 읽기와 투자 기법들의 역사 (2021)",
+              { type: "paper", title: "Exclusionary Regimes, Financial Corporations, and Human Rights Activism in the UK, 1973–92 (2023)" },
+              { type: "paper", title: "A brief encounter — North Korea in the Eurocurrency market, 1973–1980 (2023)" },
+              { type: "paper", title: "인플레이션과 F.A. 하이에크 그리고 암호화폐의 신자유주의적 기원 (2024)" },
+              { type: "book", title: "시장을 이길 수 있는가? — 20세기 주식시장 읽기와 투자 기법들의 역사 (2021)" },
             ],
             photo: "/faculty/kim-seung-woo.jpg",
           },
           {
             name: "이형섭",
-            role: "교수",
+            role: "부교수",
             affiliation: "한양대학교 영어영문학과",
-            field: "",
-            bio: "",
-            works: [],
-            photo: "",
+            field: "드라마 · 아일랜드학 · 영화학 · 문화정치",
+            bio:
+              "드라마와 영화, 아일랜드 문학을 매개로 비극·윤리·문화정치의 문제를 연구한다. 미국 교외문화의 비극적 표상과 트랜스내셔널 인문학을 다뤄왔으며, 본 학과에서는 이러한 문화비판의 시선을 디지털 화폐 시대의 가치·신뢰 재편 문제로 확장하는 작업을 모색한다.",
+            works: [
+              { type: "paper", title: "Ethical Contours of the (Sub)urban Space-Time Relationship in the Early Postwar American Drama (Forum for World Literature Studies 7.2)" },
+              { type: "paper", title: "Love in the Time of the Troubles: The Cultural Politics of Tragic Form in Northern Irish Cinema (Literature and Film 19.1)" },
+              { type: "paper", title: "'To every life an after-life. To every demon a fairy tale': The Life and Times of an Irish Policeman in the British Empire in Sebastian Barry's The Steward of Christendom (JELL 57.3)" },
+              { type: "book", title: "영화로 보는 미국 역사 (공저, 건국대학교 출판부, 2018)" },
+              { type: "book", title: "트랜스내셔널 지구공동체를 향하여 (공저, 한양대학교 출판부, 2018)" },
+            ],
+            photo: "/faculty/lee-hyung-seop.jpg",
           },
         ],
         worksLabel: "대표 저서·논문",
@@ -400,8 +419,8 @@ const ko = {
         items: [
           {
             name: "경북대학교 미주·유럽연구소",
-            nameEn: "Institute of American & European Studies, KNU",
-            image: "/partners/dhec.jpeg",
+            nameEn: "Institute of American and European Studies, KNU",
+            image: "/partners/knu.jpg",
             href: "https://iaes.knu.ac.kr/",
           },
           {
@@ -427,7 +446,6 @@ const ko = {
         eyebrow: "Contact",
         title: "연락처",
         email: "Email",
-        phone: "Phone",
         address: "Address",
         addressValue: "서울 성동구 왕십리로 222 한양대학교 5층 504호",
       },
@@ -448,7 +466,7 @@ const ko = {
     title: "콜로퀴움",
     body:
       "한양대학교 비트코인화폐철학과가 주관하는 콜로퀴움 시리즈. 각계 전문가를 모시고 디지털 화폐·신뢰·사회를 둘러싼 최전선 논의를 공유합니다.",
-    listEyebrow: "Upcoming & Past",
+    listEyebrow: "Upcoming and Past",
     listTitle: "콜로퀴움 일정",
     statusUpcoming: "예정",
     statusPast: "종료",
@@ -459,6 +477,11 @@ const ko = {
     hostLabel: "주관",
     posterAlt: "콜로퀴움 포스터",
   },
+  internationalConferencePage: {
+    backHome: "홈",
+    eyebrow: "International Conference",
+    title: "국제 컨퍼런스",
+  },
   graduatePage: {
     back: "프로그램",
     eyebrow: "Graduate Cooperative Program",
@@ -468,7 +491,7 @@ const ko = {
     purposeEyebrow: "Purpose",
     purposeTitle: "설립목적",
     purposeBody:
-      "디지털 자산의 주류 자산화, 전통 금융 플랫폼의 재편, 탈중앙화 거버넌스(DAO) 확산 등 시대적 변곡점에 대응하기 위해 설립되었습니다. 철학, 경제학, 정치학을 아우르는 융합 연구를 수행하고, 블록체인 생태계의 가치·윤리·제도적 함의를 비판적으로 검토합니다.",
+      "본 학과는 화폐 자체가 다시 정의되는 시대—주권화폐의 도전, 디지털 자산의 주류화, 탈중앙화 거버넌스(DAO)의 확산—에 응답하기 위해 한양대학교 인문대학에 설립된 국내 최초의 화폐철학 대학원 과정입니다. 기술적 옹호도 도덕적 거부도 아닌, 인문학적 비판과 학제간 분석을 통해 블록체인 생태계의 가치·윤리·제도적 함의를 검토합니다. 철학·경제학·정치학·문화연구를 가로지르는 융합 연구를 수행하며, 학계·정책·산업 현장에서 디지털 시대의 화폐와 신뢰를 다시 사유할 연구자를 양성합니다.",
     goalsEyebrow: "Education Goals",
     goalsTitle: "교육 목표",
     goals: [
@@ -482,30 +505,31 @@ const ko = {
     curriculum: {
       "1년차": {
         "1학기": [
-          "비트코인 지성사",
-          "정보철학 특강",
-          "비트코인 화폐현상",
-          "비트코인 기술과 산업",
+          "bitcoin-intellectual-history",
+          "philosophy-of-information",
+          "blockchain-money-phenomena",
+          "bitcoin-technology-industry",
         ],
         "2학기": [
-          "디지털 윤리학특강",
-          "메타버스의 인문학과 경제학",
-          "국제금융기초",
-          "석사논문작성법",
+          "digital-ethics-topics",
+          "metaverse-humanities-economics",
+          "international-finance-foundations",
+          "thesis-writing-method",
         ],
       },
       "2년차": {
         "1학기": [
-          "크립토 문화연구",
-          "DAO의 정치 철학",
-          "비트코인과 달러의 지정학",
-          "화폐의 역사",
+          "crypto-cultural-studies",
+          "dao-political-philosophy",
+          "bitcoin-dollar-geopolitics",
+          "history-of-money",
+          "central-banking",
         ],
         "2학기": [
-          "공급사슬 금융 스마트 계약",
-          "암호화폐 핵심 인물연구",
-          "크립토 핵심 인물연구",
-          "화폐와 언어의 철학",
+          "supply-chain-finance-smart-contracts",
+          "crypto-key-figures",
+          "philosophy-currency-language",
+          "cryptocurrency-information-philosophy",
         ],
       },
     } as Record<string, Record<string, string[]>>,
@@ -532,7 +556,6 @@ const ko = {
     contactTitle: "지원을 원하시나요?",
     contactBody: "대학원 협동과정에 대한 문의 사항이 있으시면 연락해 주세요.",
     contactCta: "문의하기 →",
-    phoneCta: "02-2220-0751",
     deptCta: "학과 홈페이지 →",
   },
   monographs: {
@@ -554,7 +577,7 @@ const ko = {
     isbnPrefix: "ISBN",
   },
   academics: {
-    eyebrow: "Events & Activities",
+    eyebrow: "Events and Activities",
     title: "행사 및 활동",
     body:
       "Bitcoinology Lab의 세미나, 콜로퀴움, 학술대회 등 주요 행사 이력을 확인하세요.",

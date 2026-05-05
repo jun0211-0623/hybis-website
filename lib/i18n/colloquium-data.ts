@@ -54,7 +54,7 @@ const en: ColloquiumItem[] = [
     venue: "Hanyang University, Humanities Bldg. Rm. 316",
     poster: "/academics/lee-taekgwang-poster.jpg",
     status: "upcoming",
-    host: "Department of Bitcoin & Monetary Philosophy, Hanyang University",
+    host: "Department of Bitcoin and Monetary Philosophy, Hanyang University",
     color: "#0E4A84",
   },
   {
@@ -69,7 +69,7 @@ const en: ColloquiumItem[] = [
     venue: "Hanyang University, Humanities Bldg. Rm. 316",
     poster: "/academics/ha-taekyung-poster.jpg",
     status: "past",
-    host: "Department of Bitcoin & Monetary Philosophy, Hanyang University",
+    host: "Department of Bitcoin and Monetary Philosophy, Hanyang University",
     color: "#0E4A84",
   },
 ];

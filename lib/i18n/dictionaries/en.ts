@@ -4,7 +4,7 @@ type KoDict = typeof ko;
 
 const en: KoDict = {
   meta: {
-    title: "Bitcoinology Lab — Where Money, Code, Culture Converge",
+    title: "Bitcoinology Lab — Where Value, Trust, and Culture Converge",
     description:
       "An interdisciplinary research hub exploring how value, trust, and society are being reconstituted in the age of digital money and artificial intelligence.",
   },
@@ -28,7 +28,13 @@ const en: KoDict = {
       },
       {
         label: "Academic Events",
-        children: [{ label: "Colloquium", href: "/academics/colloquium" }],
+        children: [
+          { label: "Colloquium", href: "/academics/colloquium" },
+          {
+            label: "International Conference",
+            href: "/academics/international-conference",
+          },
+        ],
       },
       {
         label: "Programs",
@@ -50,10 +56,10 @@ const en: KoDict = {
     closeMenu: "Close menu",
   },
   hero: {
-    eyebrow: "Value, Code, Society",
+    eyebrow: "Value, Trust, Society",
     title: "Bitcoinology Lab",
     tagline: {
-      prefix: "Where Money, Code, and Culture ",
+      prefix: "Where Value, Trust, and Culture ",
       highlight: "Converge",
       suffix: ".",
     },
@@ -63,7 +69,7 @@ const en: KoDict = {
     ctaPrograms: "View Programs",
   },
   highlights: {
-    eyebrow: "News & Events",
+    eyebrow: "News and Events",
     title: "Latest Highlights",
     body:
       "A snapshot of Bitcoinology Lab's latest colloquia, monographs, and press coverage.",
@@ -112,9 +118,9 @@ const en: KoDict = {
     detailCta: "Learn more →",
     deptCta: "Department →",
     graduate: {
-      title: "Graduate Cooperative Program in Bitcoin & Monetary Philosophy",
+      title: "Graduate Cooperative Program in Bitcoin and Monetary Philosophy",
       subtitle:
-        "Graduate Cooperative Program in Bitcoin & Monetary Philosophy",
+        "Graduate Cooperative Program in Bitcoin and Monetary Philosophy",
       description:
         "An inter-departmental cooperative program within the College of Humanities, studying the economic, political, and cultural shifts brought by digital money and blockchain technology from a humanistic perspective. Awards the Master of Arts degree, with an annual intake of 20 students.",
       highlights: [
@@ -189,7 +195,6 @@ const en: KoDict = {
     copyright: "Bitcoinology Lab",
     contacts: {
       email: "iamyam@hanyang.ac.kr",
-      phone: "+82-2-2220-0751",
       address: "222 Wangsimni-ro, Seongdong-gu, Seoul",
       deptLink: "Dept. of Bitcoin Philosophy →",
     },
@@ -241,9 +246,9 @@ const en: KoDict = {
               "Grounded in conceptual analysis and close reading, we combine empirical research on markets, regulation, and everyday practice to make sense of real-world change. Through seminars, workshops, publications, and joint projects, we aim to produce both scholarly rigor and public insight.",
           },
         ],
-        director: "Sungho Yoon",
+        director: "Seongho Yoon",
         directorRole:
-          "Director, Bitcoinology Lab · Professor, Dept. of English Language and Literature, Hanyang University",
+          "Director, Bitcoinology Lab · Professor, Dept. of English, Hanyang University",
       },
       mission: {
         eyebrow: "Mission",
@@ -281,7 +286,7 @@ const en: KoDict = {
         items: [
           {
             date: "2025.07",
-            event: "Launch of the Graduate Cooperative Program in Bitcoin & Monetary Philosophy",
+            event: "Launch of the Graduate Cooperative Program in Bitcoin and Monetary Philosophy",
           },
           {
             date: "2025.01",
@@ -291,7 +296,7 @@ const en: KoDict = {
           {
             date: "2024.02",
             event:
-              "Graduate Cooperative Program in Bitcoin & Monetary Philosophy officially approved",
+              "Graduate Cooperative Program in Bitcoin and Monetary Philosophy officially approved",
           },
         ],
       },
@@ -300,20 +305,20 @@ const en: KoDict = {
         title: "Organization",
         directorRole: "Director",
         director: {
-          name: "Prof. Sungho Yoon",
+          name: "Prof. Seongho Yoon",
         },
         groups: [
           {
             title: "Affiliated Faculty",
             members: [
-              { name: "Taemin Oh", dept: "Bitcoin & Monetary Philosophy" },
+              { name: "Taemin Oh", dept: "Bitcoin and Monetary Philosophy" },
               { name: "Sangwook Lee", dept: "Philosophy" },
               {
                 name: "Kwanghee Lee",
-                dept: "Popular Culture & Scenario Studies",
+                dept: "Popular Culture and Scenario Studies",
               },
               { name: "Seungwoo Kim", dept: "History" },
-              { name: "Hyungseop Lee", dept: "English Literature" },
+              { name: "Hyungseob Lee", dept: "English" },
             ],
           },
           {
@@ -342,9 +347,9 @@ const en: KoDict = {
               {
                 name: "Jaesung Hwang",
                 dept:
-                  "Head of Hedge Fund Management, Leading Investment & Securities",
+                  "Head of Hedge Fund Management, Leading Investment and Securities",
               },
-              { name: "Wonhee Lee", dept: "CEO, Lee Wonhee Tax & Accounting" },
+              { name: "Wonhee Lee", dept: "CEO, Lee Wonhee Tax and Accounting" },
             ],
           },
           {
@@ -364,56 +369,63 @@ const en: KoDict = {
         eyebrow: "Faculty",
         title: "Faculty",
         intro:
-          "Scholars affiliated with both Bitcoinology Lab and the Hanyang University Graduate Cooperative Program in Bitcoin & Monetary Philosophy.",
+          "Scholars affiliated with both Bitcoinology Lab and the Hanyang University Graduate Cooperative Program in Bitcoin and Monetary Philosophy.",
         people: [
           {
-            name: "Sungho Yoon",
+            name: "Seongho Yoon",
             role: "Director · Professor",
             affiliation:
-              "Hanyang University, Department of English Language and Literature · Bitcoin & Monetary Philosophy",
+              "Hanyang University, Department of English · Bitcoin and Monetary Philosophy",
             field: "Modern American Literature · Bitcoin Humanities",
             bio:
               "Earned his B.A. from Seoul National University and his Ph.D. from the University of Massachusetts. Teaches Bitcoin Intellectual History, Crypto Cultural Studies, and Crypto Key Figures, and leads research in Bitcoin humanities.",
             works: [
-              "Underdog Writing: Mapping Asian American Literature",
-              "The Transgressive Spatial Imagination in the 20th-Century American Novel",
-              "Academic Prize, The English Language and Literature Association of Korea",
-              "Best Paper Award, The Yeats Society of Korea",
+              { type: "book", title: "Underdog Writing: Mapping Asian American Literature" },
+              { type: "paper", title: "The Transgressive Spatial Imagination in the 20th-Century American Novel" },
+              { type: "award", title: "Academic Prize, The English Language and Literature Association of Korea" },
+              { type: "award", title: "Best Paper Award, The Yeats Society of Korea" },
             ],
             photo: "/faculty/yoon-seong-ho.png",
           },
           {
             name: "Taemin Oh",
             role: "Adjunct Professor",
-            affiliation: "Bitcoin & Monetary Philosophy",
+            affiliation: "Hanyang University, Department of Bitcoin and Monetary Philosophy",
             field: "Humanities · Geopolitics · International Financial Order",
             bio:
               "A graduate of Yonsei University and the pioneer of Bitcoin humanities in Korea. Beginning with Bitcoin Was Strong (2014), through more than ten books and continuous lectures, he reads Bitcoin as a reinvention of trust and a fissure in dollar hegemony — building an independent humanistic interpretation. Through unceasing co-authorship with his graduate students, he lays the intellectual foundations surrounding digital assets.",
             works: [
-              "Bitcoin Was Strong (2014)",
-              "Smart Contract: A Trust Revolution (2018)",
-              "The Geopolitics of the Dollar and Bitcoin (2023)",
-              "Geopolitics in the Trump Era and Bitcoin (2025)",
-              "There Is No Future Without Bitcoin (2025)",
-              "There Is No Future Without Tokenization (2026)",
-              "There Is No Future Without Ethereum (Forthcoming)",
+              { type: "book", title: "Bitcoin Was Strong (2014)" },
+              { type: "book", title: "Smart Contract: A Trust Revolution (2018)" },
+              { type: "book", title: "The Geopolitics of the Dollar and Bitcoin (2023)" },
+              { type: "book", title: "Geopolitics in the Trump Era and Bitcoin (2025)" },
+              { type: "book", title: "There Is No Future Without Bitcoin (2025)" },
+              { type: "book", title: "There Is No Future Without Tokenization (2026)" },
+              { type: "book", title: "There Is No Future Without Ethereum (Forthcoming)" },
             ],
             photo: "/faculty/oh-tae-min.jpg",
           },
           {
             name: "Sangwook Lee",
-            role: "Professor",
-            affiliation: "Hanyang University, Department of Philosophy",
-            field: "",
-            bio: "",
-            works: [],
-            photo: "",
+            role: "Associate Professor",
+            affiliation: "Hanyang University, Department of Philosophy · Artificial Intelligence",
+            field: "Philosophy of Science · Philosophy of Technology · Science and Technology Studies · Research Ethics",
+            bio:
+              "Earned his Ph.D. from the London School of Economics with a philosophical analysis of how condensed-matter physics models complex macroscopic phenomena (Robert McKenzie Prize), after studying physics at Seoul National University. Joined Hanyang University in 2002, where he teaches philosophy of science and technology, STS, and research ethics. In our program he leads Topics in Digital Ethics and Information Philosophy of Cryptocurrency, examining how AI and blockchain reframe the questions of trust, information, and responsibility through analytic philosophy and STS.",
+            works: [
+              { type: "paper", title: "The Limits of Artificial Intelligence and the Possibility of Generalized Intelligence (Philosophy of Science 12.1, 2009)" },
+              { type: "paper", title: "Situatedness and Intentionality: A Way of Reading Contemporary Philosophy of Technology (Philosophy and Reality 83, Spring 2009)" },
+              { type: "book", title: "A Philosophical Understanding of Science and Technology (5th ed., co-authored, Hanyang University Press, 2010)" },
+              { type: "book", title: "Desiring Technology (co-authored, Donga-Asia, 2009)" },
+              { type: "book", title: "Talking About Philotechnology (co-authored, Haenamu, 2008)" },
+            ],
+            photo: "/faculty/lee-sang-wook.jpg",
           },
           {
             name: "Kwanghee Lee",
             role: "Assistant Professor",
             affiliation:
-              "English Literature · Popular Culture & Scenario Studies · Bitcoin & Monetary Philosophy",
+              "Hanyang University, Department of English · Popular Culture and Scenario Studies · Bitcoin and Monetary Philosophy",
             field: "Linguistics-based Popular Culture and Monetary Philosophy",
             bio:
               "Researches popular culture and monetary philosophy from a linguistic foundation. Has authored 18 publications including textbooks and monographs.",
@@ -429,21 +441,28 @@ const en: KoDict = {
             bio:
               "Earned his Ph.D. from the Faculty of History at the University of Cambridge with research on the history of the Eurodollar market. After serving as a researcher at the Graduate Institute Geneva, postdoctoral fellow at Uppsala University, and faculty member at Kyungpook National University, he joined the Department of History at Hanyang University in March 2025.",
             works: [
-              "Exclusionary Regimes, Financial Corporations, and Human Rights Activism in the UK, 1973–92 (2023)",
-              "A brief encounter — North Korea in the Eurocurrency market, 1973–1980 (2023)",
-              "Inflation, F. A. Hayek, and the Neoliberal Origins of Cryptocurrency (2024)",
-              "Can the Market Be Beaten? — A History of 20th-Century Stock Market Reading and Investment Techniques (2021)",
+              { type: "paper", title: "Exclusionary Regimes, Financial Corporations, and Human Rights Activism in the UK, 1973–92 (2023)" },
+              { type: "paper", title: "A brief encounter — North Korea in the Eurocurrency market, 1973–1980 (2023)" },
+              { type: "paper", title: "Inflation, F. A. Hayek, and the Neoliberal Origins of Cryptocurrency (2024)" },
+              { type: "book", title: "Can the Market Be Beaten? — A History of 20th-Century Stock Market Reading and Investment Techniques (2021)" },
             ],
             photo: "/faculty/kim-seung-woo.jpg",
           },
           {
-            name: "Hyungseop Lee",
-            role: "Professor",
-            affiliation: "Hanyang University, Department of English Literature",
-            field: "",
-            bio: "",
-            works: [],
-            photo: "",
+            name: "Hyungseob Lee",
+            role: "Associate Professor of Literature",
+            affiliation: "Hanyang University, Department of English",
+            field: "Drama · Irish Studies · Film Studies · Cultural Politics",
+            bio:
+              "Researches tragedy, ethics, and cultural politics through drama, film, and Irish literature. He has worked on the tragic imagination of American suburbia and literature as transnational humanities, and in our program he extends this lens of cultural critique into the reshaping of value and trust in the era of digital money.",
+            works: [
+              { type: "paper", title: "Ethical Contours of the (Sub)urban Space-Time Relationship in the Early Postwar American Drama (Forum for World Literature Studies 7.2)" },
+              { type: "paper", title: "Love in the Time of the Troubles: The Cultural Politics of Tragic Form in Northern Irish Cinema (Literature and Film 19.1)" },
+              { type: "paper", title: "'To every life an after-life. To every demon a fairy tale': The Life and Times of an Irish Policeman in the British Empire in Sebastian Barry's The Steward of Christendom (JELL 57.3)" },
+              { type: "book", title: "Reading American History Through Film (co-authored, Konkuk University Press, 2018)" },
+              { type: "book", title: "Toward a Transnational Earth Community (co-authored, Hanyang University Press, 2018)" },
+            ],
+            photo: "/faculty/lee-hyung-seop.jpg",
           },
         ],
         worksLabel: "Selected Works",
@@ -454,9 +473,9 @@ const en: KoDict = {
         title: "Partners",
         items: [
           {
-            name: "Institute of American & European Studies, KNU",
+            name: "Institute of American and European Studies, KNU",
             nameEn: "Kyungpook National University",
-            image: "/partners/dhec.jpeg",
+            image: "/partners/knu.jpg",
             href: "https://iaes.knu.ac.kr/",
           },
           {
@@ -482,7 +501,6 @@ const en: KoDict = {
         eyebrow: "Contact",
         title: "Contact",
         email: "Email",
-        phone: "Phone",
         address: "Address",
         addressValue:
           "Room 504, 5F, Hanyang University, 222 Wangsimni-ro, Seongdong-gu, Seoul, Korea",
@@ -503,8 +521,8 @@ const en: KoDict = {
     eyebrow: "Colloquium",
     title: "Colloquium",
     body:
-      "A colloquium series hosted by Hanyang University's Department of Bitcoin & Monetary Philosophy. Leading voices share frontier perspectives on digital money, trust, and society.",
-    listEyebrow: "Upcoming & Past",
+      "A colloquium series hosted by Hanyang University's Department of Bitcoin and Monetary Philosophy. Leading voices share frontier perspectives on digital money, trust, and society.",
+    listEyebrow: "Upcoming and Past",
     listTitle: "Colloquium Schedule",
     statusUpcoming: "Upcoming",
     statusPast: "Past",
@@ -515,16 +533,21 @@ const en: KoDict = {
     hostLabel: "Host",
     posterAlt: "Colloquium poster",
   },
+  internationalConferencePage: {
+    backHome: "Home",
+    eyebrow: "International Conference",
+    title: "International Conference",
+  },
   graduatePage: {
     back: "Programs",
     eyebrow: "Graduate Cooperative Program",
-    title: "Graduate Cooperative Program in Bitcoin & Monetary Philosophy",
+    title: "Graduate Cooperative Program in Bitcoin and Monetary Philosophy",
     intro:
       "An inter-departmental cooperative program within the College of Humanities. We study the economic, political, and cultural transformations brought by digital money and blockchain technology through a humanistic lens — aspiring to become an academic hub that interprets decentralized money, a central concern of the Fourth Industrial Revolution, across disciplines.",
     purposeEyebrow: "Purpose",
     purposeTitle: "Purpose",
     purposeBody:
-      "The program was founded to respond to an era of inflection points — the mainstreaming of digital assets, the reshaping of traditional financial platforms, and the spread of decentralized governance (DAOs). We pursue integrative research across philosophy, economics, and political science, critically examining the value, ethical, and institutional implications of the blockchain ecosystem.",
+      "Founded within the College of Humanities at Hanyang University as Korea's first graduate program in monetary philosophy, our program responds to an age in which money itself is being redefined — the contestation of sovereign currency, the mainstreaming of digital assets, and the spread of decentralized governance (DAOs). We approach the blockchain ecosystem neither as advocates nor as detractors, but through humanistic critique and interdisciplinary analysis, examining its implications for value, ethics, and institutions. Spanning philosophy, economics, political science, and cultural studies, our research trains scholars who can rethink money and trust in the digital age — across the academy, policy, and industry.",
     goalsEyebrow: "Education Goals",
     goalsTitle: "Education Goals",
     goals: [
@@ -538,30 +561,31 @@ const en: KoDict = {
     curriculum: {
       "Year 1": {
         "Semester 1": [
-          "Intellectual History of Bitcoin",
-          "Topics in the Philosophy of Information",
-          "Bitcoin as a Monetary Phenomenon",
-          "Bitcoin Technology and Industry",
+          "bitcoin-intellectual-history",
+          "philosophy-of-information",
+          "blockchain-money-phenomena",
+          "bitcoin-technology-industry",
         ],
         "Semester 2": [
-          "Topics in Digital Ethics",
-          "The Humanities and Economics of the Metaverse",
-          "Foundations of International Finance",
-          "Master's Thesis Writing",
+          "digital-ethics-topics",
+          "metaverse-humanities-economics",
+          "international-finance-foundations",
+          "thesis-writing-method",
         ],
       },
       "Year 2": {
         "Semester 1": [
-          "Crypto Cultural Studies",
-          "Political Philosophy of the DAO",
-          "Geopolitics of Bitcoin and the Dollar",
-          "History of Money",
+          "crypto-cultural-studies",
+          "dao-political-philosophy",
+          "bitcoin-dollar-geopolitics",
+          "history-of-money",
+          "central-banking",
         ],
         "Semester 2": [
-          "Supply-Chain Finance and Smart Contracts",
-          "Key Figures in Cryptocurrency",
-          "Key Figures in Crypto",
-          "Philosophy of Money and Language",
+          "supply-chain-finance-smart-contracts",
+          "crypto-key-figures",
+          "philosophy-currency-language",
+          "cryptocurrency-information-philosophy",
         ],
       },
     },
@@ -582,11 +606,11 @@ const en: KoDict = {
     careersTitle: "Career Paths",
     careers: [
       {
-        title: "Academia & Research",
+        title: "Academia and Research",
         desc: "Researchers in blockchain philosophy, digital ethics, financial humanities",
       },
       {
-        title: "Fintech & Crypto",
+        title: "Fintech and Crypto",
         desc: "Policy, strategy, and governance consultants",
       },
       {
@@ -594,11 +618,11 @@ const en: KoDict = {
         desc: "Policy researchers at digital-asset regulators",
       },
       {
-        title: "Media & Criticism",
+        title: "Media and Criticism",
         desc: "Critics of digital finance and blockchain culture",
       },
       {
-        title: "International & NGO",
+        title: "International and NGO",
         desc: "Project managers in inclusive finance",
       },
     ],
@@ -608,7 +632,6 @@ const en: KoDict = {
     contactBody:
       "For inquiries about the Graduate Cooperative Program, please reach out.",
     contactCta: "Contact Us →",
-    phoneCta: "+82-2-2220-0751",
     deptCta: "Department →",
   },
   monographs: {
@@ -630,8 +653,8 @@ const en: KoDict = {
     isbnPrefix: "ISBN",
   },
   academics: {
-    eyebrow: "Events & Activities",
-    title: "Events & Activities",
+    eyebrow: "Events and Activities",
+    title: "Events and Activities",
     body:
       "Browse the history of seminars, colloquia, and conferences hosted by Bitcoinology Lab.",
     emptyMessage: "Event listings will appear here when available.",

@@ -1,7 +1,14 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { FadeIn } from "@/components/FadeIn";
 import { GlassButton } from "@/components/ui/glass-button";
+import type { Locale } from "@/lib/i18n/config";
+import {
+  getCourse,
+  getCourseSummary,
+  getCourseTitle,
+} from "@/lib/i18n/courses-data";
 
 type GraduateDict = {
   back: string;
@@ -27,11 +34,36 @@ type GraduateDict = {
   contactTitle: string;
   contactBody: string;
   contactCta: string;
-  phoneCta: string;
   deptCta: string;
 };
 
-export default function GraduateContent({ dict }: { dict: GraduateDict }) {
+export default function GraduateContent({
+  dict,
+  locale,
+}: {
+  dict: GraduateDict;
+  locale: Locale;
+}) {
+  const [openSlug, setOpenSlug] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!openSlug) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenSlug(null);
+    };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [openSlug]);
+
+  const closeLabel = locale === "ko" ? "닫기" : "Close";
+  const noSummary =
+    locale === "ko" ? "개요가 등록되지 않았습니다." : "Summary not available.";
+
   return (
     <div className="bg-white pt-[80px]">
       <section className="max-w-[1280px] mx-auto px-6 lg:px-10 pt-12 pb-16 lg:pt-20 lg:pb-24">
@@ -158,17 +190,27 @@ export default function GraduateContent({ dict }: { dict: GraduateDict }) {
                         {semester}
                       </p>
                       <ul className="space-y-3">
-                        {subjects.map((subject) => (
-                          <li
-                            key={subject}
-                            className="flex items-center gap-3"
-                          >
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#0E4A84]/50 flex-shrink-0" />
-                            <span className="text-[14px] text-[#4A4A4F]">
-                              {subject}
-                            </span>
-                          </li>
-                        ))}
+                        {subjects.map((slug) => {
+                          const course = getCourse(slug);
+                          const title = course
+                            ? getCourseTitle(slug, locale)
+                            : slug;
+                          return (
+                            <li
+                              key={slug}
+                              className="flex items-center gap-3"
+                            >
+                              <div className="w-1.5 h-1.5 rounded-full bg-[#0E4A84]/50 flex-shrink-0" />
+                              <button
+                                type="button"
+                                onClick={() => setOpenSlug(slug)}
+                                className="text-[14px] text-[#4A4A4F] text-left hover:text-[#0E4A84] hover:underline underline-offset-4 transition-colors duration-150 cursor-pointer"
+                              >
+                                {title}
+                              </button>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   ))}
@@ -259,9 +301,6 @@ export default function GraduateContent({ dict }: { dict: GraduateDict }) {
             <a href="mailto:iamyam@hanyang.ac.kr">
               <GlassButton size="default">{dict.contactCta}</GlassButton>
             </a>
-            <a href="tel:02-2220-0751">
-              <GlassButton size="default">{dict.phoneCta}</GlassButton>
-            </a>
             <a
               href="https://bitcoinphilosophy.hanyang.ac.kr/home"
               target="_blank"
@@ -272,6 +311,67 @@ export default function GraduateContent({ dict }: { dict: GraduateDict }) {
           </div>
         </FadeIn>
       </section>
+
+      {openSlug ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={getCourseTitle(openSlug, locale)}
+          className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-8 sm:px-6 sm:py-12"
+          onClick={() => setOpenSlug(null)}
+        >
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            aria-hidden
+          />
+          <div
+            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-[720px] max-h-[85vh] overflow-hidden flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4 px-6 sm:px-8 pt-6 sm:pt-8 pb-4 border-b border-[#E5E5E7]">
+              <div>
+                <p className="text-[11px] text-[#0E4A84] font-medium uppercase tracking-[0.12em] mb-2">
+                  {locale === "ko" ? "교과목 개요" : "Course Summary"}
+                </p>
+                <h3 className="text-[20px] sm:text-[24px] font-bold text-[#1C1B1F] tracking-[-0.01em] leading-tight">
+                  {getCourseTitle(openSlug, locale)}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setOpenSlug(null)}
+                aria-label={closeLabel}
+                className="flex-shrink-0 w-9 h-9 rounded-full bg-[#F5F5F7] hover:bg-[#E5E5E7] text-[#1C1B1F] flex items-center justify-center transition-colors"
+              >
+                <span aria-hidden className="text-[18px] leading-none">
+                  ×
+                </span>
+              </button>
+            </div>
+            <div className="overflow-y-auto px-6 sm:px-8 py-6 sm:py-8">
+              {(() => {
+                const summary = getCourseSummary(openSlug, locale);
+                if (!summary) {
+                  return (
+                    <p className="text-[14px] text-[#6B7280]">{noSummary}</p>
+                  );
+                }
+                return summary
+                  .split("\n\n")
+                  .filter((p) => p.trim())
+                  .map((p, i) => (
+                    <p
+                      key={i}
+                      className="text-[15px] text-[#4A4A4F] leading-[1.8] mb-4 last:mb-0 whitespace-pre-wrap"
+                    >
+                      {p}
+                    </p>
+                  ));
+              })()}
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

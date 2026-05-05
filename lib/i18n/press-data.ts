@@ -74,18 +74,18 @@ const en: PressItem[] = [
   {
     id: "press-3",
     title:
-      "Prof. Sungho Yoon on 'Searching for or Clearing a New Path in the Humanities'",
+      "Prof. Seongho Yoon on 'Searching for or Clearing a New Path in the Humanities'",
     source: "University Press In&Out",
     date: "2025.12.21",
     summary:
-      "An interview with Prof. Sungho Yoon on his book 'In Search of Satoshi', exploring the humanistic debate around Bitcoin and the role of academia.",
+      "An interview with Prof. Seongho Yoon on his book 'In Search of Satoshi', exploring the humanistic debate around Bitcoin and the role of academia.",
     url: "https://www.unipress.co.kr/news/articleView.html?idxno=13721",
     color: "#3A6EA5",
     image: "/press/unipress-yoon.jpg",
   },
   {
     id: "press-2",
-    title: "Book Review: 'In Search of Satoshi' by Sungho Yoon",
+    title: "Book Review: 'In Search of Satoshi' by Seongho Yoon",
     source: "Kookmin Ilbo",
     date: "2025.10.31",
     summary:

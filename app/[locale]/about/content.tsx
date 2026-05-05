@@ -65,7 +65,6 @@ type AboutPageDict = {
       eyebrow: string;
       title: string;
       email: string;
-      phone: string;
       address: string;
       addressValue: string;
     };
@@ -490,17 +489,6 @@ export default function AboutContent({
                 className="text-[15px] text-[#1C1B1F] font-medium hover:text-[#0E4A84] transition-colors"
               >
                 iamyam@hanyang.ac.kr
-              </a>
-            </div>
-            <div className="bg-white rounded-xl border border-[#E5E5E7] p-5">
-              <p className="text-[11px] text-[#6B7280] uppercase tracking-wider mb-1.5">
-                {s.contact.phone}
-              </p>
-              <a
-                href="tel:02-2220-0751"
-                className="text-[15px] text-[#1C1B1F] font-medium hover:text-[#0E4A84] transition-colors"
-              >
-                02-2220-0751
               </a>
             </div>
             <div className="bg-white rounded-xl border border-[#E5E5E7] p-5">

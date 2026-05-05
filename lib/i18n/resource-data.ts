@@ -86,7 +86,7 @@ const monographsEn: MonographItem[] = [
     id: "in-search-of-satoshi",
     title: "In Search of Satoshi",
     subtitle: "Toward an Intellectual History of Bitcoin",
-    author: "Sungho Yoon",
+    author: "Seongho Yoon",
     description:
       "Tracing the intellectual background of Satoshi Nakamoto, Bitcoin's creator, this book explores from an intellectual-history perspective how cryptography, economics, and philosophy converged to produce the innovation of Bitcoin.",
     image: "/books/9788972188513.jpg",

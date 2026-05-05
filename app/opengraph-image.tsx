@@ -6,7 +6,7 @@ export const runtime = "nodejs";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt =
-  "Bitcoinology Lab — Where Money, Code, Culture Converge";
+  "Bitcoinology Lab — Where Value, Trust, and Culture Converge";
 
 export default async function Image() {
   const quintessential = await readFile(
@@ -47,7 +47,7 @@ export default async function Image() {
               fontWeight: 500,
             }}
           >
-            VALUE, CODE, SOCIETY
+            VALUE, TRUST, SOCIETY
           </span>
         </div>
 
@@ -76,7 +76,7 @@ export default async function Image() {
             lineHeight: 1.22,
           }}
         >
-          <span>Where Money, Code, and Culture&nbsp;</span>
+          <span>Where Value, Trust, and Culture&nbsp;</span>
           <span style={{ color: "#5B9BD5" }}>Converge.</span>
         </div>
 

@@ -100,11 +100,17 @@ export default async function FacultyPage({
                       <ul className="space-y-1">
                         {person.works.map((w) => (
                           <li
-                            key={w}
+                            key={w.title}
                             className="text-[12px] lg:text-[13px] text-[#4A4A4F] leading-[1.5] flex gap-2"
                           >
                             <span className="text-[#0E4A84]/40">·</span>
-                            <span>{w}</span>
+                            {w.type === "book" ? (
+                              <span className="italic">{w.title}</span>
+                            ) : w.type === "paper" ? (
+                              <span>&ldquo;{w.title}&rdquo;</span>
+                            ) : (
+                              <span>{w.title}</span>
+                            )}
                           </li>
                         ))}
                       </ul>

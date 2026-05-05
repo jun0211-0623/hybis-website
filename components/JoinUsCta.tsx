@@ -23,7 +23,9 @@ export default function JoinUsCta({
   locale: Locale;
 }) {
   const programsHref =
-    locale === defaultLocale ? "/#programs" : `/${locale}/#programs`;
+    locale === defaultLocale
+      ? "/programs/graduate"
+      : `/${locale}/programs/graduate`;
 
   return (
     <section id="contact" className="bg-[#1C1B1F] relative overflow-hidden">

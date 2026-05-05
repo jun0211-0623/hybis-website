@@ -31,7 +31,7 @@ const ko: FacultyItem[] = [
 ];
 
 const en: FacultyItem[] = [
-  { name: "Roland B Wilson", topic: "Geopolitical Understanding of the Korean Peninsula: A U.S. Perspective", role: "Professor, School of Conflict Analysis & Resolution, George Mason University Korea" },
+  { name: "Roland B Wilson", topic: "Geopolitical Understanding of the Korean Peninsula: A U.S. Perspective", role: "Professor, School of Conflict Analysis and Resolution, George Mason University Korea" },
   { name: "Dongjin Koh", topic: "The Present of AI: What Must We Prepare For?", role: "Member of the National Assembly (Gangnam-B, Seoul); Former CEO of Samsung Electronics" },
   { name: "Dongwook Kim", topic: "The First Step in Bitcoin's Commercialization: The Lightning Network", role: "CEO, BetweenBits Inc." },
   { name: "Seungjoo Kim", topic: "The Essential Difference Between Bitcoin and Scam Coins, Domestic and International", role: "Professor, Graduate School of Information Security, Korea University" },
@@ -40,12 +40,12 @@ const en: FacultyItem[] = [
   { name: "Seokkwan Nam", topic: "Investment Principles Without Loss", role: "Chairman, Best Income" },
   { name: "Yonggi Baek", topic: "Anti–Money Laundering (AML) Measures via Blockchain Analysis", role: "Country Manager, Chainalysis Korea" },
   { name: "Byeongjin Ahn", topic: "Trumpism and the U.S. Presidential Election", role: "Professor, Kyung Hee Institute for the Future of Civilization" },
-  { name: "Taemin Oh", topic: "Bitcoin and the Phenomenon of Money", role: "Adjunct Professor of Bitcoin & Monetary Philosophy, Hanyang University" },
+  { name: "Taemin Oh", topic: "Bitcoin and the Phenomenon of Money", role: "Adjunct Professor of Bitcoin and Monetary Philosophy, Hanyang University" },
   { name: "Cheolgyun Yoo", topic: "Silla Royal Capital Metaverse", role: "President, Gyeongbuk Research Institute" },
-  { name: "Sungho Yoon", topic: "In Search of Nakamoto Satoshi", role: "Professor, Department of English Language & Literature, Hanyang University" },
-  { name: "Sangwook Lee", topic: "NFT Humanities, AI & Art, and the Future of the AI Era", role: "Professor, Departments of Philosophy and Artificial Intelligence, Hanyang University" },
+  { name: "Seongho Yoon", topic: "In Search of Nakamoto Satoshi", role: "Professor, Department of English, Hanyang University" },
+  { name: "Sangwook Lee", topic: "NFT Humanities, AI and Art, and the Future of the AI Era", role: "Professor, Departments of Philosophy and Artificial Intelligence, Hanyang University" },
   { name: "Jangwon Lee", topic: "Virtual Asset Tax Deferral and the NTS Taxation System", role: "CEO, Rich Tax Accounting Corporation" },
-  { name: "Jeongyeop Lee", topic: "Virtual Asset Regulation and Financial Innovation", role: "CEO & Attorney, Lawfirm Lojibsa" },
+  { name: "Jeongyeop Lee", topic: "Virtual Asset Regulation and Financial Innovation", role: "CEO and Attorney, Lawfirm Lojibsa" },
   { name: "Seokmun Jung", topic: "The Essence of Virtual Assets and Trends Toward Institutionalization", role: "Head of Research, Presto Research" },
   { name: "Jiyeol Jung", topic: "Cryptocurrency and Money Laundering", role: "Adjunct Professor, School of Computer Science, Hanyang University" },
   { name: "Heewon Jung", topic: "Habits That Protect You from Uncertainty and Stress", role: "Clinical Assistant Professor, Division of Geriatric Medicine, Asan Medical Center" },

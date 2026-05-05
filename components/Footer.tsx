@@ -17,7 +17,6 @@ type FooterDict = {
   copyright: string;
   contacts: {
     email: string;
-    phone: string;
     address: string;
     deptLink: string;
   };
@@ -97,13 +96,6 @@ export default function Footer({
                 className="text-white/50 hover:text-[#5B9BD5] text-[12px] transition-colors duration-200 min-h-[44px] flex items-center"
               >
                 {dict.contacts.email}
-              </a>
-              <span className="text-white/20 hidden sm:inline">|</span>
-              <a
-                href={`tel:${dict.contacts.phone.replace(/[^0-9+]/g, "")}`}
-                className="text-white/50 hover:text-[#5B9BD5] text-[12px] transition-colors duration-200 min-h-[44px] flex items-center"
-              >
-                {dict.contacts.phone}
               </a>
               <span className="text-white/20 hidden sm:inline">|</span>
               <span className="text-white/50 text-[12px]">
