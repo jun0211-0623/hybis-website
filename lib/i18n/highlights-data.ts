@@ -2,9 +2,9 @@ import type { Locale } from "./config";
 import { defaultLocale } from "./config";
 import { getPressItems } from "./press-data";
 import { getColloquiumItems } from "./colloquium-data";
-import { getMonographs } from "./resource-data";
+import { getMonographs, getCoAuthoredBooks } from "./resource-data";
 
-export type HighlightKind = "press" | "colloquium" | "monograph";
+export type HighlightKind = "press" | "colloquium" | "monograph" | "coauthored";
 
 export interface HighlightItem {
   id: string;
@@ -25,13 +25,24 @@ const KIND_COLOR: Record<HighlightKind, string> = {
   press: "#9B7A7A",
   colloquium: "#0E4A84",
   monograph: "#3A6EA5",
+  coauthored: "#3A6EA5",
 };
 
 type KindLabels = Record<HighlightKind, string>;
 
 const KIND_LABELS: Record<Locale, KindLabels> = {
-  ko: { press: "언론보도", colloquium: "콜로퀴움", monograph: "모노그래프" },
-  en: { press: "Press", colloquium: "Colloquium", monograph: "Monograph" },
+  ko: {
+    press: "언론보도",
+    colloquium: "콜로퀴움",
+    monograph: "모노그래프",
+    coauthored: "공저 도서",
+  },
+  en: {
+    press: "Press",
+    colloquium: "Colloquium",
+    monograph: "Monograph",
+    coauthored: "Co-authored Works",
+  },
 };
 
 function toIsoFromDot(value: string): string {
@@ -64,21 +75,47 @@ function toIsoFromEnglish(value: string): string {
   return `${y}-${String(m).padStart(2, "0")}-${d.padStart(2, "0")}`;
 }
 
-function parseIso(display: string): string {
-  return toIsoFromEnglish(display);
-}
-
-function formatDotDate(iso: string): string {
-  const m = iso.match(/(\d{4})-(\d{2})-(\d{2})/);
-  return m ? `${m[1]}.${m[2]}.${m[3]}` : iso;
+function parseIso(display: string, locale: Locale): string {
+  return locale === "ko"
+    ? toIsoFromDot(display)
+    : toIsoFromEnglish(display);
 }
 
 function colloquiumHref(locale: Locale): string {
   return locale === defaultLocale ? "/academics/colloquium" : `/${locale}/academics/colloquium`;
 }
 
+const EN_MONTHS_FULL = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+function formatDisplayDate(iso: string, locale: Locale): string {
+  const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!m) return iso;
+  const [, y, mm, dd] = m;
+  if (locale === "en") {
+    return `${EN_MONTHS_FULL[Number(mm) - 1]} ${Number(dd)}, ${y}`;
+  }
+  return `${y}.${mm}.${dd}`;
+}
+
 function monographHref(locale: Locale): string {
   return locale === defaultLocale ? "/resources/monographs" : `/${locale}/resources/monographs`;
+}
+
+function coAuthoredHref(locale: Locale): string {
+  return locale === defaultLocale ? "/resources/coauthored" : `/${locale}/resources/coauthored`;
 }
 
 function monographIsoDate(m: { year: string; publishedAt?: string }): string {
@@ -93,13 +130,13 @@ export function getHighlightItems(locale: Locale, limit = 6): HighlightItem[] {
   const labels = KIND_LABELS[locale];
 
   const press: HighlightItem[] = getPressItems(locale).map((p) => {
-    const iso = parseIso(p.date);
+    const iso = parseIso(p.date, locale);
     return {
       id: `press-${p.id}`,
       kind: "press",
       kindLabel: labels.press,
       kindColor: KIND_COLOR.press,
-      date: formatDotDate(iso),
+      date: formatDisplayDate(iso, locale),
       isoDate: iso,
       title: p.title,
       summary: p.summary,
@@ -111,13 +148,13 @@ export function getHighlightItems(locale: Locale, limit = 6): HighlightItem[] {
   });
 
   const colloquium: HighlightItem[] = getColloquiumItems(locale).map((c) => {
-    const iso = parseIso(c.date);
+    const iso = parseIso(c.date, locale);
     return {
       id: `colloq-${c.id}`,
       kind: "colloquium",
       kindLabel: labels.colloquium,
       kindColor: KIND_COLOR.colloquium,
-      date: formatDotDate(iso),
+      date: formatDisplayDate(iso, locale),
       isoDate: iso,
       title: c.topic,
       summary: `${c.speaker} · ${c.speakerRole}`,
@@ -134,7 +171,7 @@ export function getHighlightItems(locale: Locale, limit = 6): HighlightItem[] {
       kind: "monograph",
       kindLabel: labels.monograph,
       kindColor: KIND_COLOR.monograph,
-      date: formatDotDate(iso),
+      date: formatDisplayDate(iso, locale),
       isoDate: iso,
       title: m.title,
       summary: m.description,
@@ -144,7 +181,24 @@ export function getHighlightItems(locale: Locale, limit = 6): HighlightItem[] {
     };
   });
 
-  return [...press, ...colloquium, ...monographs]
+  const coAuthored: HighlightItem[] = getCoAuthoredBooks(locale).map((m) => {
+    const iso = monographIsoDate(m);
+    return {
+      id: `coauth-${m.id}`,
+      kind: "coauthored",
+      kindLabel: labels.coauthored,
+      kindColor: KIND_COLOR.coauthored,
+      date: formatDisplayDate(iso, locale),
+      isoDate: iso,
+      title: m.title,
+      summary: m.description,
+      image: m.image,
+      href: coAuthoredHref(locale),
+      source: m.author,
+    };
+  });
+
+  return [...press, ...colloquium, ...monographs, ...coAuthored]
     .sort((a, b) => (a.isoDate < b.isoDate ? 1 : a.isoDate > b.isoDate ? -1 : 0))
     .slice(0, limit);
 }

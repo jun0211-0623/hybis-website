@@ -25,19 +25,6 @@ export interface PaperItem {
 
 const monographsKo: MonographItem[] = [
   {
-    id: "no-future-without-asset-tokens",
-    title: "자산 토큰 없는 미래는 없다",
-    subtitle: "",
-    author: "오태민, 진성훈, 박수훈, 김유정, 손혜민",
-    description:
-      "자산 토큰화가 화폐의 문법을 바꾸고 기존 금융 인프라를 재편하는 거대한 전환의 흐름임을 분석하며, 부동산·예술품·기업 지분 등 다양한 자산이 토큰 단위로 분할 거래되는 시대가 가져올 새로운 금융 질서의 가능성을 탐구합니다.",
-    image: "/books/9791193869413.jpg",
-    isbn: "979-11-93869-41-3",
-    publisher: "거인의정원",
-    year: "2026",
-    publishedAt: "2026-04-24",
-  },
-  {
     id: "in-search-of-satoshi",
     title: "사토시를 찾아서",
     subtitle: "비트코인 지성사를 위하여",
@@ -49,19 +36,6 @@ const monographsKo: MonographItem[] = [
     publisher: "한양대학교 출판부",
     year: "2025",
     publishedAt: "2025-10-30",
-  },
-  {
-    id: "no-future-without-bitcoin",
-    title: "비트코인 없는 미래는 없다",
-    subtitle: "",
-    author: "오태민, 손혜민, 김유정",
-    description:
-      "화폐의 본질을 신뢰의 기록으로 정의하며, 비트코인이 분산된 기술 구조와 합의 메커니즘을 통해 세계 경제 질서를 어떻게 재편할 수 있는지를 인문학적 관점에서 탐구합니다.",
-    image: "/books/9791193869338.jpg",
-    isbn: "979-11-93869-33-8",
-    publisher: "",
-    year: "2025",
-    publishedAt: "2025-09-19",
   },
   {
     id: "language-of-currency",
@@ -78,20 +52,36 @@ const monographsKo: MonographItem[] = [
   },
 ];
 
-const monographsEn: MonographItem[] = [
+const coAuthoredBooksKo: MonographItem[] = [
   {
     id: "no-future-without-asset-tokens",
-    title: "There Is No Future Without Asset Tokens",
+    title: "자산 토큰 없는 미래는 없다",
     subtitle: "",
-    author: "Taemin Oh, Seonghun Jin, Suhoon Park, Yujung Kim, Hyemin Son",
+    author: "오태민, 진성훈, 박수훈, 김유정, 손혜민",
     description:
-      "This book examines asset tokenization as a structural transformation reshaping the grammar of money and the existing financial infrastructure, exploring the new financial order that emerges as assets — from real estate to artworks and corporate equity — become divisible and tradable at the token level.",
+      "자산 토큰화가 화폐의 문법을 바꾸고 기존 금융 인프라를 재편하는 거대한 전환의 흐름임을 분석하며, 부동산·예술품·기업 지분 등 다양한 자산이 토큰 단위로 분할 거래되는 시대가 가져올 새로운 금융 질서의 가능성을 탐구합니다.",
     image: "/books/9791193869413.jpg",
     isbn: "979-11-93869-41-3",
-    publisher: "Giant's Garden",
+    publisher: "거인의정원",
     year: "2026",
     publishedAt: "2026-04-24",
   },
+  {
+    id: "no-future-without-bitcoin",
+    title: "비트코인 없는 미래는 없다",
+    subtitle: "",
+    author: "오태민, 손혜민, 김유정",
+    description:
+      "화폐의 본질을 신뢰의 기록으로 정의하며, 비트코인이 분산된 기술 구조와 합의 메커니즘을 통해 세계 경제 질서를 어떻게 재편할 수 있는지를 인문학적 관점에서 탐구합니다.",
+    image: "/books/9791193869338.jpg",
+    isbn: "979-11-93869-33-8",
+    publisher: "거인의정원",
+    year: "2025",
+    publishedAt: "2025-09-19",
+  },
+];
+
+const monographsEn: MonographItem[] = [
   {
     id: "in-search-of-satoshi",
     title: "In Search of Satoshi",
@@ -106,19 +96,6 @@ const monographsEn: MonographItem[] = [
     publishedAt: "2025-10-30",
   },
   {
-    id: "no-future-without-bitcoin",
-    title: "There Is No Future Without Bitcoin",
-    subtitle: "",
-    author: "Taemin Oh, Hyemin Son, Yujung Kim",
-    description:
-      "Defining the essence of money as a record of trust, this book explores from a humanistic perspective how Bitcoin — through its distributed technical architecture and consensus mechanism — could reshape the global economic order.",
-    image: "/books/9791193869338.jpg",
-    isbn: "979-11-93869-33-8",
-    publisher: "",
-    year: "2025",
-    publishedAt: "2025-09-19",
-  },
-  {
     id: "language-of-currency",
     title: "The Language of Money",
     subtitle: "How Money Speaks to Us",
@@ -130,6 +107,35 @@ const monographsEn: MonographItem[] = [
     publisher: "Hanyang University Press",
     year: "2026",
     publishedAt: "2026-01-10",
+  },
+];
+
+const coAuthoredBooksEn: MonographItem[] = [
+  {
+    id: "no-future-without-asset-tokens",
+    title: "There Is No Future Without Asset Tokens",
+    subtitle: "",
+    author: "Taemin Oh, Seonghun Jin, Suhoon Park, Yujung Kim, Hyemin Son",
+    description:
+      "This book examines asset tokenization as a structural transformation reshaping the grammar of money and the existing financial infrastructure, exploring the new financial order that emerges as assets — from real estate to artworks and corporate equity — become divisible and tradable at the token level.",
+    image: "/books/9791193869413.jpg",
+    isbn: "979-11-93869-41-3",
+    publisher: "Giant's Garden",
+    year: "2026",
+    publishedAt: "2026-04-24",
+  },
+  {
+    id: "no-future-without-bitcoin",
+    title: "There Is No Future Without Bitcoin",
+    subtitle: "",
+    author: "Taemin Oh, Hyemin Son, Yujung Kim",
+    description:
+      "Defining the essence of money as a record of trust, this book explores from a humanistic perspective how Bitcoin — through its distributed technical architecture and consensus mechanism — could reshape the global economic order.",
+    image: "/books/9791193869338.jpg",
+    isbn: "979-11-93869-33-8",
+    publisher: "Giant's Garden",
+    year: "2025",
+    publishedAt: "2025-09-19",
   },
 ];
 
@@ -309,6 +315,10 @@ export function getMonographs(locale: Locale): MonographItem[] {
   return locale === "en" ? monographsEn : monographsKo;
 }
 
+export function getCoAuthoredBooks(locale: Locale): MonographItem[] {
+  return locale === "en" ? coAuthoredBooksEn : coAuthoredBooksKo;
+}
+
 const EN_MONTHS = [
   "January",
   "February",
@@ -344,4 +354,5 @@ export function getPapersAndReports(locale: Locale): PaperItem[] {
 }
 
 export const monographs = monographsKo;
+export const coAuthoredBooks = coAuthoredBooksKo;
 export const papersAndReports = papersAndReportsKo;

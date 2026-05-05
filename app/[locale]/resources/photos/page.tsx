@@ -10,23 +10,45 @@ import { notFound } from "next/navigation";
 type Photo = {
   id: number;
   src: string;
-  // 예: "[학술세미나] 연세대·한양대 '한국인의 리걸 리터러시' 사업..."
-  title: string;
-  // 행사 일자. 예: "2026.01.23"
-  date: string;
+  titleKo: string;
+  titleEn: string;
+  dateKo: string;
+  dateEn: string;
 };
 
 const photos: Photo[] = [
-  { id: 3, src: "/gallery/photo-3.jpg", title: "비트코인 화폐철학 북콘서트 01", date: "2025.11.26" },
-  { id: 2, src: "/gallery/photo-2.jpg", title: "비트코인 화폐철학 북콘서트 02", date: "2025.11.26" },
-  { id: 4, src: "/gallery/photo-4.jpg", title: "비트코인 화폐철학 북콘서트 03", date: "2025.11.26" },
-  { id: 6, src: "/gallery/photo-6.jpg", title: "최고위 총동문회 01", date: "2025.11.26" },
-  { id: 5, src: "/gallery/photo-5.jpg", title: "최고위 총동문회 02", date: "2025.11.26" },
-  { id: 11, src: "/gallery/photo-11.jpg", title: "비트코인화폐철학 최고위과정 3기 해외연수 — 대만", date: "2025.04.27" },
-  { id: 8, src: "/gallery/photo-8.jpg", title: "비트코인화폐철학 최고위과정 수료식", date: "YYYY.MM.DD" },
-  { id: 10, src: "/gallery/photo-10.jpg", title: "최고위과정 수료증 수여식", date: "YYYY.MM.DD" },
-  { id: 7, src: "/gallery/photo-7.jpg", title: "최고위과정 수료식 단체사진", date: "YYYY.MM.DD" },
-  { id: 1, src: "/gallery/photo-1.jpg", title: "최고위과정 수료식 리셉션", date: "YYYY.MM.DD" },
+  {
+    id: 100,
+    src: "/gallery/photo-colloq-ha-taekyung.jpg",
+    titleKo: "콜로퀴움 — 하태경 원장 강연",
+    titleEn: "Colloquium — Lecture by President Ha Tae-kyung",
+    dateKo: "2026.04.27",
+    dateEn: "April 27, 2026",
+  },
+  {
+    id: 3,
+    src: "/gallery/photo-3.jpg",
+    titleKo: "비트코인 화폐철학 북콘서트 01",
+    titleEn: "Bitcoin & Monetary Philosophy Book Concert 01",
+    dateKo: "2025.11.26",
+    dateEn: "November 26, 2025",
+  },
+  {
+    id: 2,
+    src: "/gallery/photo-2.jpg",
+    titleKo: "비트코인 화폐철학 북콘서트 02",
+    titleEn: "Bitcoin & Monetary Philosophy Book Concert 02",
+    dateKo: "2025.11.26",
+    dateEn: "November 26, 2025",
+  },
+  {
+    id: 4,
+    src: "/gallery/photo-4.jpg",
+    titleKo: "비트코인 화폐철학 북콘서트 03",
+    titleEn: "Bitcoin & Monetary Philosophy Book Concert 03",
+    dateKo: "2025.11.26",
+    dateEn: "November 26, 2025",
+  },
 ];
 
 export async function generateMetadata({
@@ -63,25 +85,29 @@ export default async function PhotosPage({
       >
         <section className="max-w-[1280px] mx-auto px-6 lg:px-10 py-14 lg:py-20">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-10 sm:gap-x-5 sm:gap-y-12">
-            {photos.map((p, i) => (
-              <FadeIn key={p.id} delay={0.03 + i * 0.03}>
-                <article className="flex flex-col">
-                  <div className="relative aspect-square rounded-xl overflow-hidden group">
-                    <NextImage
-                      src={p.src}
-                      alt={p.title}
-                      fill
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <h3 className="mt-4 text-[14px] sm:text-[15px] font-semibold leading-snug text-[#1C1B1F] line-clamp-2">
-                    {p.title}
-                  </h3>
-                  <p className="mt-2 text-[13px] text-[#6B7280]">{p.date}</p>
-                </article>
-              </FadeIn>
-            ))}
+            {photos.map((p, i) => {
+              const title = isKo ? p.titleKo : p.titleEn;
+              const date = isKo ? p.dateKo : p.dateEn;
+              return (
+                <FadeIn key={p.id} delay={0.03 + i * 0.03}>
+                  <article className="flex flex-col">
+                    <div className="relative aspect-square rounded-xl overflow-hidden group">
+                      <NextImage
+                        src={p.src}
+                        alt={title}
+                        fill
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <h3 className="mt-4 text-[14px] sm:text-[15px] font-semibold leading-snug text-[#1C1B1F] line-clamp-2">
+                      {title}
+                    </h3>
+                    <p className="mt-2 text-[13px] text-[#6B7280]">{date}</p>
+                  </article>
+                </FadeIn>
+              );
+            })}
           </div>
         </section>
       </SubPageShell>

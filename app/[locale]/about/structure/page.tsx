@@ -48,7 +48,6 @@ export default async function StructurePage({
                 <p className="text-[20px] font-bold text-[#1C1B1F]">
                   {s.director.name}
                 </p>
-                <p className="text-[13px] text-[#4A4A4F]">{s.director.dept}</p>
               </div>
               <div className="w-[1px] h-10 bg-[#DADADA]" />
               <div className="flex items-center">

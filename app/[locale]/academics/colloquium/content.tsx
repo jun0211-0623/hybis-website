@@ -5,6 +5,7 @@ import { FadeIn } from "@/components/FadeIn";
 import type { Locale } from "@/lib/i18n/config";
 import { defaultLocale } from "@/lib/i18n/config";
 import type { ColloquiumItem } from "@/lib/i18n/colloquium-data";
+import type { FacultyItem } from "@/lib/i18n/faculty-data";
 
 type ColloquiumDict = {
   backHome: string;
@@ -31,10 +32,12 @@ export default function ColloquiumContent({
   dict,
   locale,
   items,
+  archive,
 }: {
   dict: ColloquiumDict;
   locale: Locale;
   items: ColloquiumItem[];
+  archive: FacultyItem[];
 }) {
   return (
     <div className="bg-white pt-[80px]">
@@ -162,6 +165,27 @@ export default function ColloquiumContent({
                 </FadeIn>
               );
             })}
+          </div>
+
+          <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+            {archive.map((item, i) => (
+              <FadeIn key={item.name} delay={0.04 + i * 0.02}>
+                <article className="group grid grid-cols-[88px_1fr] md:grid-cols-[110px_1fr] gap-4 md:gap-5 rounded-xl border border-[#E5E5E7] bg-white p-4 md:p-5 hover:border-[#CFDCEB] hover:shadow-[0_8px_24px_-12px_rgba(14,74,132,0.16)] transition-all">
+                  <div className="aspect-[3/4] rounded-md bg-[#F5F5F7] border border-[#EDEDEF]" />
+                  <div className="flex flex-col justify-center min-w-0">
+                    <h3 className="text-[15px] md:text-[16px] font-semibold text-[#1C1B1F] leading-snug mb-2 line-clamp-3 tracking-[-0.01em]">
+                      {item.topic}
+                    </h3>
+                    <p className="text-[13px] text-[#1C1B1F] font-medium leading-snug">
+                      {item.name}
+                    </p>
+                    <p className="text-[12px] text-[#6B7280] leading-snug line-clamp-2">
+                      {item.role}
+                    </p>
+                  </div>
+                </article>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>

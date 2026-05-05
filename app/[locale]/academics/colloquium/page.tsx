@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import ColloquiumContent from "./content";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getColloquiumItems } from "@/lib/i18n/colloquium-data";
+import { getFacultyItems } from "@/lib/i18n/faculty-data";
 import { isLocale } from "@/lib/i18n/config";
 import { notFound } from "next/navigation";
 
@@ -34,6 +35,7 @@ export default async function ColloquiumPage({
         dict={dict.colloquiumPage}
         locale={locale}
         items={getColloquiumItems(locale)}
+        archive={getFacultyItems(locale)}
       />
       <Footer dict={dict.footer} locale={locale} />
     </main>

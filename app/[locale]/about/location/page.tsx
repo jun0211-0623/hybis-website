@@ -40,7 +40,7 @@ export default async function LocationPage({
       >
         <section className="max-w-[1280px] mx-auto px-6 lg:px-10 py-14 lg:py-20">
           <FadeIn delay={0.1}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-10">
               <div className="bg-white rounded-xl border border-[#E5E5E7] p-5">
                 <p className="text-[11px] text-[#6B7280] uppercase tracking-wider mb-1.5">
                   {s.email}
@@ -50,17 +50,6 @@ export default async function LocationPage({
                   className="text-[15px] text-[#1C1B1F] font-medium hover:text-[#0E4A84] transition-colors"
                 >
                   iamyam@hanyang.ac.kr
-                </a>
-              </div>
-              <div className="bg-white rounded-xl border border-[#E5E5E7] p-5">
-                <p className="text-[11px] text-[#6B7280] uppercase tracking-wider mb-1.5">
-                  {s.phone}
-                </p>
-                <a
-                  href="tel:02-2220-0751"
-                  className="text-[15px] text-[#1C1B1F] font-medium hover:text-[#0E4A84] transition-colors"
-                >
-                  02-2220-0751
                 </a>
               </div>
               <div className="bg-white rounded-xl border border-[#E5E5E7] p-5">

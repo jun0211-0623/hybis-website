@@ -32,15 +32,13 @@ const en: KoDict = {
       },
       {
         label: "Programs",
-        children: [
-          { label: "Executive Program", href: "/programs/executive" },
-          { label: "Graduate Program", href: "/programs/graduate" },
-        ],
+        href: "/programs/graduate",
       },
       {
         label: "Resources",
         children: [
           { label: "Monographs", href: "/resources/monographs" },
+          { label: "Co-authored Works", href: "/resources/coauthored" },
           { label: "Academic Papers", href: "/resources/papers" },
           { label: "Policy Reports", href: "/resources/reports" },
           { label: "Photos", href: "/resources/photos" },
@@ -111,26 +109,8 @@ const en: KoDict = {
   programs: {
     eyebrow: "Programs",
     title: "Programs",
-    tabs: {
-      executive: "Executive Program",
-      graduate: "Graduate Program",
-    },
     detailCta: "Learn more →",
     deptCta: "Department →",
-    executive: {
-      title: "Executive Program in Bitcoin & Monetary Philosophy",
-      subtitle: "Bitcoin & Monetary Philosophy Executive Program",
-      description:
-        "Bitcoin, as an intellectual phenomenon, reveals that every issue surrounding money is an \"ancient future.\" The program defines Bitcoin not as mere technology but as a monetary phenomenon, analyzing its economic, political, and cultural implications across disciplines.",
-      highlights: [
-        { label: "Director", value: "Seong-ho Yoon" },
-        {
-          label: "Faculty",
-          value: "21 experts (academia, industry, policy)",
-        },
-        { label: "Audience", value: "Executives, policymakers, professionals" },
-      ],
-    },
     graduate: {
       title: "Graduate Cooperative Program in Bitcoin & Monetary Philosophy",
       subtitle:
@@ -154,6 +134,7 @@ const en: KoDict = {
       "Monographs, academic papers, and policy reports from Bitcoinology Lab.",
     tabs: {
       monograph: "Monographs",
+      coauthored: "Co-authored Works",
       paper: "Papers",
       report: "Policy Reports",
     },
@@ -191,7 +172,6 @@ const en: KoDict = {
       {
         title: "Programs",
         links: [
-          { label: "Executive Program", href: "/programs/executive" },
           { label: "Graduate Program", href: "/programs/graduate" },
         ],
       },
@@ -199,6 +179,7 @@ const en: KoDict = {
         title: "Resources",
         links: [
           { label: "Monographs", href: "/resources/monographs" },
+          { label: "Co-authored Works", href: "/resources/coauthored" },
           { label: "Academic Papers", href: "/resources/papers" },
           { label: "Policy Reports", href: "/resources/reports" },
           { label: "Photos", href: "/resources/photos" },
@@ -260,7 +241,7 @@ const en: KoDict = {
               "Grounded in conceptual analysis and close reading, we combine empirical research on markets, regulation, and everyday practice to make sense of real-world change. Through seminars, workshops, publications, and joint projects, we aim to produce both scholarly rigor and public insight.",
           },
         ],
-        director: "Seong-ho Yoon",
+        director: "Sungho Yoon",
         directorRole:
           "Director, Bitcoinology Lab · Professor, Dept. of English Language and Literature, Hanyang University",
       },
@@ -308,11 +289,6 @@ const en: KoDict = {
           },
           { date: "2024.05", event: "Bitcoinology Lab founded" },
           {
-            date: "2024.03",
-            event:
-              "1st Executive Program in Bitcoin & Monetary Philosophy opens",
-          },
-          {
             date: "2024.02",
             event:
               "Graduate Cooperative Program in Bitcoin & Monetary Philosophy officially approved",
@@ -324,61 +300,62 @@ const en: KoDict = {
         title: "Organization",
         directorRole: "Director",
         director: {
-          name: "Prof. Seong-ho Yoon",
-          dept: "Dept. of English Language and Literature",
+          name: "Prof. Sungho Yoon",
         },
         groups: [
           {
             title: "Affiliated Faculty",
             members: [
-              { name: "Tae-min Oh", dept: "Bitcoin & Monetary Philosophy" },
-              { name: "Sang-wook Lee", dept: "Philosophy" },
+              { name: "Taemin Oh", dept: "Bitcoin & Monetary Philosophy" },
+              { name: "Sangwook Lee", dept: "Philosophy" },
               {
-                name: "Kwang-hee Lee",
+                name: "Kwanghee Lee",
                 dept: "Popular Culture & Scenario Studies",
               },
-              { name: "Seung-woo Kim", dept: "History" },
-              { name: "Hyung-seop Lee", dept: "English Literature" },
+              { name: "Seungwoo Kim", dept: "History" },
+              { name: "Hyungseop Lee", dept: "English Literature" },
             ],
           },
           {
             title: "Advisory Board",
             members: [
               {
-                name: "Nam-ki Hong",
+                name: "Namki Hong",
                 dept:
-                  "Former Deputy Prime Minister · Minister of Economy and Finance",
+                  "Former Deputy Prime Minister and Minister of Economy and Finance",
               },
               {
-                name: "Ho-joo Yoon",
-                dept: "Director, Hanyang University Medical Center",
+                name: "Hojoo Yoon",
+                dept: "President, Hanyang University Medical Center",
               },
               {
-                name: "Gyu-chang Yu",
+                name: "Gyuchang Yu",
                 dept:
-                  "Former Dean, College of Business · Former Director, Paiknam Academic Information Center",
+                  "Former Dean, School of Business · Former Director, Paiknam Academic Information Center",
               },
               {
-                name: "Pan-gyu Kim",
+                name: "Pangyu Kim",
                 dept:
-                  "Former Ambassador to Nigeria · Former Superintendent, Korea Naval Academy",
+                  "Former Ambassador to Nigeria · Former Superintendent, Republic of Korea Naval Academy",
               },
-              { name: "Jin-woo Jeon", dept: "Partner CPA, Samil PwC" },
+              { name: "Jinwoo Jeon", dept: "Partner, Samil PwC" },
               {
-                name: "Jae-sung Hwang",
-                dept: "Head of Hedge Fund Management, Leading Investment",
+                name: "Jaesung Hwang",
+                dept:
+                  "Head of Hedge Fund Management, Leading Investment & Securities",
               },
-              { name: "Won-hee Lee", dept: "CEO, Lee Won-hee Tax & Accounting" },
+              { name: "Wonhee Lee", dept: "CEO, Lee Wonhee Tax & Accounting" },
             ],
           },
           {
             title: "Research Fellows",
             members: [
-              { name: "Min-gu Park", dept: "Senior Research Fellow" },
-              { name: "Yong-rae Cho", dept: "Research Assistant" },
-              { name: "Myeong-seung Choi", dept: "Research Assistant" },
-              { name: "Chang-jun Lee", dept: "Research Assistant" },
-              { name: "Dae-hong Kang", dept: "Industry-Academia Research Fellow" },
+              { name: "Mingu Park", dept: "Senior Research Fellow" },
+              { name: "Hyemin Son", dept: "Senior Research Fellow" },
+              { name: "Myungseung Choi", dept: "Research Assistant" },
+              { name: "Changjun Lee", dept: "Research Assistant" },
+              { name: "Yongrae Cho", dept: "Industry-Academia Research Fellow" },
+              { name: "Daehong Kang", dept: "Industry-Academia Research Fellow" },
             ],
           },
         ],
@@ -390,7 +367,7 @@ const en: KoDict = {
           "Scholars affiliated with both Bitcoinology Lab and the Hanyang University Graduate Cooperative Program in Bitcoin & Monetary Philosophy.",
         people: [
           {
-            name: "Seong-ho Yoon",
+            name: "Sungho Yoon",
             role: "Director · Professor",
             affiliation:
               "Hanyang University, Department of English Language and Literature · Bitcoin & Monetary Philosophy",
@@ -406,19 +383,16 @@ const en: KoDict = {
             photo: "/faculty/yoon-seong-ho.png",
           },
           {
-            name: "Tae-min Oh",
+            name: "Taemin Oh",
             role: "Adjunct Professor",
             affiliation: "Bitcoin & Monetary Philosophy",
             field: "Humanities · Geopolitics · International Financial Order",
             bio:
-              "A thinker who pioneered Bitcoin humanities in Korea. Beginning with Bitcoin Was Strong (2014), through more than ten books and continuous lectures, he reads Bitcoin as a reinvention of trust and a fissure in dollar hegemony — building an independent humanistic interpretation. Through unceasing co-authorship with his graduate students, he lays the intellectual foundations surrounding digital assets.",
+              "A graduate of Yonsei University and the pioneer of Bitcoin humanities in Korea. Beginning with Bitcoin Was Strong (2014), through more than ten books and continuous lectures, he reads Bitcoin as a reinvention of trust and a fissure in dollar hegemony — building an independent humanistic interpretation. Through unceasing co-authorship with his graduate students, he lays the intellectual foundations surrounding digital assets.",
             works: [
               "Bitcoin Was Strong (2014)",
               "Smart Contract: A Trust Revolution (2018)",
-              "The Genealogy of Bitcoin Wisdom (2020)",
-              "The Metaverse and the Future of Money (2022)",
               "The Geopolitics of the Dollar and Bitcoin (2023)",
-              "The Great Bitcoin (2023)",
               "Geopolitics in the Trump Era and Bitcoin (2025)",
               "There Is No Future Without Bitcoin (2025)",
               "There Is No Future Without Tokenization (2026)",
@@ -427,7 +401,7 @@ const en: KoDict = {
             photo: "/faculty/oh-tae-min.jpg",
           },
           {
-            name: "Sang-wook Lee",
+            name: "Sangwook Lee",
             role: "Professor",
             affiliation: "Hanyang University, Department of Philosophy",
             field: "",
@@ -436,7 +410,7 @@ const en: KoDict = {
             photo: "",
           },
           {
-            name: "Kwang-hee Lee",
+            name: "Kwanghee Lee",
             role: "Assistant Professor",
             affiliation:
               "English Literature · Popular Culture & Scenario Studies · Bitcoin & Monetary Philosophy",
@@ -447,7 +421,7 @@ const en: KoDict = {
             photo: "/faculty/lee-kwang-hee.png",
           },
           {
-            name: "Seung-woo Kim",
+            name: "Seungwoo Kim",
             role: "Assistant Professor",
             affiliation: "Hanyang University, Department of History",
             field:
@@ -463,7 +437,7 @@ const en: KoDict = {
             photo: "/faculty/kim-seung-woo.jpg",
           },
           {
-            name: "Hyung-seop Lee",
+            name: "Hyungseop Lee",
             role: "Professor",
             affiliation: "Hanyang University, Department of English Literature",
             field: "",
@@ -480,14 +454,16 @@ const en: KoDict = {
         title: "Partners",
         items: [
           {
-            name: "Digital Humanities Engineering Center, KNU",
-            nameEn: "Digital Humanities Engineering Center",
+            name: "Institute of American & European Studies, KNU",
+            nameEn: "Kyungpook National University",
             image: "/partners/dhec.jpeg",
+            href: "https://iaes.knu.ac.kr/",
           },
           {
-            name: "OtaVerse Inc.",
+            name: "OtaVerse — Metanomia",
             nameEn: "OtaVerse Inc.",
             image: "/partners/otaverse.png",
+            href: "https://btcmobick.org/metanomia",
           },
         ],
       },
@@ -509,7 +485,7 @@ const en: KoDict = {
         phone: "Phone",
         address: "Address",
         addressValue:
-          "Hanyang University, 222 Wangsimni-ro, Seongdong-gu, Seoul, Korea",
+          "Room 504, 5F, Hanyang University, 222 Wangsimni-ro, Seongdong-gu, Seoul, Korea",
       },
     },
   },
@@ -538,23 +514,6 @@ const en: KoDict = {
     venueLabel: "Venue",
     hostLabel: "Host",
     posterAlt: "Colloquium poster",
-  },
-  executivePage: {
-    back: "Programs",
-    eyebrow: "Executive Program",
-    title: "Executive Program in Bitcoin & Monetary Philosophy",
-    intro:
-      "Bitcoin, as an intellectual phenomenon, reveals that every issue surrounding money is an \"ancient future.\" This program defines Bitcoin not as a mere technology or economic phenomenon but as a monetary phenomenon, examining the emergence of new financial forms alongside their impact on human values and social structures.",
-    stats: [
-      { label: "Director", value: "Seong-ho Yoon" },
-      { label: "Faculty", value: "21 experts" },
-      { label: "Audience", value: "Executives · Policymakers · Professionals" },
-    ],
-    curriculumEyebrow: "Curriculum",
-    curriculumTitle: "Curriculum",
-    contactTitle: "Interested in joining?",
-    contactBody: "For inquiries about the Executive Program, please reach out.",
-    contactCta: "Contact Us →",
   },
   graduatePage: {
     back: "Programs",
@@ -644,7 +603,7 @@ const en: KoDict = {
       },
     ],
     careersBody:
-      "Industry scholarships, research-center networks, and ties with the Executive Program actively support career pathways.",
+      "Industry scholarships and research-center networks actively support career pathways.",
     contactTitle: "Interested in applying?",
     contactBody:
       "For inquiries about the Graduate Cooperative Program, please reach out.",
@@ -658,6 +617,15 @@ const en: KoDict = {
     body:
       "The Hanyang University Monograph Series on Bitcoin and the Humanities — scholarly books from the Bitcoinology Lab research team.",
     badge: "Monograph",
+    authorSuffix: "",
+    isbnPrefix: "ISBN",
+  },
+  coAuthoredBooks: {
+    eyebrow: "Co-authored Works",
+    title: "Co-authored Works",
+    body:
+      "Trade books co-authored by Bitcoinology Lab researchers — works addressed to a broader readership, separate from the academic monograph series.",
+    badge: "Book",
     authorSuffix: "",
     isbnPrefix: "ISBN",
   },
@@ -691,7 +659,7 @@ const en: KoDict = {
     eyebrow: "Beyond the Page",
     title: "Beyond the Page",
     body:
-      "Book talks, Executive Program lectures, alumni gatherings, and other Bitcoinology Lab activities in the field.",
+      "Book talks, colloquia, alumni gatherings, and other Bitcoinology Lab activities in the field.",
     more: "See more activity →",
   },
   detail: {

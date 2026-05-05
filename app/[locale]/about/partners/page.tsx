@@ -42,9 +42,9 @@ export default async function PartnersPage({
       >
         <section className="max-w-[1280px] mx-auto px-6 lg:px-10 py-14 lg:py-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {partners.items.map((partner, i) => (
-              <FadeIn key={partner.name} delay={0.1 + i * 0.08}>
-                <div className="bg-[#F5F5F7] rounded-2xl border border-[#E5E5E7] p-8 flex flex-col items-center text-center hover:border-[#0E4A84]/40 transition-colors duration-200">
+            {partners.items.map((partner, i) => {
+              const card = (
+                <div className="bg-[#F5F5F7] rounded-2xl border border-[#E5E5E7] p-8 flex flex-col items-center text-center hover:border-[#0E4A84]/40 transition-colors duration-200 h-full">
                   <div className="relative w-[260px] h-[110px] mb-5 flex items-center justify-center bg-white/90 rounded-xl p-4">
                     <NextImage
                       src={partner.image}
@@ -59,8 +59,26 @@ export default async function PartnersPage({
                   </h3>
                   <p className="text-[13px] text-[#6B7280]">{partner.nameEn}</p>
                 </div>
-              </FadeIn>
-            ))}
+              );
+              const href =
+                "href" in partner ? (partner as { href?: string }).href : undefined;
+              return (
+                <FadeIn key={partner.name} delay={0.1 + i * 0.08}>
+                  {href ? (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block h-full"
+                    >
+                      {card}
+                    </a>
+                  ) : (
+                    card
+                  )}
+                </FadeIn>
+              );
+            })}
           </div>
         </section>
 

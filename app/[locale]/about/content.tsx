@@ -40,7 +40,7 @@ type AboutPageDict = {
       eyebrow: string;
       title: string;
       directorRole: string;
-      director: { name: string; dept: string };
+      director: { name: string };
       groups: {
         title: string;
         members: { name: string; dept: string }[];
@@ -49,7 +49,12 @@ type AboutPageDict = {
     partners: {
       eyebrow: string;
       title: string;
-      items: { name: string; nameEn: string; image: string }[];
+      items: {
+        name: string;
+        nameEn: string;
+        image: string;
+        href?: string;
+      }[];
     };
     sponsors: {
       eyebrow: string;
@@ -299,9 +304,6 @@ export default function AboutContent({
               <p className="text-[20px] font-bold text-[#1C1B1F]">
                 {s.organization.director.name}
               </p>
-              <p className="text-[13px] text-[#4A4A4F]">
-                {s.organization.director.dept}
-              </p>
             </div>
             <div className="w-[1px] h-10 bg-[#DADADA]" />
             <div className="flex items-center">
@@ -363,9 +365,9 @@ export default function AboutContent({
         </FadeIn>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {s.partners.items.map((partner, i) => (
-            <FadeIn key={partner.name} delay={0.1 + i * 0.08}>
-              <div className="bg-[#F5F5F7] rounded-2xl border border-[#E5E5E7] p-8 flex flex-col items-center text-center hover:border-[#0E4A84]/40 transition-colors duration-200">
+          {s.partners.items.map((partner, i) => {
+            const card = (
+              <div className="bg-[#F5F5F7] rounded-2xl border border-[#E5E5E7] p-8 flex flex-col items-center text-center hover:border-[#0E4A84]/40 transition-colors duration-200 h-full">
                 <div className="relative w-[260px] h-[110px] mb-5 flex items-center justify-center bg-white/90 rounded-xl p-4">
                   <NextImage
                     src={partner.image}
@@ -380,8 +382,24 @@ export default function AboutContent({
                 </h3>
                 <p className="text-[13px] text-[#6B7280]">{partner.nameEn}</p>
               </div>
-            </FadeIn>
-          ))}
+            );
+            return (
+              <FadeIn key={partner.name} delay={0.1 + i * 0.08}>
+                {partner.href ? (
+                  <a
+                    href={partner.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block h-full"
+                  >
+                    {card}
+                  </a>
+                ) : (
+                  card
+                )}
+              </FadeIn>
+            );
+          })}
         </div>
       </section>
 

@@ -28,15 +28,13 @@ const ko = {
       },
       {
         label: "프로그램",
-        children: [
-          { label: "최고위 과정", href: "/programs/executive" },
-          { label: "대학원 협동과정", href: "/programs/graduate" },
-        ],
+        href: "/programs/graduate",
       },
       {
         label: "자료",
         children: [
           { label: "모노그래프", href: "/resources/monographs" },
+          { label: "공저 도서", href: "/resources/coauthored" },
           { label: "학술논문", href: "/resources/papers" },
           { label: "정책 보고서", href: "/resources/reports" },
           { label: "행사 사진", href: "/resources/photos" },
@@ -107,23 +105,8 @@ const ko = {
   programs: {
     eyebrow: "Programs",
     title: "프로그램",
-    tabs: {
-      executive: "최고위 과정",
-      graduate: "대학원 협동과정",
-    },
     detailCta: "자세히 보기 →",
     deptCta: "학과 홈페이지 →",
-    executive: {
-      title: "비트코인화폐철학 최고위과정",
-      subtitle: "Bitcoin & Monetary Philosophy Executive Program",
-      description:
-        "비트코인이라는 지적 현상은 화폐의 모든 이슈가 '오래된 미래'임을 보여줍니다. 본 과정은 비트코인을 단순 기술이 아닌 '화폐현상'으로 정의하고, 경제·정치·문화적 변화를 다학제적으로 분석합니다.",
-      highlights: [
-        { label: "주임교수", value: "윤성호" },
-        { label: "강사진", value: "21명 (학계·산업·정책 전문가)" },
-        { label: "대상", value: "기업 임원, 정책 관계자, 전문가" },
-      ],
-    },
     graduate: {
       title: "비트코인화폐철학과 대학원 협동과정",
       subtitle:
@@ -143,6 +126,7 @@ const ko = {
     body: "Bitcoinology Lab의 모노그래프, 학술논문, 정책보고서를 확인하세요.",
     tabs: {
       monograph: "모노그래프",
+      coauthored: "공저 도서",
       paper: "학술논문",
       report: "정책보고서",
     },
@@ -180,7 +164,6 @@ const ko = {
       {
         title: "프로그램",
         links: [
-          { label: "최고위 과정", href: "/programs/executive" },
           { label: "대학원 협동과정", href: "/programs/graduate" },
         ],
       },
@@ -188,6 +171,7 @@ const ko = {
         title: "자료",
         links: [
           { label: "모노그래프", href: "/resources/monographs" },
+          { label: "공저 도서", href: "/resources/coauthored" },
           { label: "학술논문", href: "/resources/papers" },
           { label: "정책 보고서", href: "/resources/reports" },
           { label: "행사 사진", href: "/resources/photos" },
@@ -280,7 +264,6 @@ const ko = {
           { date: "2025.07", event: "비트코인화폐철학 대학원협동과정 출범" },
           { date: "2025.01", event: "Bitcoinology Lab 모노그래프 시리즈 출간" },
           { date: "2024.05", event: "Bitcoinology Lab 설립" },
-          { date: "2024.03", event: "제1기 비트코인화폐철학 최고위과정 개설" },
           { date: "2024.02", event: "비트코인화폐철학 대학원협동과정 정식 인가" },
         ],
       },
@@ -288,7 +271,7 @@ const ko = {
         eyebrow: "Organization",
         title: "조직 구성",
         directorRole: "센터장",
-        director: { name: "윤성호 교수", dept: "영어영문학과" },
+        director: { name: "윤성호 교수" },
         groups: [
           {
             title: "참여교수",
@@ -316,9 +299,10 @@ const ko = {
             title: "연구원",
             members: [
               { name: "박민구", dept: "선임 연구원" },
-              { name: "조용래", dept: "조교" },
+              { name: "손혜민", dept: "선임 연구원" },
               { name: "최명승", dept: "조교" },
               { name: "이창준", dept: "조교" },
+              { name: "조용래", dept: "산학협력 연구원" },
               { name: "강대홍", dept: "산학협력 연구원" },
             ],
           },
@@ -351,14 +335,11 @@ const ko = {
             affiliation: "비트코인화폐철학과",
             field: "인문학 · 지정학 · 국제금융질서",
             bio:
-              "한국 비트코인 인문학을 개척한 사상가. 2014년 《비트코인은 강했다》를 시작으로 10여 권의 저서와 강의를 통해 비트코인을 신뢰 시스템의 재발명이자 달러 패권의 균열로 읽어내며, 독자적인 인문학 해석을 정립해왔다. 대학원생들과 끊임없는 공저를 이어가며, 디지털 자산을 둘러싼 지적 토대를 함께 다져가고 있다.",
+              "연세대학교를 졸업한 한국 비트코인 인문학의 개척자. 2014년 《비트코인은 강했다》를 시작으로 10여 권의 저서와 강의를 통해 비트코인을 신뢰 시스템의 재발명이자 달러 패권의 균열로 읽어내며, 독자적인 인문학 해석을 정립해왔다. 대학원생들과 끊임없는 공저를 이어가며, 디지털 자산을 둘러싼 지적 토대를 함께 다져가고 있다.",
             works: [
               "비트코인은 강했다 (2014)",
               "스마트콘트랙 신뢰혁명 (2018)",
-              "비트코인 지혜의 족보 (2020)",
-              "메타버스와 돈의 미래 (2022)",
               "달러의 지정학과 비트코인 (2023)",
-              "더그레이트비트코인 (2023)",
               "트럼프 시대의 지정학과 비트코인 (2025)",
               "비트코인 없는 미래는 없다 (2025)",
               "토큰화 없는 미래는 없다 (2026)",
@@ -418,14 +399,16 @@ const ko = {
         title: "협력 기관",
         items: [
           {
-            name: "경북대 디지털 인문공학 연구센터",
-            nameEn: "Digital Humanities Engineering Center",
+            name: "경북대학교 미주·유럽연구소",
+            nameEn: "Institute of American & European Studies, KNU",
             image: "/partners/dhec.jpeg",
+            href: "https://iaes.knu.ac.kr/",
           },
           {
-            name: "오태버스(주)",
-            nameEn: "OtaVerse Inc.",
+            name: "오태버스-메타노미아",
+            nameEn: "OtaVerse — Metanomia",
             image: "/partners/otaverse.png",
+            href: "https://btcmobick.org/metanomia",
           },
         ],
       },
@@ -446,7 +429,7 @@ const ko = {
         email: "Email",
         phone: "Phone",
         address: "Address",
-        addressValue: "서울 성동구 왕십리로 222 한양대학교",
+        addressValue: "서울 성동구 왕십리로 222 한양대학교 5층 504호",
       },
     },
   },
@@ -475,23 +458,6 @@ const ko = {
     venueLabel: "장소",
     hostLabel: "주관",
     posterAlt: "콜로퀴움 포스터",
-  },
-  executivePage: {
-    back: "프로그램",
-    eyebrow: "Executive Program",
-    title: "비트코인화폐철학 최고위과정",
-    intro:
-      "비트코인이라는 지적 현상은 화폐의 모든 이슈가 '오래된 미래'임을 보여줍니다. 본 과정은 비트코인을 단순한 기술이나 경제 현상이 아닌 '화폐현상'으로 정의하며, 새로운 금융 형태의 탐구뿐 아니라 인류의 가치관과 사회 구조에 미치는 영향을 다학제적으로 분석합니다.",
-    stats: [
-      { label: "주임교수", value: "윤성호" },
-      { label: "강사진", value: "21명" },
-      { label: "대상", value: "기업 임원·정책 관계자·전문가" },
-    ],
-    curriculumEyebrow: "Curriculum",
-    curriculumTitle: "커리큘럼",
-    contactTitle: "참여를 원하시나요?",
-    contactBody: "최고위과정에 대한 문의 사항이 있으시면 연락해 주세요.",
-    contactCta: "문의하기 →",
   },
   graduatePage: {
     back: "프로그램",
@@ -562,7 +528,7 @@ const ko = {
       { title: "국제기구·NGO", desc: "포용금융 프로젝트 매니저" },
     ],
     careersBody:
-      "업계 장학금, 연구센터 네트워크, 최고위과정과의 연계를 통해 진로를 적극 지원합니다.",
+      "업계 장학금과 연구센터 네트워크를 통해 진로를 적극 지원합니다.",
     contactTitle: "지원을 원하시나요?",
     contactBody: "대학원 협동과정에 대한 문의 사항이 있으시면 연락해 주세요.",
     contactCta: "문의하기 →",
@@ -574,6 +540,15 @@ const ko = {
     title: "모노그래프",
     body:
       "Hanyang University Monograph Series on Bitcoin and the Humanities. Bitcoinology Lab 연구진의 학술 단행본 시리즈입니다.",
+    badge: "단행본",
+    authorSuffix: " 지음",
+    isbnPrefix: "ISBN",
+  },
+  coAuthoredBooks: {
+    eyebrow: "Co-authored Works",
+    title: "공저 도서",
+    body:
+      "Bitcoinology Lab 연구진이 공동 집필한 일반 단행본입니다. 학술 모노그래프와 별도로, 보다 폭넓은 독자를 향한 저서를 모았습니다.",
     badge: "단행본",
     authorSuffix: " 지음",
     isbnPrefix: "ISBN",
@@ -607,7 +582,7 @@ const ko = {
     eyebrow: "Beyond the Page",
     title: "Beyond the Page",
     body:
-      "북콘서트, 최고위과정 강의, 총동문회 등 Bitcoinology Lab의 주요 활동 현장을 소개합니다.",
+      "북콘서트, 콜로퀴움, 총동문회 등 Bitcoinology Lab의 주요 활동 현장을 소개합니다.",
     more: "활동 더 보기 →",
   },
   detail: {

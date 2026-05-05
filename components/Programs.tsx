@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FadeIn } from "./FadeIn";
@@ -18,14 +17,10 @@ type ProgramDetails = {
 type ProgramsDict = {
   eyebrow: string;
   title: string;
-  tabs: { executive: string; graduate: string };
   detailCta: string;
   deptCta: string;
-  executive: ProgramDetails;
   graduate: ProgramDetails;
 };
-
-type TabKey = "executive" | "graduate";
 
 function localePath(path: string, locale: Locale): string {
   if (locale === defaultLocale) return path;
@@ -39,12 +34,8 @@ export default function Programs({
   dict: ProgramsDict;
   locale: Locale;
 }) {
-  const [activeTab, setActiveTab] = useState<TabKey>("executive");
-  const current = dict[activeTab];
-  const detailHref =
-    activeTab === "executive"
-      ? localePath("/programs/executive", locale)
-      : localePath("/programs/graduate", locale);
+  const current = dict.graduate;
+  const detailHref = localePath("/programs/graduate", locale);
 
   return (
     <section id="programs" className="py-20 lg:py-28 bg-[#F5F5F7]">
@@ -66,25 +57,10 @@ export default function Programs({
           </h2>
         </FadeIn>
 
-        <FadeIn delay={0.2}>
-          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-12">
-            {(["executive", "graduate"] as const).map((key) => (
-              <GlassButton
-                key={key}
-                size="sm"
-                onClick={() => setActiveTab(key)}
-                className={activeTab === key ? "glass-button-active" : ""}
-              >
-                {dict.tabs[key]}
-              </GlassButton>
-            ))}
-          </div>
-        </FadeIn>
-
         <motion.div
-          key={activeTab}
           initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
           <div className="bg-white rounded-2xl border border-[#E5E5E7] shadow-[0_10px_40px_-20px_rgba(14,74,132,0.18)] p-5 sm:p-8 lg:p-10 max-w-[800px] mx-auto">
