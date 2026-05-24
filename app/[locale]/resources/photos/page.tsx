@@ -18,6 +18,22 @@ type Photo = {
 
 const photos: Photo[] = [
   {
+    id: 101,
+    src: "/gallery/photo-colloq-lee-taekgwang-1.jpg",
+    titleKo: "콜로퀴움 — 이택광 교수 강연 01",
+    titleEn: "Colloquium — Lecture by Prof. Lee Taek-gwang 01",
+    dateKo: "2026.05.11",
+    dateEn: "May 11, 2026",
+  },
+  {
+    id: 102,
+    src: "/gallery/photo-colloq-lee-taekgwang-2.jpg",
+    titleKo: "콜로퀴움 — 이택광 교수 강연 02",
+    titleEn: "Colloquium — Lecture by Prof. Lee Taek-gwang 02",
+    dateKo: "2026.05.11",
+    dateEn: "May 11, 2026",
+  },
+  {
     id: 100,
     src: "/gallery/photo-colloq-ha-taekyung.jpg",
     titleKo: "콜로퀴움 — 하태경 원장 강연",

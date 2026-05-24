@@ -99,7 +99,7 @@ const monographsEn: MonographItem[] = [
     id: "language-of-currency",
     title: "The Language of Money",
     subtitle: "How Money Speaks to Us",
-    author: "Gwanghee Lee",
+    author: "Kwanghee Lee",
     description:
       "A philosophical and economic analysis showing that money is not merely a medium of exchange but also a medium of social communication and an institutional language — an academic work that poses fundamental questions about the nature of money.",
     image: "/books/9788972188537.jpg",
