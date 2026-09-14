@@ -3,8 +3,14 @@ import { defaultLocale } from "./config";
 import { getPressItems } from "./press-data";
 import { getColloquiumItems } from "./colloquium-data";
 import { getMonographs, getCoAuthoredBooks } from "./resource-data";
+import { getConferenceItems } from "./conference-data";
 
-export type HighlightKind = "press" | "colloquium" | "monograph" | "coauthored";
+export type HighlightKind =
+  | "press"
+  | "colloquium"
+  | "conference"
+  | "monograph"
+  | "coauthored";
 
 export interface HighlightItem {
   id: string;
@@ -24,6 +30,7 @@ export interface HighlightItem {
 const KIND_COLOR: Record<HighlightKind, string> = {
   press: "#9B7A7A",
   colloquium: "#0E4A84",
+  conference: "#0E4A84",
   monograph: "#3A6EA5",
   coauthored: "#3A6EA5",
 };
@@ -34,16 +41,24 @@ const KIND_LABELS: Record<Locale, KindLabels> = {
   ko: {
     press: "언론보도",
     colloquium: "콜로퀴움",
+    conference: "학술대회",
     monograph: "모노그래프",
     coauthored: "공저 도서",
   },
   en: {
     press: "Press",
     colloquium: "Colloquium",
+    conference: "Conference",
     monograph: "Monograph",
     coauthored: "Co-authored Works",
   },
 };
+
+function conferenceHref(locale: Locale): string {
+  return locale === defaultLocale
+    ? "/academics/international-conference"
+    : `/${locale}/academics/international-conference`;
+}
 
 function toIsoFromDot(value: string): string {
   const match = value.match(/(\d{4})\.(\d{1,2})\.(\d{1,2})/);
@@ -164,6 +179,20 @@ export function getHighlightItems(locale: Locale, limit = 6): HighlightItem[] {
     };
   });
 
+  const conference: HighlightItem[] = getConferenceItems(locale).map((c) => ({
+    id: `conf-${c.id}`,
+    kind: "conference",
+    kindLabel: labels.conference,
+    kindColor: KIND_COLOR.conference,
+    date: formatDisplayDate(c.isoDate, locale),
+    isoDate: c.isoDate,
+    title: c.title,
+    summary: c.summary,
+    image: c.poster,
+    href: conferenceHref(locale),
+    source: c.host,
+  }));
+
   const monographs: HighlightItem[] = getMonographs(locale).map((m) => {
     const iso = monographIsoDate(m);
     return {
@@ -198,7 +227,7 @@ export function getHighlightItems(locale: Locale, limit = 6): HighlightItem[] {
     };
   });
 
-  return [...press, ...colloquium, ...monographs, ...coAuthored]
+  return [...press, ...colloquium, ...conference, ...monographs, ...coAuthored]
     .sort((a, b) => (a.isoDate < b.isoDate ? 1 : a.isoDate > b.isoDate ? -1 : 0))
     .slice(0, limit);
 }
