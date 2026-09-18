@@ -50,9 +50,48 @@ const monographsKo: MonographItem[] = [
     year: "2026",
     publishedAt: "2026-01-10",
   },
+  {
+    id: "reading-the-bitcoin-whitepaper",
+    title: "인문학, 비트코인 백서를 읽다",
+    subtitle: "",
+    author: "윤성호",
+    description:
+      "아홉 쪽 남짓한 비트코인 백서를 인문학의 독법으로 정독하며, 기술문서의 형식이 어떻게 행위의 문법이 되는지를 추적합니다. 신뢰의 이름으로 수행되던 제도적 역할이 서명과 검증, 작업증명의 절차로 옮겨가는 과정을 살핍니다.",
+    image: "/books/9788972188780.jpg",
+    isbn: "978-89-7218-878-0",
+    publisher: "한양대학교 출판부",
+    year: "2026",
+    publishedAt: "2026-09-30",
+  },
 ];
 
 const coAuthoredBooksKo: MonographItem[] = [
+  {
+    id: "end-of-finance",
+    title: "금융의 종말",
+    subtitle: "크립토와 AI가 지배하는 국경 없는 금융의 시대",
+    author: "오태민, 손혜민",
+    description:
+      "온체인 금융이 국경의 제약에서 벗어나면서 도박과 보험, 파생상품의 경계가 흐려지는 현실을 분석하고, 가격과 정산 규칙을 누가 결정하는지가 디지털 금융의 권력을 가른다고 진단합니다. 한국 금융이 해외 플랫폼이 설계한 판의 참여자로 남을지, 규칙의 설계자가 될지를 묻습니다.",
+    image: "/books/9791193869505.jpg",
+    isbn: "979-11-93869-50-5",
+    publisher: "거인의정원",
+    year: "2026",
+    publishedAt: "2026-09-17",
+  },
+  {
+    id: "no-future-without-ethereum",
+    title: "이더리움 없는 미래는 없다",
+    subtitle: "프로토콜이 지배하는 새로운 돈의 질서",
+    author: "오태민, 유주아, 이정은, 김은미",
+    description:
+      "이더리움이 새로운 금융 시스템의 실험장이 된 과정을 추적하며, 규칙을 공동체가 해석하고 수정할 수 있는 구조가 어떻게 탈중앙 금융을 만들어냈는지 분석합니다. 스테이블코인 발행과 채권 토큰화, 온체인 결제가 이더리움 위에서 실험되는 현실을 짚으며 금융 시스템의 변화 방향을 전망합니다.",
+    image: "/books/9791193869437.jpg",
+    isbn: "979-11-93869-43-7",
+    publisher: "거인의정원",
+    year: "2026",
+    publishedAt: "2026-05-20",
+  },
   {
     id: "no-future-without-asset-tokens",
     title: "자산 토큰 없는 미래는 없다",
@@ -108,9 +147,48 @@ const monographsEn: MonographItem[] = [
     year: "2026",
     publishedAt: "2026-01-10",
   },
+  {
+    id: "reading-the-bitcoin-whitepaper",
+    title: "The Humanities Read the Bitcoin Whitepaper",
+    subtitle: "",
+    author: "Seongho Yoon",
+    description:
+      "A humanities reading of Bitcoin's nine-page whitepaper, tracing how the form of a technical document becomes a grammar of action and how institutional roles once performed in the name of trust migrate into signatures, verification, and proof of work.",
+    image: "/books/9788972188780.jpg",
+    isbn: "978-89-7218-878-0",
+    publisher: "Hanyang University Press",
+    year: "2026",
+    publishedAt: "2026-09-30",
+  },
 ];
 
 const coAuthoredBooksEn: MonographItem[] = [
+  {
+    id: "end-of-finance",
+    title: "The End of Finance",
+    subtitle: "The Age of Borderless Finance Ruled by Crypto and AI",
+    author: "Taemin Oh, Hyemin Son",
+    description:
+      "An analysis of on-chain finance released from the constraints of borders, where the boundaries between gambling, insurance, and derivatives blur. The book argues that power in digital finance rests on who sets prices and settlement rules, and asks whether Korean finance will remain a participant in markets designed abroad or become a designer of those rules.",
+    image: "/books/9791193869505.jpg",
+    isbn: "979-11-93869-50-5",
+    publisher: "Giant's Garden",
+    year: "2026",
+    publishedAt: "2026-09-17",
+  },
+  {
+    id: "no-future-without-ethereum",
+    title: "There Is No Future Without Ethereum",
+    subtitle: "The New Order of Money Ruled by Protocols",
+    author: "Taemin Oh, Jua Yoo, Jeongeun Lee, Eunmi Kim",
+    description:
+      "A study of how Ethereum became the testing ground for a new financial system, examining how a structure in which the community interprets and amends its own rules gave rise to decentralized finance. It surveys the experiments running on Ethereum, from stablecoin issuance to bond tokenization and on-chain settlement, and asks where the financial system is heading.",
+    image: "/books/9791193869437.jpg",
+    isbn: "979-11-93869-43-7",
+    publisher: "Giant's Garden",
+    year: "2026",
+    publishedAt: "2026-05-20",
+  },
   {
     id: "no-future-without-asset-tokens",
     title: "There Is No Future Without Asset Tokens",
