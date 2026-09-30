@@ -219,7 +219,7 @@ const coAuthoredBooksEn: MonographItem[] = [
     id: "no-future-without-asset-tokens",
     title: "There Is No Future Without Asset Tokens",
     subtitle: "",
-    author: "Taemin Oh, Seonghun Jin, Suhoon Park, Yujung Kim, Hyemin Son",
+    author: "Taemin Oh, Sunghoon Jin, Suhoon Park, Yujung Kim, Hyemin Son",
     description:
       "This book examines asset tokenization as a structural transformation reshaping the grammar of money and the existing financial infrastructure, exploring the new financial order that emerges as assets — from real estate to artworks and corporate equity — become divisible and tradable at the token level.",
     image: "/books/9791193869413.jpg",
@@ -367,7 +367,7 @@ const papersAndReportsEn: PaperItem[] = [
     title:
       "Asset Tokenization Innovation and Money-Lego–Based Decentralized Finance",
     summary:
-      "Seonghun Jin. An analysis of innovative approaches to asset tokenization and DeFi architectures leveraging the money-lego composability.",
+      "Sunghoon Jin. An analysis of innovative approaches to asset tokenization and DeFi architectures leveraging the money-lego composability.",
     date: "2025",
     color: "#0E4A84",
     url: "/resources/tokenization-composability.pdf",
