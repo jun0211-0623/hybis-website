@@ -306,6 +306,17 @@ const papersAndReportsKo: PaperItem[] = [
     url: "/resources/infrastructure-tokenization.pdf",
   },
   {
+    id: "p3",
+    categoryKey: "paper",
+    title:
+      "스테이블코인 결제수단 경계와 청산결제 인프라 편입: 미국 CLARITY 법안과 CFTC 가이던스를 중심으로",
+    summary:
+      "진성훈. 미국 CFTC 토큰화 담보 가이던스와 CLARITY 법안을 분석해 원화 스테이블코인 입법에 대한 정책적 시사점을 제시 (『지급결제학회지』 제18권 제1호, 2026)",
+    date: "2026",
+    color: "#3A6EA5",
+    url: "/resources/stablecoin-clarity-cftc.pdf",
+  },
+  {
     id: "p1",
     categoryKey: "paper",
     title: "반연방과 반연준: 미국 자유지상주의의 통화론",
@@ -390,6 +401,17 @@ const papersAndReportsEn: PaperItem[] = [
     date: "2025",
     color: "#0E4A84",
     url: "/resources/infrastructure-tokenization.pdf",
+  },
+  {
+    id: "p3",
+    categoryKey: "paper",
+    title:
+      "Demarcating Payment Instruments and Integrating Stablecoins into Clearing and Settlement Infrastructure: Lessons from the U.S. CLARITY Act and CFTC Guidance",
+    summary:
+      "Sunghoon Jin. Analyzes the CFTC's tokenized collateral guidance and the CLARITY Act to draw policy implications for Korean won stablecoin legislation (Journal of Payment and Settlement, Vol. 18, No. 1, 2026).",
+    date: "2026",
+    color: "#3A6EA5",
+    url: "/resources/stablecoin-clarity-cftc.pdf",
   },
   {
     id: "p1",
