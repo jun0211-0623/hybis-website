@@ -80,6 +80,19 @@ const coAuthoredBooksKo: MonographItem[] = [
     publishedAt: "2026-09-17",
   },
   {
+    id: "dollar-paradox",
+    title: "달러 역설",
+    subtitle: "",
+    author: "오태민",
+    description:
+      "미국 패권이 쇠퇴하고 있다는 통념을 레이몽 아롱의 '포스(물리적 강제력)'와 '퓨상스(구조적 영향력)' 개념으로 다시 읽습니다. 미국의 군사력이 물러날수록 오히려 달러로 수요가 몰리는 '북신의 역설'을 중심으로, 브레턴우즈와 페트로달러에서 스테이블코인 법제화와 비트코인 전략 준비 자산에 이르는 달러 패권의 전개를 추적합니다.",
+    image: "/books/9791198404275.jpg",
+    isbn: "979-11-984042-7-5",
+    publisher: "헤리티지북스",
+    year: "2026",
+    publishedAt: "2026-06-17",
+  },
+  {
     id: "no-future-without-ethereum",
     title: "이더리움 없는 미래는 없다",
     subtitle: "프로토콜이 지배하는 새로운 돈의 질서",
@@ -175,6 +188,19 @@ const coAuthoredBooksEn: MonographItem[] = [
     publisher: "Giant's Garden",
     year: "2026",
     publishedAt: "2026-09-17",
+  },
+  {
+    id: "dollar-paradox",
+    title: "The Dollar Paradox",
+    subtitle: "",
+    author: "Taemin Oh",
+    description:
+      "Rereading the common view that American hegemony is in decline through Raymond Aron's distinction between force (physical coercion) and puissance (structural influence), this book centers on the Paradox of the North Star: the further U.S. military power retreats, the more demand flows into the dollar. It traces dollar hegemony from Bretton Woods and the petrodollar to stablecoin legislation and Bitcoin as a strategic reserve asset.",
+    image: "/books/9791198404275.jpg",
+    isbn: "979-11-984042-7-5",
+    publisher: "Heritage Books",
+    year: "2026",
+    publishedAt: "2026-06-17",
   },
   {
     id: "no-future-without-ethereum",
