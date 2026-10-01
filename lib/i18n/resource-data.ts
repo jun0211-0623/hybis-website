@@ -306,6 +306,17 @@ const papersAndReportsKo: PaperItem[] = [
     url: "/resources/infrastructure-tokenization.pdf",
   },
   {
+    id: "p4",
+    categoryKey: "paper",
+    title:
+      "비트코인의 가치 출현과 하드포크 체인의 정당성 경쟁: 사회적 실재의 구성 과정을 중심으로",
+    summary:
+      "박상현. 버거와 루크만의 사회적 구성론으로 비트코인의 가치 출현과 하드포크 체인(BCH·BSV·BTG)의 정당성 경쟁을 분석하고, 비트모빅(BMB)을 가치 내면화의 탐색적 사례로 다룸 (『철학·사상·문화』 제52호, 2026)",
+    date: "2026",
+    color: "#3A6EA5",
+    url: "/resources/bitcoin-value-hardfork-legitimacy.pdf",
+  },
+  {
     id: "p3",
     categoryKey: "paper",
     title:
@@ -401,6 +412,17 @@ const papersAndReportsEn: PaperItem[] = [
     date: "2025",
     color: "#0E4A84",
     url: "/resources/infrastructure-tokenization.pdf",
+  },
+  {
+    id: "p4",
+    categoryKey: "paper",
+    title:
+      "The Emergence of Bitcoin's Value and Competition for Legitimacy among Hard-Fork Chains: A Study of the Social Construction of Reality",
+    summary:
+      "Sang-Hyun Park. Applies Berger and Luckmann's social construction framework to analyze how Bitcoin acquired value and how hard-fork chains (BCH, BSV, BTG) competed for legitimacy, with Bitcoin Mobick (BMB) as an exploratory case of value internalization (Philosophy·Thought·Culture, No. 52, 2026).",
+    date: "2026",
+    color: "#3A6EA5",
+    url: "/resources/bitcoin-value-hardfork-legitimacy.pdf",
   },
   {
     id: "p3",
