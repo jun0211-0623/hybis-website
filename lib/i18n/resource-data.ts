@@ -306,6 +306,17 @@ const papersAndReportsKo: PaperItem[] = [
     url: "/resources/infrastructure-tokenization.pdf",
   },
   {
+    id: "p5",
+    categoryKey: "paper",
+    title:
+      "데이터 기반의 융합 금융 분석: 통화정책 충격과 암호화폐 시장의 재평가",
+    summary:
+      "성덕해. 미국 정책금리 변화를 완화·긴축 사건으로 나눠 총 암호화폐 시가총액(TMC)과 비트코인 시가총액(BTC)의 반응을 분석하고, 충격 이후 신호가 변동성보다 가치평가 수준에서 나타남을 보임 (『차세대융합기술학회논문지』 제10권 제9호, 2026)",
+    date: "2026",
+    color: "#3A6EA5",
+    url: "/resources/monetary-policy-crypto-revaluation.pdf",
+  },
+  {
     id: "p4",
     categoryKey: "paper",
     title:
@@ -412,6 +423,17 @@ const papersAndReportsEn: PaperItem[] = [
     date: "2025",
     color: "#0E4A84",
     url: "/resources/infrastructure-tokenization.pdf",
+  },
+  {
+    id: "p5",
+    categoryKey: "paper",
+    title:
+      "A Data-Driven Convergence-Finance Analysis of Monetary-Policy Shocks and Cryptocurrency Market Revaluation",
+    summary:
+      "Deok hae Seong. Classifies U.S. policy-rate changes into easing and tightening episodes to examine responses in total cryptocurrency market capitalisation (TMC) and Bitcoin market capitalisation (BTC), finding that the main post-shock signal appears in valuation levels rather than volatility (Journal of Next-generation Convergence Technology Association, Vol. 10, No. 9, 2026).",
+    date: "2026",
+    color: "#3A6EA5",
+    url: "/resources/monetary-policy-crypto-revaluation.pdf",
   },
   {
     id: "p4",
