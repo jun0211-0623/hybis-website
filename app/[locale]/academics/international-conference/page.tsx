@@ -84,7 +84,8 @@ export default async function InternationalConferencePage({
                       <span className="font-semibold">{conf.keynote.name}</span>
                       <span className="text-[#4A4A4F]">
                         {" "}
-                        · {conf.keynote.affiliation}, {conf.keynote.role}
+                        · {conf.keynote.affiliation}
+                        {conf.keynote.role && `, ${conf.keynote.role}`}
                       </span>
                     </dd>
 
@@ -135,13 +136,18 @@ export default async function InternationalConferencePage({
                         <div key={i} className="mt-6">
                           {session.title && (
                             <p className="text-[15px] md:text-[16px] font-semibold text-[#1C1B1F] mb-1">
+                              {session.time && (
+                                <span className="font-mono font-normal text-[#0E4A84] mr-3">
+                                  {session.time}
+                                </span>
+                              )}
                               {session.title}
                             </p>
                           )}
                           <ul className="divide-y divide-[#EDEDEF]">
-                            {session.entries.map((entry) => (
+                            {session.entries.map((entry, j) => (
                               <li
-                                key={entry.time}
+                                key={j}
                                 className="grid grid-cols-[104px_1fr] md:grid-cols-[140px_1fr] gap-4 py-3 text-[14px] md:text-[15px]"
                               >
                                 <span className="font-mono text-[#6B7280]">
